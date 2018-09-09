@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Futsal</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <body>
+    <header>
+      <nav>
+        <ul class="col-sm-3">
+          <li>
+            <a href="/"><img src="/logo.png"></a>
+          </li>
+        </ul>
+        <ul class="col-sm-9">
+          <li class="awsome">
+            <%= link_to matchs_path do %>
+            <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
+            <% end %>
+            <%= link_to "対戦募集",matchs_path %>
+          </li>
+          <li class="awsome">
+            <%= link_to teams_path do %>
+            <i class="fas fa-futbol fa-2x" style="color: #FB9C1E;"></i>
+            <% end %>
+            <%= link_to "チーム",teams_path %>
+          </li>
+          <li class="awsome">
+            <%= link_to courts_path do %>
+            <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+            <% end %>
+            <%= link_to "コート",courts_path %>
+          </li>
+          <li class="awsome">
+            <%= link_to posts_path do %>
+            <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+            <% end %>
+            <%= link_to "ニュース",posts_path %>
+          </li>
+          <li class="hidden">
+            <i class="fas fa-edit fa-2x text-primary"></i>
+            <a>新規登録</a>
+          </li>
+          <li class="hidden">
+            <i class="fas fa-key fa-2x text-success"></i>
+            <a>ログイン</a>
+          </li>
+          <div id="nav-drawer">
+            <input id="nav-input" type="checkbox" class="nav-unshown">
+            <label id="nav-open" for="nav-input"><span></span></label>
+            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+            <div id="nav-content">
+              <li>
+                <i class="fas fa-key fa-2x text-success"></i>
+                <a>ログイン</a>
+              </li>
+              <li>
+                <i class="fas fa-edit fa-2x text-primary"></i>
+                <a>新規登録</a>
+              </li>
+              <li>
+                <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
+                <a>対戦募集</a>
+              </li>
+              <li>
+                <i class="fas fa-futbol fa-2x" style="color: #FB9C1E;"></i>
+                <a>チーム</a>
+              </li>
+              <li>
+                <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+                <a>コート</a>
+              </li>
+              <li>
+                <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+                <a>ニュース</a>
+              </li>
+              <li>
+                <a>利用規約</a>
+              </li>
+              <li>
+                <a>プライバシーポリシー</a>
+              </li>
+              <li>
+                <a>お問い合わせ</a>
+              </li>
+              <li>
+                <a>広告主募集</a>
+              </li>
+            </div>
+          </div>
+        </ul>
+      </nav>
+    </header>
+    <%= yield %>
+    <footer>
+      <nav>
+        <ul>
+          <li>
+            <a>利用規約</a>
+          </li>
+          <li>
+            <a>プライバシーポリシー</a>
+          </li>
+          <li>
+            <a>お問い合わせ</a>
+          </li>
+          <li>
+            <a>広告主募集</a>
+          </li>
+        </ul>
+      </nav>
+      <p>&copy;futsal</p>
+    </footer>
+  </body>
+</html>

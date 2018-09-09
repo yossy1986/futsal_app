@@ -1,0 +1,175 @@
+/*
+*= require_tree .
+*/
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+body {
+    font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+header {
+    width:100%;
+    background-color:#fff;
+    position: fixed;
+    z-index:2;
+    border-top:2px solid #28A745;
+}
+
+nav {
+    display:flex;
+}
+
+nav ul {
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    margin:0;
+    padding:0;
+    height:60px;
+}
+
+nav li {
+    list-style:none;
+}
+#nav-content i{
+    font-size:16px;
+}
+a {
+  cursor:pointer;
+  text-decoration:none !important;
+  color:#333;
+}
+
+a:hover {
+    color:#333;
+}
+.col-sm-9 li:hover {
+    opacity:.6;
+}
+.advertising {
+    width:100%;
+    height:auto;
+    padding-top:62px;
+    margin:0 auto;
+    position:static;
+}
+.jumbotron {
+    background-image: url(/soccer.jpg);
+    background-size: cover;
+    background-position:center;
+    width:100%;
+    height:500px;
+    padding-top:150px;
+}
+
+.jumbotron .container {
+    padding:20px;
+    text-align:center;
+    background: rgba(255,255,255,0.6);
+    border-radius:10px;
+}
+
+footer {
+    width:100%;
+    background:#EFEFEF;
+}
+
+footer ul {
+    margin:0 auto;
+    width:60%;
+}
+
+
+footer p {
+    text-align:center;
+    margin:0;
+}
+
+footer li::after {
+    border-bottom: solid 2px #333;
+    bottom: 0;
+    content: "";
+    display: block;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    width: 0;
+}
+
+footer li:hover::after {
+   width: 100%;
+}
+
+.awsome i{
+    font-size:18px;
+}
+.hidden i {
+    font-size:18px;
+}
+
+@media screen and ( max-width:576px ) {
+    
+header ul {
+    height:50px;
+}
+nav {
+    flex-direction:column;
+}
+.col-sm-9 {
+    padding-left:0;
+    border-top:1px solid #EFEFEF;
+    border-bottom:1px solid #EFEFEF;
+}
+.awsome {   
+    width:100%;
+    height:100%;
+    border-right:1px solid #EFEFEF;
+    padding-top:6px;
+}
+#nav-open {
+    margin-left:20px;
+    margin-bottom:0;
+}
+.advertising {
+     padding-top:100px;
+}
+ 
+footer ul {
+    height:40px;
+    width:100%;
+}
+footer p {
+    font-size:12px;
+}
+}
+
+
+@media screen and ( max-width:768px ) {
+
+
+.hidden {
+    display:none;
+}
+
+#nav-drawer {
+    display:block;
+}
+
+
+
+.awsome {
+  display:flex;
+  flex-direction: column;
+  text-align:center;
+  font-size:12px;
+}
+
+ footer li {
+    font-size:12px;
+}
+
+}
+
+
+
+
+

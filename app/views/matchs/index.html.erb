@@ -1,0 +1,173 @@
+<main>
+<div class="advertising">
+    <img src="/banner.jpg" width="100%">
+</div>
+    <div class="wrapper matchs">
+        <div class="left">
+        <h2>対戦募集検索</h2>
+        <section>
+        <div class="serch">
+        <div class="cp_ipselect cp_sl01 wi-30">
+            <select name="year">
+                <option value="2018">2018年</option>
+                <option value="2019">2019年</option>
+                <option value="2020">2020年</option>
+                <option value="2021">2021年</option>
+                <option value="2022">2022年</option>
+            </select>
+        </div>
+        <div class="cp_ipselect cp_sl01 wi-30">
+            <select name="month">
+                <option value="1">1月</option>
+                <option value="2">2月</option>
+                <option value="3">3月</option>
+                <option value="4">4月</option>
+                <option value="5">5月</option>
+                <option value="6">6月</option>
+                <option value="7">7月</option>
+                <option value="8">8月</option>
+                <option value="9">9月</option>
+                <option value="10">10月</option>
+                <option value="11">11月</option>
+                <option value="12">12月</option>
+            </select>
+        </div>
+        <div class="cp_ipselect cp_sl01 wi-30">
+            <select name="day">
+                <option value="1">1日</option>
+                <option value="2">2日</option>
+                <option value="3">3日</option>
+                <option value="4">4日</option>
+                <option value="5">5日</option>
+                <option value="6">6日</option>
+                <option value="7">7日</option>
+                <option value="8">8日</option>
+                <option value="9">9日</option>
+                <option value="10">10日</option>
+                <option value="11">11日</option>
+                <option value="12">12日</option>
+                <option value="13">13日</option>
+                <option value="14">14日</option>
+                <option value="15">15日</option>
+                <option value="16">16日</option>
+                <option value="17">17日</option>
+                <option value="18">18日</option>
+                <option value="19">19日</option>
+                <option value="20">20日</option>
+                <option value="21">21日</option>
+                <option value="22">22日</option>
+                <option value="23">23日</option>
+                <option value="24">24日</option>
+                <option value="25">25日</option>
+                <option value="26">26日</option>
+                <option value="27">27日</option>
+                <option value="28">28日</option>
+                <option value="29">29日</option>
+                <option value="30">30日</option>
+                <option value="31">31日</option>
+            </select>
+        </div>
+        </div>
+        <div class="serch">
+        <div class="cp_ipselect cp_sl01 wi-30">
+            <select name="pref">
+                <option value="">都道府県</option>
+                <option value="1">大阪府</option>
+                <option value="2">兵庫県</option>
+                <option value="3">京都府</option>
+                <option value="4">滋賀県</option>
+                <option value="5">奈良県</option>
+                <option value="6">和歌山県</option>
+            </select>
+        </div>
+        <div class="cp_ipselect cp_sl01 wi-60">
+            <select name="facility">
+                <option value="">開催施設</option>
+                <option value="1">CABO</option>
+                <option value="2">アスコマヤフットサル</option>
+                <option value="3">マグフットサル</option>
+                <option value="4">ミズノフットサル</option>
+            </select>
+        </div>
+        </div>
+        <div class="serch">
+        <div class="cp_ipselect cp_sl01 wi-30">
+            <select name="rank">
+                <option value="">ランク</option>
+                <option value="1">SS</option>
+                <option value="2">S</option>
+                <option value="3">A</option>
+                <option value="4">B</option>
+                <option value="5">C</option>
+                <option value="6">D</option>
+            </select>
+        </div>
+        <div class="cp_ipselect cp_sl01 wi-60">
+            <select name="facility">
+                <option value="">カテゴリー</option>
+                <option value="1">CABO</option>
+                <option value="2">アスコ</option>
+                <option value="3">マグ</option>
+                <option value="4">ミズノ</option>
+            </select>
+        </div>
+        </div>
+        <div class="serch">
+         <input class="btn btn-lg" href="#" role="button" value="検索" &raquo;>
+        </div>
+        </section>
+        
+        <h2>対戦募集情報</h2>
+        <%= link_to match_path(:id) do %>
+            <div class="match-list">
+            <h3>●9月8日(土)　●19:00〜21:00　●マグフットサルスタジアム</h3>
+            <h3>●ランク　SS　S　A　●カテゴリー　競技　エンジョイ</h3>
+            <h3>●応募期限　2018 9/7 19:00まで　●募集チーム4(残り2)</h3>
+            <img src="/club-emblem.png">
+            <p>名古屋オーシャンズ</p>
+            </div>
+        <% end %>
+        <%= link_to match_path(:id) do %>
+            <div class="match-list">
+            <h3>●9月8日(土)　●19:00〜21:00　●マグフットサルスタジアム</h3>
+            <h3>●ランク　SS　S　A　●カテゴリー　競技　エンジョイ</h3>
+            <h3>●応募期限　2018 9/7 19:00まで　●募集チーム4(残り2)</h3>
+            <img src="/club-emblem.png">
+            <p>名古屋オーシャンズ</p>
+            </div>
+        <% end %>
+        <%= link_to match_path(:id) do %>
+            <div class="match-list">
+            <h3>●9月8日(土)　●19:00〜21:00　●マグフットサルスタジアム</h3>
+            <h3>●ランク　SS　S　A　●カテゴリー　競技　エンジョイ</h3>
+            <h3>●応募期限　2018 9/7 19:00まで　●募集チーム4(残り2)</h3>
+            <img src="/club-emblem.png">
+            <p>名古屋オーシャンズ</p>
+            </div>
+        <% end %>
+        
+        </div>
+        
+        <div class="right">
+            <h2>最新記事</h2>
+            <ul class="post">
+                <li class="post-item clearfix">
+                    <img src="/post1.jpg">
+                    <a>優勝できなくてもアイテムがもらえる</a>
+                </li>
+                <li class="post-item clearfix">
+                    <img src="/post1.jpg">
+                    <a>優勝できなくてもアイテムがもらえる</a>
+                </li>
+                <li class="post-item clearfix">
+                    <img src="/post1.jpg">
+                    <a>優勝できなくてもアイテムがもらえる</a>
+                </li>
+                <li class="post-item clearfix">
+                    <img src="/post1.jpg">
+                    <a>優勝できなくてもアイテムがもらえる</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>

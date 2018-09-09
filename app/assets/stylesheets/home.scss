@@ -1,0 +1,14 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main {
+    height:1000px;
+}
+
+@media screen and ( max-width:768px ) {
+    
+    .jumbotron h1 {
+        font-size:40px;
+    }
+}
