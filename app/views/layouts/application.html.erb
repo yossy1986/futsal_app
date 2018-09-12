@@ -64,20 +64,28 @@
                 <a>新規登録</a>
               </li>
               <li>
+                <%= link_to matchs_path do %>
                 <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
-                <a>対戦募集</a>
+                <% end %>
+                <%= link_to "対戦募集",matchs_path %>
               </li>
               <li>
+                <%= link_to teams_path do %>
                 <i class="fas fa-futbol fa-2x" style="color: #FB9C1E;"></i>
-                <a>チーム</a>
+                <% end %>
+                <%= link_to "チーム",teams_path %>
               </li>
               <li>
+                <%= link_to courts_path do %>
                 <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
-                <a>コート</a>
+                <% end %>
+                <%= link_to "コート",courts_path %>
               </li>
               <li>
+                <%= link_to posts_path do %>
                 <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
-                <a>ニュース</a>
+                <% end %>
+                <%= link_to "ニュース",posts_path %>
               </li>
               <li>
                 <a>利用規約</a>

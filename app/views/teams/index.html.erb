@@ -56,13 +56,32 @@
         </section>
         
         <h2>チーム情報</h2>
+        <% @teaminfos.each do |teaminfo| %>
         <div class="team-list-flex">
-          <%= link_to match_path(:id) do %>
+          <%= link_to team_path(teaminfo) do %>
+        <div class="team-list">
+              <h3><%= teaminfo.name %></h3>
+              <div class="team-list-item">
+              <div class="team-list-left">
+                  <img class="img" src="<%= "/#{teaminfo.image}" %>">
+              </div>
+              <div class="team-list-right">
+                  <img class="chart" src="/chart.jpg">
+              </div>
+              </div>
+          </div>
+          </div>
+          <% end %>
+        <% end %>
+
+        
+        <div class="team-list-flex">
+          <%= link_to team_path(:id) do %>
           <div class="team-list">
               <h3>名古屋オーシャンズ</h3>
               <div class="team-list-item">
               <div class="team-list-left">
-                  <img class="img" src="/team.jpg">
+                  <img class="img" src="/team1.jpg">
               </div>
               <div class="team-list-right">
                   <img class="chart" src="/chart.jpg">
@@ -70,12 +89,12 @@
               </div>
           </div>
           <% end %>
-          <%= link_to match_path(:id) do %>
+          <%= link_to team_path(:id) do %>
           <div class="team-list">
               <h3>名古屋オーシャンズ</h3>
               <div class="team-list-item">
               <div class="team-list-left">
-                  <img class="img" src="/team.jpg">
+                  <img class="img" src="/team1.jpg">
               </div>
               <div class="team-list-right">
                   <img class="chart" src="/chart.jpg">
@@ -85,12 +104,12 @@
           <% end %>
         </div>
         <div class="team-list-flex">
-          <%= link_to match_path(:id) do %>
+          <%= link_to team_path(:id) do %>
           <div class="team-list">
               <h3>名古屋オーシャンズ</h3>
               <div class="team-list-item">
               <div class="team-list-left">
-                  <img class="img" src="/team.jpg">
+                  <img class="img" src="/team1.jpg">
               </div>
               <div class="team-list-right">
                   <img class="chart" src="/chart.jpg">
@@ -98,40 +117,12 @@
               </div>
           </div>
           <% end %>
-          <%= link_to match_path(:id) do %>
+          <%= link_to team_path(:id) do %>
           <div class="team-list">
               <h3>名古屋オーシャンズ</h3>
               <div class="team-list-item">
               <div class="team-list-left">
-                  <img class="img" src="/team.jpg">
-              </div>
-              <div class="team-list-right">
-                  <img class="chart" src="/chart.jpg">
-              </div>
-              </div>
-          </div>
-          <% end %>
-        </div>
-        <div class="team-list-flex">
-          <%= link_to match_path(:id) do %>
-          <div class="team-list">
-              <h3>名古屋オーシャンズ</h3>
-              <div class="team-list-item">
-              <div class="team-list-left">
-                  <img class="img" src="/team.jpg">
-              </div>
-              <div class="team-list-right">
-                  <img class="chart" src="/chart.jpg">
-              </div>
-              </div>
-          </div>
-          <% end %>
-          <%= link_to match_path(:id) do %>
-          <div class="team-list">
-              <h3>名古屋オーシャンズ</h3>
-              <div class="team-list-item">
-              <div class="team-list-left">
-                  <img class="img" src="/team.jpg">
+                  <img class="img" src="/team1.jpg">
               </div>
               <div class="team-list-right">
                   <img class="chart" src="/chart.jpg">

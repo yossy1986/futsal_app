@@ -1,2 +1,75 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
+<main>
+<div class="advertising">
+<img src="/banner.jpg" width="100%">
+</div>
+<div class="wrapper teams">
+    <div class="left">
+        <h2>チー情報詳細</h2>
+          <div class="team-detail">
+              <h3><%= @teaminfo.name %></h3>
+              <div class="team-list-item">
+              <div class="team-list-left">
+                  <img class="img" src="<%= "/#{@teaminfo.image}" %>">
+              </div>
+              <div class="team-list-right">
+                  <img class="chart" src="/chart.jpg">
+              </div>
+              </div>
+              <table>
+                  <tr>
+                      <th>活動地域</th>
+                      <td><%= @pref[@teaminfo.pref] %></td>
+                  </tr>
+                  <tr>
+                      <th>主な活動施設</th>
+                      <td><%= @teaminfo.facility %></td>
+                  </tr>
+                  <tr>
+                      <th>カテゴリー</th>
+                      <td><%= @cat[:cat] %></td>
+                  </tr>
+                  <tr>
+                      <th>年齢</th>
+                      <td><%= @teaminfo.age_ave %></td>
+                  </tr>
+                  <tr>
+                      <th>チーム紹介</th>
+                      <td><p><%= @teaminfo.comment %></p></td>
+                  </tr>
+              </table>
+          </div>
+          <h2>対戦募集中</h2>
+          <%= link_to match_path(:id) do %>
+            <div class="match-list">
+            <h3>●9月8日(土)　●19:00〜21:00　●マグフットサルスタジアム</h3>
+            <h3>●ランク　SS　S　A　●カテゴリー　競技　エンジョイ</h3>
+            <h3>●応募期限　2018 9/7 19:00まで　●募集チーム4(残り2)</h3>
+            <img src="/club-emblem.png">
+            <p>名古屋オーシャンズ</p>
+            </div>
+        <% end %>
+    </div>
+    
+    <div class="right">
+        <h2>最新記事</h2>
+        <ul class="post">
+            <li class="post-item clearfix">
+                <img src="/post1.jpg">
+                <a>優勝できなくてもアイテムがもらえる</a>
+            </li>
+            <li class="post-item clearfix">
+                <img src="/post1.jpg">
+                <a>優勝できなくてもアイテムがもらえる</a>
+            </li>
+            <li class="post-item clearfix">
+                <img src="/post1.jpg">
+                <a>優勝できなくてもアイテムがもらえる</a>
+            </li>
+            <li class="post-item clearfix">
+                <img src="/post1.jpg">
+                <a>優勝できなくてもアイテムがもらえる</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</main>
