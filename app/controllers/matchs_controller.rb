@@ -13,5 +13,6 @@ class MatchsController < ApplicationController
     @cat = {a: "関西リーグ",b: "都道府県リーグ",c: "競技志向",d: "エンジョイ",e: "女子",f: "MIX" }
     @pref = ["大阪府","兵庫県","京都府","滋賀県","奈良県","和歌山県"]
     @matchreq = MatchReq.find_by(id: params[:id])
+    @team = @matchreq.team
   end
 end

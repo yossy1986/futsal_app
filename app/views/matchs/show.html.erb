@@ -12,6 +12,7 @@
             ●<%= @matchreq.facility %></h3>
             <h3>●ランク　<%= @rank[@matchreq.req_rank] %>　●カテゴリー　</h3>
             <h3>●応募期限　<%= @matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= @matchreq.req_team_num %>(空き枠)</h3>
+            <h3>●投稿者　<%=@team.name%></h3>  
               <div class="detail">
               <p><%= @matchreq.content %></p>
                 </div>

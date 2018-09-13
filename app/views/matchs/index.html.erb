@@ -127,30 +127,11 @@
             ●<%= matchreq.facility %></h3>
             <h3>●ランク　<%= @rank[matchreq.req_rank] %>　●カテゴリー　<%= @cat[matchreq.req_cat.to_sym] %></h3>
             <h3>●応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
-            <img src="/club-emblem.png">
-            <p>名古屋オーシャンズ</p>
+            <img src="<%= "/logo_images/#{matchreq.team.logo}" %>">
+            <p><%= matchreq.team.name %></p>
             </div>
         <% end %>
         <% end %>
-        <%= link_to match_path(:id) do %>
-            <div class="match-list">
-            <h3>●9月8日(土)　●19:00〜21:00　●マグフットサルスタジアム</h3>
-            <h3>●ランク　SS　S　A　●カテゴリー　競技　エンジョイ</h3>
-            <h3>●応募期限　2018 9/7 19:00まで　●募集チーム4(残り2)</h3>
-            <img src="/club-emblem.png">
-            <p>名古屋オーシャンズ</p>
-            </div>
-        <% end %>
-        <%= link_to match_path(:id) do %>
-            <div class="match-list">
-            <h3>●9月8日(土)　●19:00〜21:00　●マグフットサルスタジアム</h3>
-            <h3>●ランク　SS　S　A　●カテゴリー　競技　エンジョイ</h3>
-            <h3>●応募期限　2018 9/7 19:00まで　●募集チーム4(残り2)</h3>
-            <img src="/club-emblem.png">
-            <p>名古屋オーシャンズ</p>
-            </div>
-        <% end %>
-        
         </div>
         
         <div class="right">
