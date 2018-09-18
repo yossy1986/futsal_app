@@ -43,8 +43,10 @@
             <%= link_to "ニュース",posts_path %>
           </li>
           <li class="hidden">
+            <%= link_to new_team_path do %>
             <i class="fas fa-edit fa-2x text-primary"></i>
-            <a>新規登録</a>
+            <% end %>
+            <%= link_to "新規登録",new_team_path %>
           </li>
           <li class="hidden">
             <i class="fas fa-key fa-2x text-success"></i>
@@ -60,8 +62,10 @@
                 <a>ログイン</a>
               </li>
               <li>
+                <%= link_to new_team_path do %>
                 <i class="fas fa-edit fa-2x text-primary"></i>
-                <a>新規登録</a>
+                <% end %>
+                <%= link_to "新規登録",new_team_path %>
               </li>
               <li>
                 <%= link_to matchs_path do %>
@@ -124,5 +128,50 @@
       </nav>
       <p>&copy;futsal</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script>
+    (function() {
+      'use strict';
+
+      var type = 'radar';
+
+      var data = {
+        labels: ['攻撃', 'フィジカル', 'スタミナ', '守備', '組織','テクニック'],
+        datasets: [{
+          label: '@taguchi',
+          data: [10, 9, 9, 8, 8, 8 ],
+          backgroundColor: 'rgba(255, 255, 0, 0.5)',
+          pointRadius: 0,
+          borderWidth: 1
+        },]
+        
+      };
+      
+
+      var options = {
+        scale: {pointLabels: {
+        fontSize: 8},
+          ticks: {beginAtZero: true,
+                  suggestedMax: 10
+                  }
+                },
+        title: {                           
+                display: false
+                },
+        legend: {                          
+                display: false,
+                labels: {defaultFontSize: 4}
+                 }
+                 
+      };
+
+      var ctx = document.getElementById('my_chart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: type,
+        data: data,
+        options: options
+      });
+    })();
+  </script>
   </body>
 </html>

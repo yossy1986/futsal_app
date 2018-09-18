@@ -124,8 +124,8 @@
             <h3>●<%= matchreq.match_date.strftime("%-m月%-d日") %>
             (<%= @week[matchreq.match_date.wday] %>)　
             ●<%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %>　
-            ●<%= matchreq.facility %></h3>
-            <h3>●ランク　<%= @rank[matchreq.req_rank] %>　●カテゴリー　<%= @cat[matchreq.req_cat.to_sym] %></h3>
+            ●<%= Facility.find(matchreq.facility).name %></h3>
+            <h3>●ランク　<%= @rank[matchreq.req_rank.to_i] %>　●カテゴリー　<%= @cat[matchreq.req_cat.to_sym] %></h3>
             <h3>●応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
             <img src="<%= "/logo_images/#{matchreq.team.logo}" %>">
             <p><%= matchreq.team.name %></p>
@@ -137,22 +137,14 @@
         <div class="right">
             <h2>最新記事</h2>
             <ul class="post">
+                <% @posts.each do |post| %>
+              <%= link_to post_path(post) do %>
                 <li class="post-item clearfix">
-                    <img src="/post1.jpg">
-                    <a>優勝できなくてもアイテムがもらえる</a>
+                    <img src="<%="/post_images/#{post.image}" %>">
+                    <p><%= post.title %></p>
                 </li>
-                <li class="post-item clearfix">
-                    <img src="/post1.jpg">
-                    <a>優勝できなくてもアイテムがもらえる</a>
-                </li>
-                <li class="post-item clearfix">
-                    <img src="/post1.jpg">
-                    <a>優勝できなくてもアイテムがもらえる</a>
-                </li>
-                <li class="post-item clearfix">
-                    <img src="/post1.jpg">
-                    <a>優勝できなくてもアイテムがもらえる</a>
-                </li>
+                <% end %>
+                <% end %>
             </ul>
         </div>
     </div>

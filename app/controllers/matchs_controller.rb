@@ -1,18 +1,39 @@
 class MatchsController < ApplicationController
   def index
     @matchreqs = MatchReq.all.order(created_at: :desc)
-    @week = %w[日 月 火 水 木 金 土]
-    @rank = ["SS","S","A","B","C","D","E","F"]
-    @cat = {a: "関西リーグ",b: "都道府県リーグ",c: "競技志向",d: "エンジョイ",e: "女子",f: "MIX" }
-    @pref = ["大阪府","兵庫県","京都府","滋賀県","奈良県","和歌山県"]
+    @posts = Post.all.order(created_at: :desc)
+    @week = Week
+    @rank = Rank
+    @cat = Cat
+    @pref = Pref
   end
 
   def show
-    @week = %w[日 月 火 水 木 金 土]
-    @rank = ["SS","S","A","B","C","D","E","F"]
-    @cat = {a: "関西リーグ",b: "都道府県リーグ",c: "競技志向",d: "エンジョイ",e: "女子",f: "MIX" }
-    @pref = ["大阪府","兵庫県","京都府","滋賀県","奈良県","和歌山県"]
+    @week = Week
+    @rank = Rank
+    @cat = Cat
+    @pref = Pref
     @matchreq = MatchReq.find_by(id: params[:id])
     @team = @matchreq.team
+    @posts = Post.all.order(created_at: :desc)
+  end
+  
+  def new
+    @posts = Post.all.order(created_at: :desc)
+    @matchreq = MatchReq.new
+  end
+  
+  def create
+    @matchreq = MatchReq.new(match_date: params[:match_date][:date],
+                              start_time: params[:match_req][:start_time],
+                              end_time: params[:match_req][:end_time],
+                              pref: params[:match_req][:pref],
+                              facility: params[:match_req][:facility],
+                              req_cat: params[:match_req][:req_cat],
+                              req_rank: params[:match_req][:req_rank],
+                              req_team_num: params[:match_req][:req_team_num],
+                              content: params[:match_req][:content])
+    @matchreq.save
+    redirect_to action: "index"
   end
 end

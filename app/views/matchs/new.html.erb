@@ -1,0 +1,47 @@
+<main>
+<div class="advertising">
+    <img src="/banner.jpg" width="100%">
+</div>
+    <div class="wrapper matchs">
+        <div class="left">
+          <h2>対戦募集詳細</h2>
+            <%= form_for @matchreq, url: matchs_path  do |f| %>
+            <%= f.label :match_date,"開催日" %>
+            <%= f.datetime_select :match_date,:use_month_numbers => true, :date_separator => "/" %><br>
+            <%= f.label :start_time,"開始時間" %>
+            <%= f.datetime_select :start_time ,:minute_step => 30 %><br>
+            <%= f.label :end_time,"終了時間" %>
+            <%= f.datetime_select :end_time ,:minute_step => 30 %><br>
+            <%= f.label :pref,"地域" %>
+            <%= f.select :pref,[["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]] %>
+            <%= fields_for :facility ,(@facility) do |f| %><br>
+            <%= f.label:facility,"開催施設" %>
+            <%= f.collection_select :facility, Facility.all, :id, :name %><br>
+            <% end %>
+            <%= f.label :req_cat,"募集カテゴリー" %>
+            <%= f.check_box :req_cat %><br>
+            <%= f.label :req_rank,"募集ランク" %>
+            <%= f.select :req_rank,[["SS",0],["S",1],["A",2],["B",3],["C",4],["D",5],["E",5],["F",5]] %><br>
+            <%= f.label :req_team_num,"募集チーム数" %>
+            <%= f.select :req_team_num,[2,3,4,5,6,7,8] %><br>
+            <%= f.label :content,"募集詳細" %><br>
+            <%= f.text_area :content %>
+            <%= f.submit %>
+            <% end %>
+        </div>
+
+        <div class="right">
+            <h2>最新記事</h2>
+            <ul class="post">
+                <% @posts.each do |post| %>
+              <%= link_to post_path(post) do %>
+                <li class="post-item clearfix">
+                    <img src="<%="/post_images/#{post.image}" %>">
+                    <p><%= post.title %></p>
+                </li>
+                <% end %>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</main>

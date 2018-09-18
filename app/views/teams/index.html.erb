@@ -4,19 +4,23 @@
 </div>
 <div class="wrapper teams">
     <div class="left">
+      <%= form_tag teams_path, method: "get" do %>
+      <%= label_tag :pref, "地域" %>
+      <%= select_tag :pref,  options_for_select([["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]]),:include_blank => "全て" %>
+      
+      <%= label_tag :rank, "ランク" %>
+      <%= select_tag :rank,  options_for_select([["SS",0],["S",1],["A",2],["B",3],["C",4],["D",5],["E",6],["F",7],["G",8]]),:include_blank =>"全て" %>
+      <!--<%= label_tag :cat, "カテゴリー" %>-->
+      <!--<%= select_tag :cat,  options_for_select([["関西リーグ","a"],["都道府県リーグ","b"],["競技志向","c"],["エンジョイ","d"],["女子","e"],["MIX","f"],["U-18","g"]]),:include_blank =>"全て" %>-->
+      <%= submit_tag "検索" %>
+      <% end %>
         <h2>チーム検索</h2>
         <section>
         <div class="serch">
         <div class="cp_ipselect cp_sl01 wi-30">
-            <select name="pref">
-                <option value="">都道府県</option>
-                <option value="1">大阪府</option>
-                <option value="2">兵庫県</option>
-                <option value="3">京都府</option>
-                <option value="4">滋賀県</option>
-                <option value="5">奈良県</option>
-                <option value="6">和歌山県</option>
-            </select>
+        <%= form_tag teams_path, method: "get" do %>
+        <%= label_tag :pref, "地域" %>
+        <%= select_tag :pref,  options_for_select([["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]]) %>
         </div>
         <div class="cp_ipselect cp_sl01 wi-60">
             <select name="facility">
@@ -51,107 +55,46 @@
         </div>
         </div>
         <div class="serch">
-         <input class="btn btn-lg" href="#" role="button" value="検索" &raquo;>
+         <%= submit_tag "検索" %>
         </div>
+                <% end %>
+
         </section>
         
         <h2>チーム情報</h2>
-        <% @teaminfos.each do |teaminfo| %>
         <div class="team-list-flex">
+        <% @teaminfos.each do |teaminfo| %>
           <%= link_to team_path(teaminfo) do %>
-        <div class="team-list">
-              <h3><%= teaminfo.name %></h3>
+          <div class="team-list">
+            <h3><%= teaminfo.name %></h3>
               <div class="team-list-item">
               <div class="team-list-left">
                   <img class="img" src="<%= "/team_images/#{teaminfo.image}" %>">
               </div>
               <div class="team-list-right">
-                  <img class="chart" src="/chart.jpg">
+                <p><%= @pref[teaminfo.pref] %></p>
+                <p><%= Facility.find(teaminfo.facility.to_i).name %></p>
+                <p><%= @rank[teaminfo.rank.to_i] %></p>
+                <p><%= @cat[teaminfo.cat.to_sym] %></p>
               </div>
               </div>
-          </div>
           </div>
           <% end %>
         <% end %>
-
-        
-        <div class="team-list-flex">
-          <%= link_to team_path(:id) do %>
-          <div class="team-list">
-              <h3>名古屋オーシャンズ</h3>
-              <div class="team-list-item">
-              <div class="team-list-left">
-                  <img class="img" src="/team1.jpg">
-              </div>
-              <div class="team-list-right">
-                  <img class="chart" src="/chart.jpg">
-              </div>
-              </div>
-          </div>
-          <% end %>
-          <%= link_to team_path(:id) do %>
-          <div class="team-list">
-              <h3>名古屋オーシャンズ</h3>
-              <div class="team-list-item">
-              <div class="team-list-left">
-                  <img class="img" src="/team1.jpg">
-              </div>
-              <div class="team-list-right">
-                  <img class="chart" src="/chart.jpg">
-              </div>
-              </div>
-          </div>
-          <% end %>
         </div>
-        <div class="team-list-flex">
-          <%= link_to team_path(:id) do %>
-          <div class="team-list">
-              <h3>名古屋オーシャンズ</h3>
-              <div class="team-list-item">
-              <div class="team-list-left">
-                  <img class="img" src="/team1.jpg">
-              </div>
-              <div class="team-list-right">
-                  <img class="chart" src="/chart.jpg">
-              </div>
-              </div>
-          </div>
-          <% end %>
-          <%= link_to team_path(:id) do %>
-          <div class="team-list">
-              <h3>名古屋オーシャンズ</h3>
-              <div class="team-list-item">
-              <div class="team-list-left">
-                  <img class="img" src="/team1.jpg">
-              </div>
-              <div class="team-list-right">
-                  <img class="chart" src="/chart.jpg">
-              </div>
-              </div>
-          </div>
-          <% end %>
-        </div>
-    </div>
+</div>
     
     <div class="right">
         <h2>最新記事</h2>
         <ul class="post">
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
+            <% @posts.each do |post| %>
+              <%= link_to post_path(post) do %>
+                <li class="post-item clearfix">
+                    <img src="<%="/post_images/#{post.image}" %>">
+                    <p><%= post.title %></p>
+                </li>
+                <% end %>
+                <% end %>
         </ul>
     </div>
 </div>

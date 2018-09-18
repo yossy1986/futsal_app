@@ -1,0 +1,53 @@
+<main>
+<div class="advertising">
+<img src="/banner.jpg" width="100%">
+</div>
+<div class="wrapper courts">
+    <div class="left">
+        <h2>フットサルコート登録</h2>
+          <%= form_for @court, url: courts_path  do |f| %>
+          <%= f.label :image,"コート写真" %>
+          <%= f.file_field :image %>
+          <%= f.label :name,"施設名" %>
+          <%= f.text_field :name %>
+          <%= f.label :pref,"地域" %>
+            <%= f.select :pref,[["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]] %><br>
+          <%= f.label :address,"住所" %>
+          <%= f.text_field :address %>
+          <%= f.label :tel,"電話番号" %>
+          <%= f.text_field :tel %>
+          <%= f.label :site,"ホームページ" %>
+          <%= f.text_field :site %>
+          <%= f.label :open_hour,"営業時間" %><br>
+          <%= f.text_area :open_hour ,style: 'width:100%;height:200px;'%><br>
+          <%= f.label :fee,"料金" %><br>
+          <%= f.text_area :fee ,style: 'width:100%;height:200px;'%><br>
+          <%= f.label :parking,"駐車場" %>
+          <%= f.text_field :parking %>
+          <%= f.submit :class => "btn btn-info"%>
+          <% end %>
+    </div>
+    
+    <div class="right">
+        <h2>最新記事</h2>
+        <ul class="post">
+            <li class="post-item clearfix">
+                <img src="/post1.jpg">
+                <a>優勝できなくてもアイテムがもらえる</a>
+            </li>
+            <li class="post-item clearfix">
+                <img src="/post1.jpg">
+                <a>優勝できなくてもアイテムがもらえる</a>
+            </li>
+            <li class="post-item clearfix">
+                <img src="/post1.jpg">
+                <a>優勝できなくてもアイテムがもらえる</a>
+            </li>
+            <li class="post-item clearfix">
+                <img src="/post1.jpg">
+                <a>優勝できなくてもアイテムがもらえる</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</main>

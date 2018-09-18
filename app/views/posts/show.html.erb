@@ -5,58 +5,28 @@
     <div class="wrapper posts">
         <div class="left">
 
-        <h2>ニュース</h2>
-        <%= link_to match_path(:id) do %>
-            <div class="post-list">
-              <div class="post-list-left">
-                  <img class="img" src="/team.jpg">
-              </div>
-              <div class="post-list-right">
-                  <h3>9月8日(土)　19:00〜21:00　マグフットサルスタジアム</h3>
-              </div>
-          </div>
-        <% end %>
-        <%= link_to match_path(:id) do %>
-            <div class="post-list">
-              <div class="post-list-left">
-                  <img class="img" src="/team.jpg">
-              </div>
-              <div class="post-list-right">
-                  <h3>9月8日(土)　19:00〜21:00　マグフットサルスタジアム</h3>
+        <h2>記事</h2>
+            <div class="post-detail">
+              <h1><%= @post.title %></h1>
+                <%= simple_format @post.content %>
+              <div class="ede">
+                <%= link_to "編集",edit_post_path(@post),class: "btn btn-info" %>
+                <%= link_to "削除", post_path(@post), :method => :delete, class: "btn btn-danger" %>
               </div>
           </div>
-        <% end %>
-        <%= link_to match_path(:id) do %>
-            <div class="post-list">
-              <div class="post-list-left">
-                  <img class="img" src="/team.jpg">
-              </div>
-              <div class="post-list-right">
-                  <h3>9月8日(土)　19:00〜21:00　マグフットサルスタジアム</h3>
-              </div>
-          </div>
-        <% end %>
         </div>
         
         <div class="right">
-            <h2>最新記事</h2>
+            <h2>オススメ記事</h2>
             <ul class="post">
+                <% @posts.each do |post| %>
+              <%= link_to post_path(post) do %>
                 <li class="post-item clearfix">
-                    <img src="/post1.jpg">
-                    <a>優勝できなくてもアイテムがもらえる</a>
+                    <img src="<%="/post_images/#{post.image}" %>">
+                    <p><%= post.title %></p>
                 </li>
-                <li class="post-item clearfix">
-                    <img src="/post1.jpg">
-                    <a>優勝できなくてもアイテムがもらえる</a>
-                </li>
-                <li class="post-item clearfix">
-                    <img src="/post1.jpg">
-                    <a>優勝できなくてもアイテムがもらえる</a>
-                </li>
-                <li class="post-item clearfix">
-                    <img src="/post1.jpg">
-                    <a>優勝できなくてもアイテムがもらえる</a>
-                </li>
+                <% end %>
+                <% end %>
             </ul>
         </div>
     </div>

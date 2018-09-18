@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_032221) do
+ActiveRecord::Schema.define(version: 2018_09_16_170908) do
 
   create_table "apply_matches", force: :cascade do |t|
     t.integer "team_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_032221) do
     t.string "name"
     t.integer "pref"
     t.string "address"
-    t.integer "tel"
+    t.string "tel"
     t.string "site"
     t.text "open_hour"
     t.text "fee"
@@ -57,11 +57,19 @@ ActiveRecord::Schema.define(version: 2018_09_11_032221) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "pref"
-    t.string "facility"
+    t.integer "facility"
     t.string "req_cat"
     t.integer "req_rank"
     t.integer "req_team_num"
     t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +79,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_032221) do
     t.string "logo"
     t.string "image"
     t.integer "pref"
-    t.string "facility"
+    t.integer "facility"
     t.string "cat"
     t.string "rank"
     t.integer "age_ave"
@@ -83,11 +91,17 @@ ActiveRecord::Schema.define(version: 2018_09_11_032221) do
   end
 
   create_table "team_levels", force: :cascade do |t|
-    t.integer "team_level"
+    t.integer "team_id"
     t.integer "level_name"
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "attack"
+    t.string "physical"
+    t.string "stamina"
+    t.string "defense"
+    t.string "tactics"
+    t.string "technique"
   end
 
 end

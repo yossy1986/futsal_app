@@ -1,0 +1,61 @@
+<main>
+  <div class="advertising">
+  <img src="/banner.jpg" width="100%">
+  </div>
+  <div class="wrapper teams new">
+    <div class="left">
+      <h2>新規登録</h2>
+      <%= form_for @teaminfo, url: teams_path  do |f| %>
+      <%= f.label :name,"名前" %>
+      <%= f.text_field :name %>
+      <%= f.label :logo,"ロゴ" %>
+      <%= f.file_field :logo %>
+      <%= f.label :image,"チーム写真" %>
+      <%= f.file_field :image %>
+      <%= f.label :pref,"主な活動地域" %>
+      <%= f.text_field :pref %>
+      <%= f.label:facility,"開催施設" %>
+      <%= f.collection_select :facility, Facility.all, :id, :name %><br>
+      <%= f.label :cat,"カテゴリー" %>
+      <%= f.text_field :cat %>
+      <%= f.label :age_ave,"平均年齢" %>
+      <%= f.text_field :age_ave %>
+      <%= f.label :comment,"チーム紹介" %>
+      <%= f.text_area :comment %>
+      <%= f.label :email,"メールアドレス" %>
+      <%= f.email_field :email %>
+      <%= f.label :password,"パスワード" %>
+      <%= f.password_field :password %>
+      <%= fields_for @teamlevel do |teamlevel| %>
+      <%= teamlevel.label:attack,"攻撃" %>
+      <%= teamlevel.number_field :attack %>
+      <%= teamlevel.label:phisycal,"フィジカル" %>
+      <%= teamlevel.number_field :physical %>
+      <%= teamlevel.label:stamina,"スタミナ" %>
+      <%= teamlevel.number_field :stamina %>
+      <%= teamlevel.label:defense,"守備" %>
+      <%= teamlevel.number_field :defense %>
+      <%= teamlevel.label:tactics,"戦術" %>
+      <%= teamlevel.number_field :tactics %>
+      <%= teamlevel.label:technique,"テクニック" %>
+      <%= teamlevel.number_field :technique %>
+      <% end %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+
+    <div class="right">
+      <h2>最新記事</h2>
+      <ul class="post">
+        <% @posts.each do |post| %>
+              <%= link_to post_path(post) do %>
+                <li class="post-item clearfix">
+                    <img src="<%="/post_images/#{post.image}" %>">
+                    <p><%= post.title %></p>
+                </li>
+                <% end %>
+                <% end %>
+      </ul>
+    </div>
+  </div>
+</main>

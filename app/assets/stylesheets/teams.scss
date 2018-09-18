@@ -5,6 +5,9 @@
 .teams h2 {
     border-left:6px solid #FB9C1E;
 }
+.new h2 {
+    border-left:6px solid #007bff;
+}
 .teams .serch input {
     background:#FB9C1E;
     color:#fff;
@@ -17,6 +20,9 @@
     text-align:left;
     background:#fff;
     box-shadow: 0 0 2px rgba(150, 150, 150, 0.1);
+}
+.team-list:hover {
+    opacity: .7;
 }
 .team-detail {
     padding:10px;
@@ -64,17 +70,17 @@ table p {
 }
 
 .team-list-right .chart {
-    width:70%;
+    width:100%;
     height:auto;
 }
 .team-list-flex {
     display:flex;
+    flex-wrap: wrap;
     justify-content:space-between;
 }
 .team-list-flex a {
     width:49%;
 }
-
 
 @media screen and ( max-width:576px ) {
 .team-list-flex {
