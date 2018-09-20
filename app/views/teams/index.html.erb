@@ -6,7 +6,7 @@
     <div class="left">
       <%= form_tag teams_path, method: "get" do %>
       <%= label_tag :pref, "地域" %>
-      <%= select_tag :pref,  options_for_select([["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]]),:include_blank => "全て" %>
+      <%= select_tag :pref,  options_for_select([["全て",9],["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]]) %>
       
       <%= label_tag :rank, "ランク" %>
       <%= select_tag :rank,  options_for_select([["SS",0],["S",1],["A",2],["B",3],["C",4],["D",5],["E",6],["F",7],["G",8]]),:include_blank =>"全て" %>
@@ -72,10 +72,9 @@
                   <img class="img" src="<%= "/team_images/#{teaminfo.image}" %>">
               </div>
               <div class="team-list-right">
-                <p><%= @pref[teaminfo.pref] %></p>
-                <p><%= Facility.find(teaminfo.facility.to_i).name %></p>
-                <p><%= @rank[teaminfo.rank.to_i] %></p>
-                <p><%= @cat[teaminfo.cat.to_sym] %></p>
+                <p><%= teaminfo.prefecture.name %></p>
+                <p><%= teaminfo.court.name %></p>
+                <p><%= teaminfo.category.name %></p>
               </div>
               </div>
           </div>

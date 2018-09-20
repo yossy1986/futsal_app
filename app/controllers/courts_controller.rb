@@ -1,13 +1,11 @@
 class CourtsController < ApplicationController
   def index
     @courts = Facility.all.order(created_at: :desc)
-    @pref = Pref
     @posts = Post.all.order(created_at: :desc)
   end
 
   def show
     @court = Facility.find_by(id: params[:id])
-    @pref = Pref
     @posts = Post.all.order(created_at: :desc)
   end
   

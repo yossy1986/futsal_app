@@ -2,18 +2,18 @@
 <div class="advertising">
     <img src="/banner.jpg" width="100%">
 </div>
-    <div class="wrapper posts">
+    <div class="wrapper posts new">
         <div class="left">
         <h2>記事作成</h2>
         <div class="post-edit">
           <%= form_for @post do |f| %>
-          <%= f.label :image,"記事写真" %>
-          <%= f.file_field :image %>
-          <%= f.label :title,"タイトル" %>
-          <%= f.text_field :title, value: @post.title %>
+          <%= f.label :image,"記事写真" %><br>
+          <%= f.file_field :image %><br>
+          <%= f.label :title,"タイトル" %><br>
+          <%= f.text_field :title, value: @post.title %><br>
           <%= f.label :content,"内容" %><br>
-          <%= f.text_area :content, value: @post.content, style: 'width:100%;height:1000px;'%>
-          <%= f.submit :class => "btn btn-info" %>
+          <%= f.text_area :content, value: @post.content %><br>
+          <%= f.submit "編集する",:class => "btn btn-info btn-sm" %>
           <% end %>
         </div>
         </div>

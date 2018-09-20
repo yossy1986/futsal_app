@@ -6,41 +6,41 @@
     <div class="left">
       <h2>新規登録</h2>
       <%= form_for @teaminfo, url: teams_path  do |f| %>
-      <%= f.label :name,"名前" %>
-      <%= f.text_field :name %>
-      <%= f.label :logo,"ロゴ" %>
-      <%= f.file_field :logo %>
-      <%= f.label :image,"チーム写真" %>
-      <%= f.file_field :image %>
-      <%= f.label :pref,"主な活動地域" %>
-      <%= f.text_field :pref %>
-      <%= f.label:facility,"開催施設" %>
+      <%= f.label :email,"メールアドレス" %><br>
+      <%= f.email_field :email %><br>
+      <%= f.label :password,"パスワード" %><br>
+      <%= f.password_field :password %><br>
+      <%= f.label :name,"チーム名" %><br>
+      <%= f.text_field :name %><br>
+      <%= f.label :logo,"ロゴ" %><br>
+      <%= f.file_field :logo %><br>
+      <%= f.label :image,"チーム写真" %><br>
+      <%= f.file_field :image %><br>
+      <%= f.label :pref,"主な活動地域" %><br>
+      <%= f.collection_select :pref, Pref.all, :id, :name %><br>
+      <%= f.label:facility,"主な活動施設" %><br>
       <%= f.collection_select :facility, Facility.all, :id, :name %><br>
-      <%= f.label :cat,"カテゴリー" %>
-      <%= f.text_field :cat %>
-      <%= f.label :age_ave,"平均年齢" %>
-      <%= f.text_field :age_ave %>
-      <%= f.label :comment,"チーム紹介" %>
-      <%= f.text_area :comment %>
-      <%= f.label :email,"メールアドレス" %>
-      <%= f.email_field :email %>
-      <%= f.label :password,"パスワード" %>
-      <%= f.password_field :password %>
+      <%= f.label :cat,"カテゴリー" %><br>
+      <%= f.collection_select :cat, Cat.all, :id, :name %><br>
+      <%= f.label :age_ave,"平均年齢" %><br>
+      <%= f.select :age_ave,(10..50) %><br>
       <%= fields_for @teamlevel do |teamlevel| %>
-      <%= teamlevel.label:attack,"攻撃" %>
-      <%= teamlevel.number_field :attack %>
-      <%= teamlevel.label:phisycal,"フィジカル" %>
-      <%= teamlevel.number_field :physical %>
-      <%= teamlevel.label:stamina,"スタミナ" %>
-      <%= teamlevel.number_field :stamina %>
-      <%= teamlevel.label:defense,"守備" %>
-      <%= teamlevel.number_field :defense %>
-      <%= teamlevel.label:tactics,"戦術" %>
-      <%= teamlevel.number_field :tactics %>
-      <%= teamlevel.label:technique,"テクニック" %>
-      <%= teamlevel.number_field :technique %>
+      <%= teamlevel.label:attack,"攻撃" %><br>
+      <%= teamlevel.select :attack,(1..10) %><br>
+      <%= teamlevel.label:phisycal,"フィジカル" %><br>
+      <%= teamlevel.select :physical,(1..10) %><br>
+      <%= teamlevel.label:stamina,"スタミナ" %><br>
+      <%= teamlevel.select :stamina,(1..10) %><br>
+      <%= teamlevel.label:defense,"守備" %><br>
+      <%= teamlevel.select :defense,(1..10) %><br>
+      <%= teamlevel.label:tactics,"戦術" %><br>
+      <%= teamlevel.select :tactics,(1..10) %><br>
+      <%= teamlevel.label:technique,"テクニック" %><br>
+      <%= teamlevel.select :technique,(1..10) %><br>
       <% end %>
-      <%= f.submit %>
+      <%= f.label :comment,"チーム紹介" %><br>
+      <%= f.text_area :comment %><br>
+      <%= f.submit "新規登録する" ,:class => "btn btn-info btn-sm" %>
       <% end %>
     </div>
 

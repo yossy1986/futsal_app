@@ -10,15 +10,18 @@ class TeamInfo < ApplicationRecord
     def matchreqs
         return MatchReq.where(team_id: self.id)
     end
+    def court
+        Facility.find_by(id: self.facility)
+    end
+    def category
+        Cat.find_by(id: self.cat)
+    end
+    def ranking
+        Rank.find_by(id: self.rank)
+    end
+    def prefecture
+        Pref.find_by(id: self.pref)
+    end
 
-    scope :get_by_pref, ->(pref) {
-    where(pref: pref)
-    }
 
-    scope :get_by_rank, ->(rank) {
-    where(rank: rank)
-    }
-    # scope :get_by_cat, ->(cat) {
-    # where(cat: cat)
-    # }
 end

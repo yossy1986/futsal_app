@@ -13,8 +13,8 @@ MatchReq.create(team_id: 1,
                 end_time: (Time.local(2018,10,10,12,12,0)),
                 pref: 1,
                 facility: 1,
-                req_cat: "d",
-                req_rank: "SS",
+                req_cat: 1,
+                req_rank: 3,
                 req_team_num: 4,
                 content: "よろしくお願いします。"
                 )
@@ -24,7 +24,7 @@ MatchReq.create(team_id: 2,
                 end_time: (Time.local(2018,9,1,12,12,0)),
                 pref: 2,
                 facility: 2,
-                req_cat: "c",
+                req_cat: 2,
                 req_rank: 2,
                 req_team_num: 4,
                 content: "よろしくお願いします。"
@@ -35,7 +35,7 @@ MatchReq.create(team_id: 3,
                 end_time: (Time.local(2018,9,3,12,12,0)),
                 pref: 3,
                 facility: 1,
-                req_cat: "b",
+                req_cat: 3,
                 req_rank: 3,
                 req_team_num: 4,
                 content: "よろしくお願いします。"
@@ -46,7 +46,7 @@ MatchReq.create(team_id: 4,
                 end_time: (Time.local(2018,9,22,12,12,0)),
                 pref: 2,
                 facility: 2,
-                req_cat: "a",
+                req_cat: 4,
                 req_rank: 4,
                 req_team_num: 4,
                 content: "よろしくお願いします。"
@@ -57,8 +57,8 @@ TeamInfo.create(name: "名古屋オーシャンズ",
                 image: "team1.jpg",
                 pref: 1,
                 facility: 1,
-                cat: "a",
-                rank: 0,
+                cat: 3,
+                rank: 5,
                 age_ave: 25,
                 comment: "よろしくお願いします。",
                 email: "yossy1986512@yahoo.co.jp",
@@ -68,7 +68,7 @@ TeamInfo.create(name: "シュライカー大阪",
                 image: "team2.jpg",
                 pref: 2,
                 facility: 2,
-                cat: "b",
+                cat: 4,
                 rank: 1,
                 age_ave: 23,
                 comment: "よろしくお願いします。",
@@ -79,7 +79,7 @@ TeamInfo.create(name: "バルドラール浦安",
                 image: "team3.jpg",
                 pref: 3,
                 facility: 1,
-                cat: "c",
+                cat: 5,
                 rank: 2,
                 age_ave: 30,
                 comment: "よろしくお願いします。",
@@ -90,7 +90,7 @@ TeamInfo.create(name: "バサジィ大分",
                 image: "team4.jpg",
                 pref: 4,
                 facility: 2,
-                cat: "d",
+                cat: 6,
                 rank: 3,
                 age_ave: 25,
                 comment: "よろしくお願いします。",
@@ -98,7 +98,7 @@ TeamInfo.create(name: "バサジィ大分",
                 password: 2111,)
 Facility.create(name: "宝塚フットサルドームCABO",
                 image: "court1.jpg",
-                pref: 1,
+                pref: 2,
                 address: "宝塚市安倉西4丁目25－1",
                 tel: 1111111,
                 site: "http://www.cabo-pb.com/",
@@ -112,7 +112,7 @@ Facility.create(name: "宝塚フットサルドームCABO",
                 )
 Facility.create(name: "Meijiフットサル",
                 image: "court2.jpg",
-                pref: 0,
+                pref: 1,
                 address: "吹田市西御旅町7-53",
                 tel: 1111111,
                 site: "https://www.meiji-s.ac.jp/mt_futsal_main.html",
@@ -173,3 +173,45 @@ TeamLevel.create(team_id: 4,
                   defense: 6,
                   tactics: 6,
                   technique: 6)
+Rank.create(id: 1,
+            name: "SS")
+Rank.create(id: 2,
+            name: "S")
+Rank.create(id: 3,
+            name: "A")
+Rank.create(id: 4,
+            name: "B")
+Rank.create(id: 5,
+            name: "C")
+Rank.create(id: 6,
+            name: "D")
+Rank.create(id: 7,
+            name: "E")
+Rank.create(id: 8,
+            name: "F")
+Pref.create(id: 1,
+            name: "大阪府")
+Pref.create(id: 2,
+            name: "兵庫県")
+Pref.create(id: 3,
+            name: "京都府")
+Pref.create(id: 4,
+            name: "滋賀県")
+Pref.create(id: 5,
+            name: "奈良県")
+Pref.create(id: 6,
+            name: "和歌山県")
+Cat.create(id: 1,
+            name: "関西リーグ")
+Cat.create(id: 2,
+            name: "都道府県リーグ")
+Cat.create(id: 3,
+            name: "競技志向")
+Cat.create(id: 4,
+            name: "エンジョイ")
+Cat.create(id: 5,
+            name: "女子")
+Cat.create(id: 6,
+            name: "MIX")
+Cat.create(id: 7,
+            name: "U-18")

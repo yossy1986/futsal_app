@@ -5,17 +5,21 @@ class TeamsController < ApplicationController
     @rank = Rank
     @cat = Cat
     @pref = Pref
-    if params[:pref].present?
-      @teaminfos = @teaminfos.get_by_pref params[:pref]
-    else
-      @teaminfos = TeamInfo.all
-    end
     
-    if params[:rank].present?
-      @teaminfos = @teaminfos.get_by_rank params[:rank]
-    else
-      @teaminfos = TeamInfo.all
-    end
+    # if params[:pref].present? && params[:rank].present?
+    #   @teaminfos = TeanInfo.where(pref: params[:pref]).where(rank: params[:rank])
+    # elsif params[:pref].present? && params[:rank].present?
+      
+        
+    # else
+    #   @teaminfos = TeamInfo.all
+    # end
+    
+    # if params[:rank].present?
+    #   @teaminfos = @teaminfos.get_by_rank params[:rank]
+    # else
+    #   @teaminfos = TeamInfo.all
+    # end
     # if params[:cat].present?
     #   @teaminfos = @teaminfos.get_by_cat params[:cat]
     # else
@@ -40,6 +44,7 @@ class TeamsController < ApplicationController
   end
   
   def create
+    logger.debug("xxxxxxxxxx = #{params[:team_info][:name]}")
     @teaminfo = TeamInfo.new(name: params[:team_info][:name],
                               logo: "default_logo.jpg",
                               image: "default_team.jpg",

@@ -2,29 +2,29 @@
 <div class="advertising">
 <img src="/banner.jpg" width="100%">
 </div>
-<div class="wrapper courts">
+<div class="wrapper courts new">
     <div class="left">
         <h2>フットサルコート登録</h2>
           <%= form_for @court, url: courts_path  do |f| %>
-          <%= f.label :image,"コート写真" %>
-          <%= f.file_field :image %>
-          <%= f.label :name,"施設名" %>
-          <%= f.text_field :name %>
-          <%= f.label :pref,"地域" %>
-            <%= f.select :pref,[["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]] %><br>
-          <%= f.label :address,"住所" %>
-          <%= f.text_field :address %>
-          <%= f.label :tel,"電話番号" %>
-          <%= f.text_field :tel %>
-          <%= f.label :site,"ホームページ" %>
-          <%= f.text_field :site %>
+          <%= f.label :image,"コート写真" %><br>
+          <%= f.file_field :image %><br>
+          <%= f.label :name,"施設名" %><br>
+          <%= f.text_field :name %><br>
+          <%= f.label :pref,"地域" %><br>
+          <%= f.collection_select :pref, Pref.all, :id, :name %><br>
+          <%= f.label :address,"住所" %><br>
+          <%= f.text_field :address %><br>
+          <%= f.label :tel,"電話番号" %><br>
+          <%= f.text_field :tel %><br>
+          <%= f.label :site,"ホームページ" %><br>
+          <%= f.text_field :site %><br>
           <%= f.label :open_hour,"営業時間" %><br>
-          <%= f.text_area :open_hour ,style: 'width:100%;height:200px;'%><br>
+          <%= f.text_area :open_hour %><br>
           <%= f.label :fee,"料金" %><br>
-          <%= f.text_area :fee ,style: 'width:100%;height:200px;'%><br>
-          <%= f.label :parking,"駐車場" %>
-          <%= f.text_field :parking %>
-          <%= f.submit :class => "btn btn-info"%>
+          <%= f.text_area :fee %><br>
+          <%= f.label :parking,"駐車場" %><br>
+          <%= f.text_field :parking %><br>
+          <%= f.submit "コートを登録する",:class => "btn btn-info btn-sm"%><br>
           <% end %>
     </div>
     

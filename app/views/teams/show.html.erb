@@ -12,7 +12,7 @@
                   <img class="img" src="<%= "/team_images/#{@teaminfo.image}" %>">
               </div>
               <div class="team-list-right">
-                <p><%= @rank[@teaminfo.rank.to_i] %></p>
+                <p>ランク</p>
                   <canvas id="my_chart">
     Canvas not supported...
     </canvas>
@@ -21,15 +21,15 @@
               <table>
                   <tr>
                       <th>活動地域</th>
-                      <td><%= @pref[@teaminfo.pref] %></td>
+                      <td><%= @teaminfo.prefecture.name %></td>
                   </tr>
                   <tr>
                       <th>主な活動施設</th>
-                      <td><%= Facility.find(@teaminfo.facility).name %></td>
+                      <td><%= @teaminfo.court.name %></td>
                   </tr>
                   <tr>
                       <th>カテゴリー</th>
-                      <td><%= @cat[@teaminfo.cat.to_sym] %></td>
+                      <td><%= @teaminfo.category.name %></td>
                   </tr>
                   <tr>
                       <th>年齢</th>
@@ -48,8 +48,8 @@
             <h3>●<%= matchreq.match_date.strftime("%-m月%-d日") %>
             (<%= @week[matchreq.match_date.wday] %>)　
             ●<%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %>　
-            ●<%= Facility.find(matchreq.facility).name %></h3>
-            <h3>●ランク　<%= @rank[matchreq.req_rank] %>　●カテゴリー　<%= @cat[matchreq.req_cat.to_sym] %></h3>
+            ●<%= matchreq.court.name %></h3>
+            <h3>　●カテゴリー　<%= matchreq.category.name %></h3>
             <h3>●応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
             <img src="<%= "/logo_images/#{@teaminfo.logo}" %>">
             <p><%= matchreq.team.name %></p>
