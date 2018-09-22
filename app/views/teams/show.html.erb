@@ -41,6 +41,10 @@
           <td><p><%= @teaminfo.comment %></p></td>
         </tr>
       </table>
+      <div class="ede">
+        <%= link_to "編集","/teams/#{@teaminfo.id}/edit",class: "btn btn-info" %>
+        <%= link_to "削除", team_path(@teaminfo), :method => :delete, class: "btn btn-danger" %>
+      </div>
     </div>
     
     <h2>対戦募集中</h2>

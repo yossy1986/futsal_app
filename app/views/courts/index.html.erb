@@ -5,26 +5,12 @@
     <div class="wrapper courts">
         <div class="left">
         <h2>フットサルコート検索</h2>
-        <section>
         <div class="serch">
-        <div class="cp_ipselect cp_sl01 wi-30">
-            <select name="pref">
-                <option value="">都道府県</option>
-                <option value="1">大阪府</option>
-                <option value="2">兵庫県</option>
-                <option value="3">京都府</option>
-                <option value="4">滋賀県</option>
-                <option value="5">奈良県</option>
-                <option value="6">和歌山県</option>
-            </select>
+          <%= form_for @court, url: courts_path,  :method => 'get' do |f| %>
+          <%= f.collection_select :pref, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi98" %>
+          <%= f.submit "検索", :class => "match-color"%>
+          <% end %>
         </div>
-
-        </div>
-        
-        <div class="serch">
-         <input class="btn btn-lg" href="#" role="button" value="検索" &raquo;>
-        </div>
-        </section>
         
         <h2>フットサルコート情報</h2>
           <% @courts.each do |court| %>

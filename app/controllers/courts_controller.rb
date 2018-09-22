@@ -1,6 +1,7 @@
 class CourtsController < ApplicationController
   def index
     @courts = Facility.all.order(created_at: :desc)
+    @court = Facility.new
     @posts = Post.all.order(created_at: :desc)
   end
 

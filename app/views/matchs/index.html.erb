@@ -5,7 +5,16 @@
 <div class="wrapper matchs">
   <div class="left">
     <h2>対戦募集検索</h2>
-    
+    <div class="serch">
+      <%= form_for @matchreq, url: matchs_path,  :method => 'get' do |f| %>
+      <%= f.date_select :match_date,{:use_month_numbers => true, :start_year => (Time.now.year)}, {:class => "wi33"} %>
+      <%= f.collection_select :pref, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi25" %>
+      <%= f.collection_select :facility, Facility.all, :id, :name, {:include_blank => "主な活動施設"}, :class => "wi73" %>
+      <%= f.collection_select :req_rank, Rank.all, :id, :name, {:include_blank => "ランク"}, :class => "wi25" %>
+      <%= f.collection_select :req_cat, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi73" %>
+      <%= f.submit "検索", :class => "match-color"%>
+      <% end %>
+    </div>
     
     <h2>対戦募集情報</h2>
     <% @matchreqs.each do |matchreq| %>
@@ -17,6 +26,8 @@
       ●<%= matchreq.court.name %></h3>
       <h3>●ランク　<%= matchreq.ranking.name %>　●カテゴリー　<%= matchreq.category.name %></h3>
       <h3>●応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
+      <img src="<%= "/logo_images/#{matchreq.team.logo}" %>">
+      <p><%= matchreq.team.name %></p>
       </div>
     <% end %>
     <% end %>

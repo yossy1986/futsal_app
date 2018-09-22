@@ -53,8 +53,58 @@ class TeamsController < ApplicationController
                                 technique: params[:team_level][:technique]
                                 )
     @teamlevel.level = @teamlevel.attack.to_i + @teamlevel.physical.to_i + @teamlevel.stamina.to_i + @teamlevel.defense.to_i + @teamlevel.tactics.to_i + @teamlevel.technique.to_i
-    @teamlevel.save
+    if @teaminfo.save && @teamlevel.save
     redirect_to action: 'index'
+    else
+      render("teams/new")
+    end
   end
   
+  def edit
+    @posts = Post.all.order(created_at: :desc)
+    @teaminfo = TeamInfo.find_by(id: params[:id])
+  end
+  
+  def update
+    @post = Post.find_by(id: params[:id])
+    @teaminfo = TeamInfo.find_by(id: params[:id])
+    @teaminfo.name = params[:team_info][:name]
+    @teaminfo.pref = params[:team_info][:pref]
+    @teaminfo.facility = params[:team_info][:facility]
+    @teaminfo.cat = params[:team_info][:cat]
+    @teaminfo.age_ave = params[:team_info][:age_ave]
+    @teaminfo.comment = params[:team_info][:comment]
+    @teaminfo.email = params[:team_info][:email]
+    if params[:team_info][:logo] || params[:team_info][:image]
+      @teaminfo.logo = "logo#{@teaminfo.id}.jpg"
+      @teaminfo.image = "team#{@teaminfo.id}.jpg"
+      logo = params[:team_info][:logo]
+      image = params[:team_info][:image]
+      File.binwrite("public/logo_images/#{@teaminfo.logo}",logo.read)
+      File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
+    end
+    @teaminfo.save
+    
+    @teamlevel = TeamLevel.find_by(id: params[:id])
+    @teamlevel.attack = params[:attack]
+    @teamlevel.physical = params[:physical]
+    @teamlevel.stamina = params[:stamina]
+    @teamlevel.defense = params[:defense]
+    @teamlevel.tactics = params[:tactics]
+    @teamlevel.technique = params[:technique]
+    @teamlevel.level = @teamlevel.attack.to_i + @teamlevel.physical.to_i + @teamlevel.stamina.to_i + @teamlevel.defense.to_i + @teamlevel.tactics.to_i + @teamlevel.technique.to_i
+    if @teaminfo && @teamlevel.save
+      redirect_to action: 'show'
+    else
+      render("teams/edit")
+    end
+  end
+
+  def destroy
+    @teaminfo = TeamInfo.find_by(id: params[:id])
+    @teamlevel = TeamLevel.find_by(id: params[:id])
+    @teaminfo.destroy
+    @teamlevel.destroy
+    redirect_to action: 'index'
+  end
 end

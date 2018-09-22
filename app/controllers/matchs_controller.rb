@@ -2,10 +2,8 @@ class MatchsController < ApplicationController
   def index
     @matchreqs = MatchReq.all.order(created_at: :desc)
     @posts = Post.all.order(created_at: :desc)
+    @matchreq = MatchReq.new
     @week = Week
-    @rank = Rank
-    @cat = Cat
-    @pref = Pref
   end
 
   def show

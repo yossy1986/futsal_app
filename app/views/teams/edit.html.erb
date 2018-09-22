@@ -1,0 +1,61 @@
+<main>
+<div class="advertising">
+  <img src="/banner.jpg" width="100%">
+</div>
+<div class="wrapper teams new">
+  <div class="left">
+    <h2>チーム編集</h2>
+    <%= form_for @teaminfo, url: team_path do |f| %>
+    <%= f.label :email,"メールアドレス" %><br>
+    <%= f.email_field :email %><br>
+    <%= f.label :password,"パスワード" %><br>
+    <%= f.password_field :password %><br>
+    <%= f.label :name,"チーム名" %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :logo,"ロゴ" %><br>
+    <%= f.file_field :logo %><br>
+    <%= f.label :image,"チーム写真" %><br>
+    <%= f.file_field :image %><br>
+    <%= f.label :pref,"主な活動地域" %><br>
+    <%= f.collection_select :pref, Pref.all, :id, :name %><br>
+    <%= f.label:facility,"主な活動施設" %><br>
+    <%= f.collection_select :facility, Facility.all, :id, :name %><br>
+    <%= f.label :cat,"カテゴリー" %><br>
+    <%= f.collection_select :cat, Cat.all, :id, :name %><br>
+    <%= f.label :age_ave,"平均年齢" %><br>
+    <%= f.select :age_ave,(10..50) %><br>
+    <%= fields_for @teamlevel do |teamlevel| %>
+    <%= teamlevel.label:attack,"攻撃" %><br>
+    <%= teamlevel.select :attack,(1..10) %><br>
+    <%= teamlevel.label:phisycal,"フィジカル" %><br>
+    <%= teamlevel.select :physical,(1..10) %><br>
+    <%= teamlevel.label:stamina,"スタミナ" %><br>
+    <%= teamlevel.select :stamina,(1..10) %><br>
+    <%= teamlevel.label:defense,"守備" %><br>
+    <%= teamlevel.select :defense,(1..10) %><br>
+    <%= teamlevel.label:tactics,"戦術" %><br>
+    <%= teamlevel.select :tactics,(1..10) %><br>
+    <%= teamlevel.label:technique,"テクニック" %><br>
+    <%= teamlevel.select :technique,(1..10) %><br>
+    <% end %>
+    <%= f.label :comment,"チーム紹介" %><br>
+    <%= f.text_area :comment %><br>
+    <%= f.submit "編集する" ,:class => "btn btn-info" %>
+    <% end %>
+  </div>
+
+  <div class="right">
+    <h2>最新記事</h2>
+    <ul class="post">
+      <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+      <li class="post-item clearfix">
+        <img src="<%="/post_images/#{post.image}" %>">
+        <p><%= post.title %></p>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</main>

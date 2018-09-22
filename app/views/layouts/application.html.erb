@@ -171,6 +171,9 @@
           <!--ログアウト-->
           <% else %>
           <li>
+            <%= link_to "ホーム",root_path %>
+          </li>
+          <li>
             <i class="fas fa-key fa-2x text-success"></i>
             <%= link_to "ログイン", login_path %>
           </li>
