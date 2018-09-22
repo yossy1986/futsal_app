@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_21_001151) do
+ActiveRecord::Schema.define(version: 2018_09_22_230458) do
 
   create_table "apply_matches", force: :cascade do |t|
     t.integer "team_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2018_09_21_001151) do
     t.datetime "end_time"
     t.integer "pref"
     t.integer "facility"
-    t.string "req_cat"
+    t.integer "req_cat"
     t.integer "req_rank"
     t.integer "req_team_num"
     t.text "content"
@@ -98,8 +98,8 @@ ActiveRecord::Schema.define(version: 2018_09_21_001151) do
     t.string "image"
     t.integer "pref"
     t.integer "facility"
-    t.string "cat"
-    t.string "rank"
+    t.integer "cat"
+    t.integer "rank"
     t.integer "age_ave"
     t.text "comment"
     t.string "email"
@@ -114,12 +114,12 @@ ActiveRecord::Schema.define(version: 2018_09_21_001151) do
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "attack"
-    t.string "physical"
-    t.string "stamina"
-    t.string "defense"
-    t.string "tactics"
-    t.string "technique"
+    t.integer "attack"
+    t.integer "physical"
+    t.integer "stamina"
+    t.integer "defense"
+    t.integer "tactics"
+    t.integer "technique"
   end
 
 end
