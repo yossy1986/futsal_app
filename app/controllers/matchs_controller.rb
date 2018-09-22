@@ -9,13 +9,10 @@ class MatchsController < ApplicationController
   end
 
   def show
-    @week = Week
-    @rank = Rank
-    @cat = Cat
-    @pref = Pref
     @matchreq = MatchReq.find_by(id: params[:id])
     @team = @matchreq.team
     @posts = Post.all.order(created_at: :desc)
+    @week = Week
   end
   
   def new

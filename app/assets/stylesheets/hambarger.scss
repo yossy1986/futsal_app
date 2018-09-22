@@ -25,7 +25,7 @@
     background: #555;
     display: block;
     content: '';
-cursor: pointer;
+    cursor: pointer;
 }
 #nav-open span:before {
     bottom: -8px;
@@ -66,11 +66,35 @@ cursor: pointer;
 
 #nav-content li {
     padding:10px;
+    border-bottom:1px solid #EFEFEF;
+    font-size:14px;
 }
-
 #nav-content li:hover {
+    // opacity:1;
+}
+#nav-content li:first-child {
+    padding: 25px 0;
+    display:flex;
+}
+#nav-content li:first-child:hover {
     opacity:1;
 }
+#nav-content div {
+    padding-left: 10px;
+}
+#nav-content img {
+    width:50px;
+    height:50px;
+}
+
+#nav-content i{
+    font-size:16px;
+}
+#nav-content p {
+    margin:5px 0 0 0;
+    font-weight:bold;
+}
+
 /*チェックが入ったらもろもろ表示*/
 #nav-input:checked ~ #nav-close {
     display: block;/*カバーを表示*/
@@ -83,18 +107,20 @@ cursor: pointer;
     box-shadow: 6px 0 25px rgba(0,0,0,.15);
 }
 
+@media screen and ( max-width:576px ) {
+    
+#nav-open {
+    margin-left:20px;
+    margin-bottom:0;
+}   
 
-#nav-content li::after {
-    border-bottom: solid 2px #333;
-    bottom: 0;
-    content: "";
-    display: block;
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    width: 0;
 }
 
-#nav-content li:hover::after {
-    width: 100%;
+@media screen and ( max-width:768px ) {
+    
+#nav-drawer {
+    display:block;
+}
+
 }
 

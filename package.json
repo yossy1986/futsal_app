@@ -2,4 +2,5 @@
   "name": "futsal",
   "private": true,
   "dependencies": {}
+  "chart.js": "^2.7.1"
 }

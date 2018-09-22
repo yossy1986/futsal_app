@@ -2,21 +2,20 @@
 <div class="advertising">
   <img src="/banner.jpg" width="100%">
 </div>
-<div class="wrapper posts">
+<div class="wrapper teams new">
   <div class="left">
-    <h2>記事</h2>
-    <div class="post-detail">
-      <h1><%= @post.title %></h1>
-      <%= simple_format @post.content %>
-      <div class="ede">
-        <%= link_to "編集",edit_post_path(@post),class: "btn btn-info" %>
-        <%= link_to "削除", post_path(@post), :method => :delete, class: "btn btn-danger" %>
-      </div>
-    </div>
+    <h2>ログイン</h2>
+    <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+    <%= f.submit "ログイン", class: "btn btn-info" %>
+    <% end %>
   </div>
-    
+
   <div class="right">
-    <h2>オススメ記事</h2>
+    <h2>最新記事</h2>
     <ul class="post">
       <% @posts.each do |post| %>
       <%= link_to post_path(post) do %>

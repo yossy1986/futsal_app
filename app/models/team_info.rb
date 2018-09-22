@@ -7,6 +7,8 @@ class TeamInfo < ApplicationRecord
     # validates :comment, presence: true
     # validates :email, presence: true
     # validates :password, presence: true
+      has_secure_password
+
     def matchreqs
         return MatchReq.where(team_id: self.id)
     end

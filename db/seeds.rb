@@ -62,7 +62,7 @@ TeamInfo.create(name: "名古屋オーシャンズ",
                 age_ave: 25,
                 comment: "よろしくお願いします。",
                 email: "yossy1986512@yahoo.co.jp",
-                password: 2111,)
+                password: "2111",)
 TeamInfo.create(name: "シュライカー大阪",
                 logo: "logo2.jpg",
                 image: "team2.jpg",
@@ -73,7 +73,7 @@ TeamInfo.create(name: "シュライカー大阪",
                 age_ave: 23,
                 comment: "よろしくお願いします。",
                 email: "yoshi1986512@yahoo.co.jp",
-                password: 2111,)
+                password: "2111",)
 TeamInfo.create(name: "バルドラール浦安",
                 logo: "logo3.jpg",
                 image: "team3.jpg",
@@ -84,7 +84,7 @@ TeamInfo.create(name: "バルドラール浦安",
                 age_ave: 30,
                 comment: "よろしくお願いします。",
                 email: "yossy1986512@gmail.com",
-                password: 2111,)
+                password: "2111",)
 TeamInfo.create(name: "バサジィ大分",
                 logo: "logo4.jpg",
                 image: "team4.jpg",
@@ -95,7 +95,7 @@ TeamInfo.create(name: "バサジィ大分",
                 age_ave: 25,
                 comment: "よろしくお願いします。",
                 email: "yoshi1986512@gmail.com",
-                password: 2111,)
+                password: "2111",)
 Facility.create(name: "宝塚フットサルドームCABO",
                 image: "court1.jpg",
                 pref: 2,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_20_004640) do
+ActiveRecord::Schema.define(version: 2018_09_21_001151) do
 
   create_table "apply_matches", force: :cascade do |t|
     t.integer "team_id"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2018_09_20_004640) do
     t.integer "age_ave"
     t.text "comment"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

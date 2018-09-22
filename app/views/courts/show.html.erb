@@ -20,11 +20,11 @@
                   </tr>
                   <tr>
                       <th>住所</th>
-                      <td><%= @court.address %></td>
+                      <td><%= simple_format @court.address %></td>
                   </tr>
                   <tr>
                       <th>電話番号</th>
-                      <td><%= @court.tel %></td>
+                      <td><%= simple_format @court.tel %></td>
                   </tr>
                   <tr>
                       <th>公式HP</th>
@@ -32,15 +32,15 @@
                   </tr>
                   <tr>
                       <th>営業時間</th>
-                      <td><p><%= @court.open_hour %></p></td>
+                      <td><%= simple_format @court.open_hour %></td>
                   </tr>
                   <tr>
                       <th>利用料金</th>
-                      <td><p><%= @court.fee %></p></td>
+                      <td><%= simple_format @court.fee %></td>
                   </tr>
                   <tr>
                       <th>駐車場</th>
-                      <td><%= @court.parking %></td>
+                      <td><%= simple_format @court.parking %></td>
                   </tr>
               </table>
               <div class="ede">

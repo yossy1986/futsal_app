@@ -1,40 +1,17 @@
 class TeamsController < ApplicationController
   def index
     @teaminfos = TeamInfo.all.order(created_at: :desc)
+    @teaminfo = TeamInfo.new
     @posts = Post.all.order(created_at: :desc)
-    @rank = Rank
-    @cat = Cat
-    @pref = Pref
-    
-    # if params[:pref].present? && params[:rank].present?
-    #   @teaminfos = TeanInfo.where(pref: params[:pref]).where(rank: params[:rank])
-    # elsif params[:pref].present? && params[:rank].present?
-      
-        
-    # else
-    #   @teaminfos = TeamInfo.all
-    # end
-    
-    # if params[:rank].present?
-    #   @teaminfos = @teaminfos.get_by_rank params[:rank]
-    # else
-    #   @teaminfos = TeamInfo.all
-    # end
-    # if params[:cat].present?
-    #   @teaminfos = @teaminfos.get_by_cat params[:cat]
-    # else
-    #   @teaminfos = TeamInfo.all
-    # end
-
+    @week = Week
   end
 
   def show
     @teaminfo = TeamInfo.find_by(id: params[:id])
+    @teamlevel = TeamLevel.find_by(id: params[:id])
     @posts = Post.all.order(created_at: :desc)
     @week = Week
-    @rank = Rank
-    @cat = Cat
-    @pref = Pref
+    gon.data = [@teamlevel.attack,@teamlevel.physical,@teamlevel.stamina,@teamlevel.defense,@teamlevel.tactics,@teamlevel.technique]
   end
   
   def new
@@ -63,6 +40,7 @@ class TeamsController < ApplicationController
       image = params[:team_info][:image]
       File.binwrite("public/logo_images/#{@teaminfo.logo}",logo.read)
       File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
+      
     end
     @teaminfo.save
     

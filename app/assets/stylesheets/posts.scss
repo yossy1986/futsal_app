@@ -72,6 +72,33 @@
 .new form #post_image {
     background:#fff;
 }
+
+// サイドバー
+.post {
+    padding:0;
+}
+.post-item {
+    width:100%;
+    background-color:#fff;
+    margin-bottom:8px;
+    list-style:none;
+    padding:7px;
+}
+.post-item img {
+    width:90px;
+    height:90px;
+    float:left;
+    margin-right:6px;
+}
+.post-item p {
+    font-size:12px;
+}
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
 @media screen and ( max-width:576px ) {
 
 .post-list h3 {

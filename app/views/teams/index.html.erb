@@ -3,98 +3,49 @@
 <img src="/banner.jpg" width="100%">
 </div>
 <div class="wrapper teams">
-    <div class="left">
-      <%= form_tag teams_path, method: "get" do %>
-      <%= label_tag :pref, "地域" %>
-      <%= select_tag :pref,  options_for_select([["全て",9],["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]]) %>
-      
-      <%= label_tag :rank, "ランク" %>
-      <%= select_tag :rank,  options_for_select([["SS",0],["S",1],["A",2],["B",3],["C",4],["D",5],["E",6],["F",7],["G",8]]),:include_blank =>"全て" %>
-      <!--<%= label_tag :cat, "カテゴリー" %>-->
-      <!--<%= select_tag :cat,  options_for_select([["関西リーグ","a"],["都道府県リーグ","b"],["競技志向","c"],["エンジョイ","d"],["女子","e"],["MIX","f"],["U-18","g"]]),:include_blank =>"全て" %>-->
-      <%= submit_tag "検索" %>
-      <% end %>
-        <h2>チーム検索</h2>
-        <section>
-        <div class="serch">
-        <div class="cp_ipselect cp_sl01 wi-30">
-        <%= form_tag teams_path, method: "get" do %>
-        <%= label_tag :pref, "地域" %>
-        <%= select_tag :pref,  options_for_select([["大阪府",0],["兵庫県",1],["京都府",2],["奈良県",3],["滋賀県",4],["和歌山県",5]]) %>
-        </div>
-        <div class="cp_ipselect cp_sl01 wi-60">
-            <select name="facility">
-                <option value="">主な活動施設</option>
-                <option value="1">CABO</option>
-                <option value="2">アスコマヤフットサル</option>
-                <option value="3">マグフットサル</option>
-                <option value="4">ミズノフットサル</option>
-            </select>
-        </div>
-        </div>
-        <div class="serch">
-        <div class="cp_ipselect cp_sl01 wi-30">
-            <select name="rank">
-                <option value="">ランク</option>
-                <option value="1">SS</option>
-                <option value="2">S</option>
-                <option value="3">A</option>
-                <option value="4">B</option>
-                <option value="5">C</option>
-                <option value="6">D</option>
-            </select>
-        </div>
-        <div class="cp_ipselect cp_sl01 wi-60">
-            <select name="facility">
-                <option value="">カテゴリー</option>
-                <option value="1">CABO</option>
-                <option value="2">アスコ</option>
-                <option value="3">マグ</option>
-                <option value="4">ミズノ</option>
-            </select>
-        </div>
-        </div>
-        <div class="serch">
-         <%= submit_tag "検索" %>
-        </div>
-                <% end %>
-
-        </section>
-        
-        <h2>チーム情報</h2>
-        <div class="team-list-flex">
-        <% @teaminfos.each do |teaminfo| %>
-          <%= link_to team_path(teaminfo) do %>
-          <div class="team-list">
-            <h3><%= teaminfo.name %></h3>
-              <div class="team-list-item">
-              <div class="team-list-left">
-                  <img class="img" src="<%= "/team_images/#{teaminfo.image}" %>">
-              </div>
-              <div class="team-list-right">
-                <p><%= teaminfo.prefecture.name %></p>
-                <p><%= teaminfo.court.name %></p>
-                <p><%= teaminfo.category.name %></p>
-              </div>
-              </div>
-          </div>
-          <% end %>
-        <% end %>
-        </div>
-</div>
+  <div class="left">
+    <h2>チーム検索</h2>
+    <%= form_for @teaminfo, url: teams_path  do |f| %>
+    <%= f.collection_select :pref, Pref.all, :id, :name, :include_blank => "地域" %>
+    <%= f.collection_select :rank, Rank.all, :id, :name, :include_blank => "ランク" %>
+    <%= f.collection_select :cat, Cat.all, :id, :name, :include_blank => "カテゴリー" %>
+    <%= f.submit "検索" %>
+    <% end %>
     
-    <div class="right">
-        <h2>最新記事</h2>
-        <ul class="post">
-            <% @posts.each do |post| %>
-              <%= link_to post_path(post) do %>
-                <li class="post-item clearfix">
-                    <img src="<%="/post_images/#{post.image}" %>">
-                    <p><%= post.title %></p>
-                </li>
-                <% end %>
-                <% end %>
-        </ul>
+    <h2>チーム情報</h2>
+    <div class="team-list-flex">
+      <% @teaminfos.each do |teaminfo| %>
+      <%= link_to team_path(teaminfo) do %>
+      <div class="team-list">
+        <h3><%= teaminfo.name %></h3>
+        <div class="team-list-item">
+          <div class="team-list-left">
+            <img class="img" src="<%= "/team_images/#{teaminfo.image}" %>">
+          </div>
+          <div class="team-list-right">
+            <p><%= teaminfo.prefecture.name %></p>
+            <p><%= teaminfo.court.name %></p>
+            <p><%= teaminfo.category.name %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
     </div>
+  </div>
+    
+  <div class="right">
+    <h2>最新記事</h2>
+    <ul class="post">
+      <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+      <li class="post-item clearfix">
+          <img src="<%="/post_images/#{post.image}" %>">
+          <p><%= post.title %></p>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>
 </main>

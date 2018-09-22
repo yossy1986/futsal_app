@@ -2,44 +2,44 @@
 <div class="advertising">
     <img src="/banner.jpg" width="100%">
 </div>
-    <div class="wrapper matchs new">
-        <div class="left">
-          <h2>対戦募集作成</h2>
-            <%= form_for @matchreq, url: matchs_path  do |f| %><br>
-            <%= f.label :match_date,"開催日" %><br>
-            <%= f.date_select :match_date,:use_month_numbers => true, :date_separator => "/" ,:start_year => (Time.now.year)%><br>
-            <%= f.label :start_time,"開始時間" %><br>
-            <%= f.time_select :start_time ,:minute_step => 30 %><br>
-            <%= f.label :end_time,"終了時間" %><br>
-            <%= f.time_select :end_time ,:minute_step => 30 %><br>
-            <%= f.label :pref,"地域" %><br>
-            <%= f.collection_select :pref, Pref.all, :id, :name %><br>
-            <%= f.label:facility,"開催施設" %><br>
-            <%= f.collection_select :facility, Facility.all, :id, :name %><br>
-            <%= f.label :req_cat,"募集カテゴリー" %><br>
-            <%= f.collection_select :req_cat, Cat.all, :id, :name %><br>
-            <%= f.label :req_rank,"募集ランク" %><br>
-            <%= f.collection_select :req_rank, Rank.all, :id, :name %><br>
-            <%= f.label :req_team_num,"募集チーム数" %><br>
-            <%= f.select :req_team_num,[2,3,4,5,6,7,8] %><br>
-            <%= f.label :content,"募集詳細" %><br>
-            <%= f.text_area :content %><br>
-            <%= f.submit "対戦募集を作成する" ,:class => "btn btn-info btn-sm"%>
-            <% end %>
-        </div>
+<div class="wrapper matchs new">
+  <div class="left">
+    <h2>対戦募集作成</h2>
+      <%= form_for @matchreq, url: matchs_path  do |f| %><br>
+      <%= f.label :match_date,"開催日" %><br>
+      <%= f.date_select :match_date,:use_month_numbers => true, :date_separator => "/" ,:start_year => (Time.now.year)%><br>
+      <%= f.label :start_time,"開始時間" %><br>
+      <%= f.time_select :start_time ,:minute_step => 30 %><br>
+      <%= f.label :end_time,"終了時間" %><br>
+      <%= f.time_select :end_time ,:minute_step => 30 %><br>
+      <%= f.label :pref,"地域" %><br>
+      <%= f.collection_select :pref, Pref.all, :id, :name %><br>
+      <%= f.label:facility,"開催施設" %><br>
+      <%= f.collection_select :facility, Facility.all, :id, :name %><br>
+      <%= f.label :req_cat,"募集カテゴリー" %><br>
+      <%= f.collection_select :req_cat, Cat.all, :id, :name %><br>
+      <%= f.label :req_rank,"募集ランク" %><br>
+      <%= f.collection_select :req_rank, Rank.all, :id, :name %><br>
+      <%= f.label :req_team_num,"募集チーム数" %><br>
+      <%= f.select :req_team_num,[2,3,4,5,6,7,8] %><br>
+      <%= f.label :content,"募集詳細" %><br>
+      <%= f.text_area :content %><br>
+      <%= f.submit "対戦募集を作成する" ,:class => "btn btn-info"%>
+      <% end %>
+  </div>
 
-        <div class="right">
-            <h2>最新記事</h2>
-            <ul class="post">
-                <% @posts.each do |post| %>
-              <%= link_to post_path(post) do %>
-                <li class="post-item clearfix">
-                    <img src="<%="/post_images/#{post.image}" %>">
-                    <p><%= post.title %></p>
-                </li>
-                <% end %>
-                <% end %>
-            </ul>
-        </div>
-    </div>
+  <div class="right">
+    <h2>最新記事</h2>
+    <ul class="post">
+      <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+      <li class="post-item clearfix">
+        <img src="<%="/post_images/#{post.image}" %>">
+        <p><%= post.title %></p>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
 </main>

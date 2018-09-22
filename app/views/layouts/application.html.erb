@@ -1,117 +1,157 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Futsal</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <body>
-    <header>
-      <nav>
-        <ul class="col-sm-3">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Futsal</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <%= Gon::Base.render_data %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<header>
+  <nav>
+    <ul class="col-sm-3">
+      <li>
+        <%= link_to root_url do %>
+        <img src="/logo.png"></a>
+        <% end %>
+      </li>
+    </ul>
+    <ul class="col-sm-9">
+      <!--ログイン-->
+      <% if logged_in? %>
+      <%= current_team.name %>
+      <%= link_to "Log out", logout_path, method: :delete %>
+      <li class="awsome">
+        <%= link_to matchs_path do %>
+        <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
+        <% end %>
+        <%= link_to "対戦募集",matchs_path %>
+      </li>
+      <li class="awsome">
+        <%= link_to teams_path do %>
+        <i class="fas fa-futbol fa-2x" style="color: #FB9C1E;"></i>
+        <% end %>
+        <%= link_to "チーム",teams_path %>
+      </li>
+      <li class="awsome">
+        <%= link_to courts_path do %>
+        <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+        <% end %>
+        <%= link_to "マッチメイク","#" %>
+      </li>
+      <li class="awsome">
+        <%= link_to posts_path do %>
+        <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+        <% end %>
+        <%= link_to "やりとり", "#"%>
+      </li>
+      <li class="hidden">
+        <%= link_to posts_path do %>
+        <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+        <% end %>
+        <%= link_to "ニュース",posts_path %>
+      </li>
+      <li class="hidden">
+        <i class="fas fa-key fa-2x text-success"></i>
+        <%= link_to "マイページ", "/teams/#{@current_team.id}" %>
+      </li>
+      
+      <!--ログアウト-->
+      <% else %>
+      <li class="awsome">
+        <%= link_to matchs_path do %>
+        <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
+        <% end %>
+        <%= link_to "対戦募集",matchs_path %>
+      </li>
+      <li class="awsome">
+        <%= link_to teams_path do %>
+        <i class="fas fa-futbol fa-2x" style="color: #FB9C1E;"></i>
+        <% end %>
+        <%= link_to "チーム",teams_path %>
+      </li>
+      <li class="awsome">
+        <%= link_to courts_path do %>
+        <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+        <% end %>
+        <%= link_to "コート",courts_path %>
+      </li>
+      <li class="awsome">
+        <%= link_to posts_path do %>
+        <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+        <% end %>
+        <%= link_to "ニュース",posts_path %>
+      </li>
+      <li class="hidden">
+        <%= link_to new_team_path do %>
+        <i class="fas fa-edit fa-2x text-primary"></i>
+        <% end %>
+        <%= link_to "新規登録",new_team_path %>
+      </li>
+      <li class="hidden">
+        <i class="fas fa-key fa-2x text-success"></i>
+        <%= link_to "ログイン", login_path %>
+      </li>
+      <% end %>
+      
+      <!--ハンバーガーメニュー-->
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <!--ログイン-->
+          <% if logged_in? %>
           <li>
-            <a href="/"><img src="/logo.png"></a>
+            <div>
+              <img src="<%= "/logo_images/#{@current_team.logo}" %>">
+            </div>
+            <div>
+              <p><%= @current_team.name %></p>
+              <%= link_to "チームプロフィールを確認する", "/teams/#{@current_team.id}" ,:style =>"color:#54B4C6;"%>
+            </div>
           </li>
-        </ul>
-        <ul class="col-sm-9">
-          <li class="awsome">
+          <li>
             <%= link_to matchs_path do %>
             <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
             <% end %>
             <%= link_to "対戦募集",matchs_path %>
           </li>
-          <li class="awsome">
+          <li>
             <%= link_to teams_path do %>
             <i class="fas fa-futbol fa-2x" style="color: #FB9C1E;"></i>
             <% end %>
             <%= link_to "チーム",teams_path %>
           </li>
-          <li class="awsome">
+          <li>
+            <%= link_to courts_path do %>
+            <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+            <% end %>
+            <%= link_to "マッチメイク",courts_path %>
+          </li>
+          <li>
+            <%= link_to posts_path do %>
+            <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+            <% end %>
+            <%= link_to "やりとり",posts_path %>
+          </li>
+          <li>
             <%= link_to courts_path do %>
             <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
             <% end %>
             <%= link_to "コート",courts_path %>
           </li>
-          <li class="awsome">
+          <li>
             <%= link_to posts_path do %>
-            <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+            <i class="fas fa-volume-up fa-2x" style="color: #81D59E;"></i>
             <% end %>
             <%= link_to "ニュース",posts_path %>
           </li>
-          <li class="hidden">
-            <%= link_to new_team_path do %>
-            <i class="fas fa-edit fa-2x text-primary"></i>
-            <% end %>
-            <%= link_to "新規登録",new_team_path %>
-          </li>
-          <li class="hidden">
-            <i class="fas fa-key fa-2x text-success"></i>
-            <a>ログイン</a>
-          </li>
-          <div id="nav-drawer">
-            <input id="nav-input" type="checkbox" class="nav-unshown">
-            <label id="nav-open" for="nav-input"><span></span></label>
-            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-            <div id="nav-content">
-              <li>
-                <i class="fas fa-key fa-2x text-success"></i>
-                <a>ログイン</a>
-              </li>
-              <li>
-                <%= link_to new_team_path do %>
-                <i class="fas fa-edit fa-2x text-primary"></i>
-                <% end %>
-                <%= link_to "新規登録",new_team_path %>
-              </li>
-              <li>
-                <%= link_to matchs_path do %>
-                <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
-                <% end %>
-                <%= link_to "対戦募集",matchs_path %>
-              </li>
-              <li>
-                <%= link_to teams_path do %>
-                <i class="fas fa-futbol fa-2x" style="color: #FB9C1E;"></i>
-                <% end %>
-                <%= link_to "チーム",teams_path %>
-              </li>
-              <li>
-                <%= link_to courts_path do %>
-                <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
-                <% end %>
-                <%= link_to "コート",courts_path %>
-              </li>
-              <li>
-                <%= link_to posts_path do %>
-                <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
-                <% end %>
-                <%= link_to "ニュース",posts_path %>
-              </li>
-              <li>
-                <a>利用規約</a>
-              </li>
-              <li>
-                <a>プライバシーポリシー</a>
-              </li>
-              <li>
-                <a>お問い合わせ</a>
-              </li>
-              <li>
-                <a>広告主募集</a>
-              </li>
-            </div>
-          </div>
-        </ul>
-      </nav>
-    </header>
-    <%= yield %>
-    <footer>
-      <nav>
-        <ul>
           <li>
             <a>利用規約</a>
           </li>
@@ -124,54 +164,83 @@
           <li>
             <a>広告主募集</a>
           </li>
-        </ul>
-      </nav>
-      <p>&copy;futsal</p>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <script>
-    (function() {
-      'use strict';
-
-      var type = 'radar';
-
-      var data = {
-        labels: ['攻撃', 'フィジカル', 'スタミナ', '守備', '組織','テクニック'],
-        datasets: [{
-          label: '@taguchi',
-          data: [4, 9, 9, 8, 8, 8 ],
-          backgroundColor: 'rgba(255, 255, 0, 0.5)',
-          pointRadius: 0,
-          borderWidth: 1
-        },]
-        
-      };
-      
-
-      var options = {
-        scale: {pointLabels: {
-        fontSize: 8},
-          ticks: {beginAtZero: true,
-                  suggestedMax: 10
-                  }
-                },
-        title: {                           
-                display: false
-                },
-        legend: {                          
-                display: false,
-                labels: {defaultFontSize: 4}
-                 }
-                 
-      };
-
-      var ctx = document.getElementById('my_chart').getContext('2d');
-      var myChart = new Chart(ctx, {
-        type: type,
-        data: data,
-        options: options
-      });
-    })();
-  </script>
-  </body>
+          <li>
+            <%= link_to "ログアウト", logout_path, method: :delete %>
+          </li>
+          
+          <!--ログアウト-->
+          <% else %>
+          <li>
+            <i class="fas fa-key fa-2x text-success"></i>
+            <%= link_to "ログイン", login_path %>
+          </li>
+          <li>
+            <%= link_to new_team_path do %>
+            <i class="fas fa-edit fa-2x text-primary"></i>
+            <% end %>
+            <%= link_to "新規登録",new_team_path %>
+          </li>
+          <li>
+            <%= link_to matchs_path do %>
+            <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
+            <% end %>
+            <%= link_to "対戦募集",matchs_path %>
+          </li>
+          <li>
+            <%= link_to teams_path do %>
+            <i class="fas fa-futbol fa-2x" style="color: #FB9C1E;"></i>
+            <% end %>
+            <%= link_to "チーム",teams_path %>
+          </li>
+          <li>
+            <%= link_to courts_path do %>
+            <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+            <% end %>
+            <%= link_to "コート",courts_path %>
+          </li>
+          <li>
+            <%= link_to posts_path do %>
+            <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+            <% end %>
+            <%= link_to "ニュース",posts_path %>
+          </li>
+          <li>
+            <a>利用規約</a>
+          </li>
+          <li>
+            <a>プライバシーポリシー</a>
+          </li>
+          <li>
+            <a>お問い合わせ</a>
+          </li>
+          <li>
+            <a>広告主募集</a>
+          </li>
+          <% end %>
+        </div>
+      </div>
+    </ul>
+  </nav>
+</header>
+<%= yield %>
+<footer>
+  <nav>
+    <ul>
+      <li>
+        <a>利用規約</a>
+      </li>
+      <li>
+        <a>プライバシーポリシー</a>
+      </li>
+      <li>
+        <a>お問い合わせ</a>
+      </li>
+      <li>
+        <a>広告主募集</a>
+      </li>
+    </ul>
+  </nav>
+  <p>&copy;futsal</p>
+</footer>
+</body>
 </html>

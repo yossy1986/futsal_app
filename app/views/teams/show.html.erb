@@ -3,73 +3,75 @@
 <img src="/banner.jpg" width="100%">
 </div>
 <div class="wrapper teams">
-    <div class="left">
-        <h2>チー情報詳細</h2>
-          <div class="team-detail">
-              <h3><%= @teaminfo.name %></h3>
-              <div class="team-list-item">
-              <div class="team-list-left">
-                  <img class="img" src="<%= "/team_images/#{@teaminfo.image}" %>">
-              </div>
-              <div class="team-list-right">
-                <p>ランク</p>
-                  <canvas id="my_chart">
-    Canvas not supported...
-    </canvas>
-              </div>
-              </div>
-              <table>
-                  <tr>
-                      <th>活動地域</th>
-                      <td><%= @teaminfo.prefecture.name %></td>
-                  </tr>
-                  <tr>
-                      <th>主な活動施設</th>
-                      <td><%= @teaminfo.court.name %></td>
-                  </tr>
-                  <tr>
-                      <th>カテゴリー</th>
-                      <td><%= @teaminfo.category.name %></td>
-                  </tr>
-                  <tr>
-                      <th>年齢</th>
-                      <td><%= @teaminfo.age_ave %></td>
-                  </tr>
-                  <tr>
-                      <th>チーム紹介</th>
-                      <td><p><%= @teaminfo.comment %></p></td>
-                  </tr>
-              </table>
-          </div>
-          <h2>対戦募集中</h2>
-        <% @teaminfo.matchreqs.each do |matchreq| %>
-        <%= link_to match_path(matchreq) do %>
-            <div class="match-list">
-            <h3>●<%= matchreq.match_date.strftime("%-m月%-d日") %>
-            (<%= @week[matchreq.match_date.wday] %>)　
-            ●<%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %>　
-            ●<%= matchreq.court.name %></h3>
-            <h3>　●カテゴリー　<%= matchreq.category.name %></h3>
-            <h3>●応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
-            <img src="<%= "/logo_images/#{@teaminfo.logo}" %>">
-            <p><%= matchreq.team.name %></p>
-            </div>
-        <% end %>
-        <% end %>
+  <div class="left">
+    <h2>チー情報詳細</h2>
+    <div class="team-detail">
+      <h3><%= @teaminfo.name %></h3>
+      <div class="team-list-item">
+        <div class="team-list-left">
+          <img class="img" src="<%= "/team_images/#{@teaminfo.image}" %>">
+        </div>
+        <div class="team-list-right">
+          <canvas id="myChart" width="200" height="150px">
+            Canvas not supported...
+          </canvas>
+          <script>draw_graph();</script>
+        </div>
+      </div>
+      
+      <table>
+        <tr>
+          <th>活動地域</th>
+          <td><%= @teaminfo.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th>主な活動施設</th>
+          <td><%= @teaminfo.court.name %></td>
+        </tr>
+        <tr>
+          <th>カテゴリー</th>
+          <td><%= @teaminfo.category.name %></td>
+        </tr>
+        <tr>
+          <th>年齢</th>
+          <td><%= @teaminfo.age_ave %></td>
+        </tr>
+        <tr>
+          <th>チーム紹介</th>
+          <td><p><%= @teaminfo.comment %></p></td>
+        </tr>
+      </table>
     </div>
     
-    <div class="right">
-        <h2>最新記事</h2>
-        <ul class="post">
-            <% @posts.each do |post| %>
-              <%= link_to post_path(post) do %>
-                <li class="post-item clearfix">
-                    <img src="<%="/post_images/#{post.image}" %>">
-                    <p><%= post.title %></p>
-                </li>
-                <% end %>
-                <% end %>
-        </ul>
+    <h2>対戦募集中</h2>
+    <% @teaminfo.matchreqs.each do |matchreq| %>
+    <%= link_to match_path(matchreq) do %>
+    <div class="match-list">
+      <h3>●<%= matchreq.match_date.strftime("%-m月%-d日") %>
+          (<%= @week[matchreq.match_date.wday] %>)　
+          ●<%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %>　
+          ●<%= matchreq.court.name %></h3>
+      <h3>●カテゴリー　<%= matchreq.category.name %></h3>
+      <h3>●応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
+      <img src="<%= "/logo_images/#{@teaminfo.logo}" %>">
+      <p><%= matchreq.team.name %></p>
     </div>
+    <% end %>
+    <% end %>
+  </div>
+  
+  <div class="right">
+    <h2>最新記事</h2>
+    <ul class="post">
+      <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+      <li class="post-item clearfix">
+        <img src="<%="/post_images/#{post.image}" %>">
+        <p><%= post.title %></p>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>
 </main>

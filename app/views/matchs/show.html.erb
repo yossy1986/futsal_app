@@ -1,103 +1,97 @@
 <main>
 <div class="advertising">
-    <img src="/banner.jpg" width="100%">
+  <img src="/banner.jpg" width="100%">
 </div>
-    <div class="wrapper matchs">
-        <div class="left">
-            <h2>対戦募集詳細</h2>
-            <div class="match-detail">
-              <h3>●<%= @matchreq.match_date.strftime("%-m月%-d日") %>
-            (<%= @week[@matchreq.match_date.wday] %>)　
-            ●<%= @matchreq.start_time.strftime("%R") %>〜<%= @matchreq.end_time.strftime("%R") %>　
-            ●<%= @matchreq.court.name %></h3>
-            <h3>●ランク　<%= @matchreq.ranking.name %>　●カテゴリー　</h3>
-            <h3>●応募期限　<%= @matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= @matchreq.req_team_num %>(空き枠)</h3>
-            <h3>●投稿者　<%=@team.name%></h3>  
-              <div class="detail">
-              <p><%= @matchreq.content %></p>
-                </div>
-                <div class="serch">
-                  <input class="btn btn-lg" href="#" role="button" value="応募する">
-                </div>
-                <div class="serch">
-                  <input class="btn btn-lg" href="#" role="button" value="編集する">
-                </div>
-                <div class="serch">
-                  <input class="btn btn-lg" href="#" role="button" value="削除する">
-                </div>
-            </div>
-            <h2>参加チーム</h2>
-            <div class="team-list-flex">
-              <%= link_to team_path(:id) do %>
-              <div class="team-list">
-                  <h3>名古屋オーシャンズ</h3>
-                  <div class="team-list-item">
-                  <div class="team-list-left">
-                      <img class="img" src="/team.jpg">
-                  </div>
-                  <div class="team-list-right">
-                      <img class="chart" src="/chart.jpg">
-                  </div>
-                  </div>
-              </div>
-              <% end %>
-              <%= link_to match_path(:id) do %>
-              <div class="team-list">
-                  <h3>名古屋オーシャンズ</h3>
-                  <div class="team-list-item">
-                  <div class="team-list-left">
-                      <img class="img" src="/team.jpg">
-                  </div>
-                  <div class="team-list-right">
-                      <img class="chart" src="/chart.jpg">
-                  </div>
-                  </div>
-              </div>
-              <% end %>
-            </div>
-            <h2>承認待ちチーム</h2>
-            <div class="team-list-flex">
-              <%= link_to match_path(:id) do %>
-              <div class="team-list">
-                  <h3>名古屋オーシャンズ</h3>
-                  <div class="team-list-item">
-                  <div class="team-list-left">
-                      <img class="img" src="/team.jpg">
-                  </div>
-                  <div class="team-list-right">
-                      <img class="chart" src="/chart.jpg">
-                  </div>
-                  </div>
-              </div>
-              <% end %>
-              <%= link_to match_path(:id) do %>
-              <div class="team-list">
-                  <h3>名古屋オーシャンズ</h3>
-                  <div class="team-list-item">
-                  <div class="team-list-left">
-                      <img class="img" src="/team.jpg">
-                  </div>
-                  <div class="team-list-right">
-                      <img class="chart" src="/chart.jpg">
-                  </div>
-                  </div>
-              </div>
-              <% end %>
-            </div>
-        </div>
-        
-        <div class="right">
-            <h2>最新記事</h2>
-            <ul class="post">
-                <% @posts.each do |post| %>
-              <%= link_to post_path(post) do %>
-                <li class="post-item clearfix">
-                    <img src="<%="/post_images/#{post.image}" %>">
-                    <p><%= post.title %></p>
-                </li>
-                <% end %>
-                <% end %>
-            </ul>
-        </div>
+<div class="wrapper matchs">
+  <div class="left">
+    <h2>対戦募集詳細</h2>
+    <div class="match-detail">
+      <h3>●<%= @matchreq.match_date.strftime("%-m月%-d日") %>
+          (<%= @week[@matchreq.match_date.wday] %>)　
+          ●<%= @matchreq.start_time.strftime("%R") %>〜<%= @matchreq.end_time.strftime("%R") %>　
+          ●<%= @matchreq.court.name %></h3>
+      <h3>●ランク　<%= @matchreq.ranking.name %>　●カテゴリー　</h3>
+      <h3>●応募期限　<%= @matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= @matchreq.req_team_num %>(空き枠)</h3>
+      <h3>●投稿者　<%=@team.name%></h3>  
+      <div class="detail">
+        <p><%= @matchreq.content %></p>
+      </div>
     </div>
+    
+    <h2>参加チーム</h2>
+    <div class="team-list-flex">
+      <%= link_to team_path(:id) do %>
+      <div class="team-list">
+        <h3>名古屋オーシャンズ</h3>
+        <div class="team-list-item">
+          <div class="team-list-left">
+            <img class="img" src="/team.jpg">
+          </div>
+          <div class="team-list-right">
+            <img class="chart" src="/chart.jpg">
+          </div>
+        </div>
+      </div>
+      <% end %>
+      
+      <%= link_to team_path(:id) do %>
+      <div class="team-list">
+        <h3>名古屋オーシャンズ</h3>
+        <div class="team-list-item">
+          <div class="team-list-left">
+            <img class="img" src="/team.jpg">
+          </div>
+          <div class="team-list-right">
+            <img class="chart" src="/chart.jpg">
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    
+    <h2>承認待ちチーム</h2>
+    <div class="team-list-flex">
+      <%= link_to match_path(:id) do %>
+      <div class="team-list">
+        <h3>名古屋オーシャンズ</h3>
+        <div class="team-list-item">
+          <div class="team-list-left">
+            <img class="img" src="/team.jpg">
+          </div>
+          <div class="team-list-right">
+            <img class="chart" src="/chart.jpg">
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <%= link_to match_path(:id) do %>
+      <div class="team-list">
+        <h3>名古屋オーシャンズ</h3>
+        <div class="team-list-item">
+          <div class="team-list-left">
+            <img class="img" src="/team.jpg">
+          </div>
+          <div class="team-list-right">
+            <img class="chart" src="/chart.jpg">
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="right">
+    <h2>最新記事</h2>
+    <ul class="post">
+      <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+      <li class="post-item clearfix">
+        <img src="<%="/post_images/#{post.image}" %>">
+        <p><%= post.title %></p>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
 </main>
