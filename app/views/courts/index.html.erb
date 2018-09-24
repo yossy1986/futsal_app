@@ -2,45 +2,31 @@
 <div class="advertising">
     <img src="/banner.jpg" width="100%">
 </div>
-    <div class="wrapper courts">
-        <div class="left">
-        <h2>フットサルコート検索</h2>
-        <div class="serch">
-          <%= form_for @court, url: courts_path,  :method => 'get' do |f| %>
-          <%= f.collection_select :pref, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi98" %>
-          <%= f.submit "検索", :class => "match-color"%>
-          <% end %>
+  <div class="wrapper courts">
+    <div class="left">
+      <h2>フットサルコート検索</h2>
+      <div class="serch">
+        <%= form_for @court, url: courts_path,  :method => 'get' do |f| %>
+        <%= f.collection_select :pref, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi98" %>
+        <%= f.submit "検索", :class => "match-color"%>
+        <% end %>
+      </div>
+      
+      <h2>フットサルコート情報</h2>
+      <% @courts.each do |court| %>
+      <%= link_to court_path(court) do %>
+      <div class="court-list">
+        <div class="court-list-left">
+          <img class="img" src="<%= "/court_images/#{court.image}" %>">
         </div>
-        
-        <h2>フットサルコート情報</h2>
-          <% @courts.each do |court| %>
-          <%= link_to court_path(court) do %>
-          <div class="court-list">
-            <div class="court-list-left">
-              <img class="img" src="<%= "/court_images/#{court.image}" %>">
-            </div>
-            <div class="court-list-right">
-              <h3><%= court.name %></h3>
-              <p><%= court.address %></p>
-            </div>
-          </div>
-          <% end %>
-          <% end %>
+        <div class="court-list-right">
+          <h3><%= court.name %></h3>
+          <p><%= court.address %></p>
         </div>
-        
-        <div class="right">
-            <h2>最新記事</h2>
-            <ul class="post">
-              <% @posts.each do |post| %>
-              <%= link_to post_path(post) do %>
-                <li class="post-item clearfix">
-                    <img src="<%="/post_images/#{post.image}" %>">
-                    <p><%= post.title %></p>
-                </li>
-                <% end %>
-                <% end %>
-                
-            </ul>
-        </div>
+      </div>
+      <% end %>
+      <% end %>
     </div>
+    <%= render partial: 'posts/post' %>
+  </div>
 </main>

@@ -1,6 +1,8 @@
 class MatchReq < ApplicationRecord
+    belongs_to :team_info
+    validates :content, presence: true
     def team
-        return TeamInfo.find_by(id: self.team_id)
+        return TeamInfo.find_by(id: self.team_info_id)
     end
     def court
         Facility.find_by(id: self.facility)

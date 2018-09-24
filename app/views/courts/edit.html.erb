@@ -27,27 +27,6 @@
           <%= f.submit "コートを編集する",:class => "btn btn-info"%><br>
           <% end %>
     </div>
-    
-    <div class="right">
-        <h2>最新記事</h2>
-        <ul class="post">
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-        </ul>
-    </div>
+    <%= render partial: 'posts/post' %>
 </div>
 </main>

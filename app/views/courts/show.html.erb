@@ -5,65 +5,50 @@
 <div class="wrapper courts">
     <div class="left">
         <h2>フットサルコート詳細</h2>
-          <div class="court-detail">
-            <div class="court-img">
-              <img src="<%= "/court_images/#{@court.image}" %>">
-              </div>
-              <table>
-                  <tr>
-                      <th>施設名</th>
-                      <td><%= @court.name %></td>
-                  </tr>
-                  <tr>
-                      <th>地域</th>
-                      <td><%= @court.prefecture.name %></td>
-                  </tr>
-                  <tr>
-                      <th>住所</th>
-                      <td><%= simple_format @court.address %></td>
-                  </tr>
-                  <tr>
-                      <th>電話番号</th>
-                      <td><%= simple_format @court.tel %></td>
-                  </tr>
-                  <tr>
-                      <th>公式HP</th>
-                      <td><%=link_to @court.site,@court.site %></td>
-                  </tr>
-                  <tr>
-                      <th>営業時間</th>
-                      <td><%= simple_format @court.open_hour %></td>
-                  </tr>
-                  <tr>
-                      <th>利用料金</th>
-                      <td><%= simple_format @court.fee %></td>
-                  </tr>
-                  <tr>
-                      <th>駐車場</th>
-                      <td><%= simple_format @court.parking %></td>
-                  </tr>
-              </table>
-              <div class="ede">
-                <%= link_to "編集",edit_court_path(@court),class: "btn btn-info" %>
-                <%= link_to "削除", court_path(@court), :method => :delete, class: "btn btn-danger" %>
-              </div>
+        <div class="court-detail">
+          <div class="court-img">
+            <img src="<%= "/court_images/#{@court.image}" %>">
           </div>
+          <table>
+            <tr>
+              <th>施設名</th>
+              <td><%= @court.name %></td>
+            </tr>
+            <tr>
+              <th>地域</th>
+              <td><%= @court.prefecture.name %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= simple_format @court.address %></td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><%= simple_format @court.tel %></td>
+            </tr>
+            <tr>
+              <th>公式HP</th>
+              <td><%=link_to @court.site,@court.site %></td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td><%= simple_format @court.open_hour %></td>
+            </tr>
+            <tr>
+              <th>利用料金</th>
+              <td><%= simple_format @court.fee %></td>
+            </tr>
+            <tr>
+              <th>駐車場</th>
+              <td><%= simple_format @court.parking %></td>
+            </tr>
+          </table>
+            <div class="ede">
+              <%= link_to "編集",edit_court_path(@court),class: "btn btn-info" %>
+              <%= link_to "削除", court_path(@court), :method => :delete, class: "btn btn-danger" %>
+            </div>
+        </div>
     </div>
-    
-    <div class="right">
-        <h2>オススメ記事</h2>
-        <ul class="post">
-            <% @posts.each do |post| %>
-              <%= link_to post_path(post) do %>
-                <li class="post-item clearfix">
-                    <img src="<%="/post_images/#{post.image}" %>">
-                    <p><%= post.title %></p>
-                </li>
-                <% end %>
-                <% end %>
-                <div class="ede">
-              </div>
-        </ul>
-    </div>
+    <%= render partial: 'posts/post' %>
 </div>
 </main>

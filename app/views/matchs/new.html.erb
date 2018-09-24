@@ -21,25 +21,12 @@
       <%= f.label :req_rank,"募集ランク" %><br>
       <%= f.collection_select :req_rank, Rank.all, :id, :name %><br>
       <%= f.label :req_team_num,"募集チーム数" %><br>
-      <%= f.select :req_team_num,[2,3,4,5,6,7,8] %><br>
+      <%= f.select :req_team_num,[1,2,3,4,5,6,7,8] %><br>
       <%= f.label :content,"募集詳細" %><br>
-      <%= f.text_area :content %><br>
+      <%= f.text_area :content, :required  => true%><br>
       <%= f.submit "対戦募集を作成する" ,:class => "btn btn-info"%>
       <% end %>
   </div>
-
-  <div class="right">
-    <h2>最新記事</h2>
-    <ul class="post">
-      <% @posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-      <li class="post-item clearfix">
-        <img src="<%="/post_images/#{post.image}" %>">
-        <p><%= post.title %></p>
-      </li>
-      <% end %>
-      <% end %>
-    </ul>
-  </div>
+  <%= render partial: 'posts/post' %>
 </div>
 </main>

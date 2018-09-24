@@ -3,51 +3,30 @@
 <img src="/banner.jpg" width="100%">
 </div>
 <div class="wrapper courts new">
-    <div class="left">
-        <h2>フットサルコート登録</h2>
-          <%= form_for @court, url: courts_path  do |f| %>
-          <%= f.label :image,"コート写真" %><br>
-          <%= f.file_field :image %><br>
-          <%= f.label :name,"施設名" %><br>
-          <%= f.text_field :name %><br>
-          <%= f.label :pref,"地域" %><br>
-          <%= f.collection_select :pref, Pref.all, :id, :name %><br>
-          <%= f.label :address,"住所" %><br>
-          <%= f.text_field :address %><br>
-          <%= f.label :tel,"電話番号" %><br>
-          <%= f.text_field :tel %><br>
-          <%= f.label :site,"ホームページ" %><br>
-          <%= f.text_field :site %><br>
-          <%= f.label :open_hour,"営業時間" %><br>
-          <%= f.text_area :open_hour %><br>
-          <%= f.label :fee,"料金" %><br>
-          <%= f.text_area :fee %><br>
-          <%= f.label :parking,"駐車場" %><br>
-          <%= f.text_field :parking %><br>
-          <%= f.submit "コートを登録する",:class => "btn btn-info"%><br>
-          <% end %>
-    </div>
-    
-    <div class="right">
-        <h2>最新記事</h2>
-        <ul class="post">
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-            <li class="post-item clearfix">
-                <img src="/post1.jpg">
-                <a>優勝できなくてもアイテムがもらえる</a>
-            </li>
-        </ul>
-    </div>
+  <div class="left">
+    <h2>フットサルコート登録</h2>
+    <%= form_for @court, url: courts_path  do |f| %>
+    <%= f.label :image,"コート写真" %><br>
+    <%= f.file_field :image %><br>
+    <%= f.label :name,"施設名" %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :pref,"地域" %><br>
+    <%= f.collection_select :pref, Pref.all, :id, :name %><br>
+    <%= f.label :address,"住所" %><br>
+    <%= f.text_field :address %><br>
+    <%= f.label :tel,"電話番号" %><br>
+    <%= f.text_field :tel %><br>
+    <%= f.label :site,"ホームページ" %><br>
+    <%= f.text_field :site %><br>
+    <%= f.label :open_hour,"営業時間" %><br>
+    <%= f.text_area :open_hour %><br>
+    <%= f.label :fee,"料金" %><br>
+    <%= f.text_area :fee %><br>
+    <%= f.label :parking,"駐車場" %><br>
+    <%= f.text_field :parking %><br>
+    <%= f.submit "コートを登録する",:class => "btn btn-info"%><br>
+    <% end %>
+  </div>
+  <%= render partial: 'posts/post' %>
 </div>
 </main>

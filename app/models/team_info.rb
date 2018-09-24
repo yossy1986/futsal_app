@@ -1,17 +1,16 @@
 class TeamInfo < ApplicationRecord
-    # validates :name, presence: true
-    # validates :pref, presence: true
-    # validates :facility, presence: true
-    # validates :cat, presence: true
-    # validates :age_ave, presence: true
-    # validates :comment, presence: true
-    # validates :email, presence: true
-    # validates :password, presence: true
-      has_secure_password
+    validates :name, presence: true, length: { maximum: 25 },uniqueness: true
+    validates :pref, presence: true
+    validates :facility, presence: true
+    validates :cat, presence: true
+    validates :age_ave, presence: true
+    validates :comment, presence: true
+    validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },uniqueness: true
+    validates :password, presence: true
+      
+     has_secure_password
+     has_many :match_reqs
 
-    def matchreqs
-        return MatchReq.where(team_id: self.id)
-    end
     def court
         Facility.find_by(id: self.facility)
     end
@@ -24,6 +23,6 @@ class TeamInfo < ApplicationRecord
     def prefecture
         Pref.find_by(id: self.pref)
     end
-
-
+    
+   
 end

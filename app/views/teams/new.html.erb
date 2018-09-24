@@ -5,13 +5,16 @@
 <div class="wrapper teams new">
   <div class="left">
     <h2>新規登録</h2>
+    <% @teaminfo.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
     <%= form_for @teaminfo, url: teams_path  do |f| %>
     <%= f.label :email,"メールアドレス" %><br>
-    <%= f.email_field :email %><br>
+    <%= f.email_field :email, :required => true %><br>
     <%= f.label :password,"パスワード" %><br>
-    <%= f.password_field :password %><br>
+    <%= f.password_field :password, :required => true %><br>
     <%= f.label :name,"チーム名" %><br>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name, :required => true %><br>
     <%= f.label :logo,"ロゴ" %><br>
     <%= f.file_field :logo %><br>
     <%= f.label :image,"チーム写真" %><br>
@@ -39,23 +42,10 @@
     <%= teamlevel.select :technique,(1..10) %><br>
     <% end %>
     <%= f.label :comment,"チーム紹介" %><br>
-    <%= f.text_area :comment %><br>
+    <%= f.text_area :comment, :required => true %><br>
     <%= f.submit "新規登録する" ,:class => "btn btn-info" %>
     <% end %>
   </div>
-
-  <div class="right">
-    <h2>最新記事</h2>
-    <ul class="post">
-      <% @posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-      <li class="post-item clearfix">
-        <img src="<%="/post_images/#{post.image}" %>">
-        <p><%= post.title %></p>
-      </li>
-      <% end %>
-      <% end %>
-    </ul>
-  </div>
+  <%= render partial: 'posts/post' %>
 </div>
 </main>

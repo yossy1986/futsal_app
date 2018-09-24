@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_22_230458) do
+ActiveRecord::Schema.define(version: 2018_09_23_222620) do
 
   create_table "apply_matches", force: :cascade do |t|
-    t.integer "team_id"
+    t.integer "team_info_id"
     t.integer "match_req_id"
     t.string "status"
     t.datetime "created_at", null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2018_09_22_230458) do
   end
 
   create_table "match_reqs", force: :cascade do |t|
-    t.integer "team_id"
+    t.integer "team_info_id"
     t.datetime "match_date"
     t.datetime "start_time"
     t.datetime "end_time"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2018_09_22_230458) do
   end
 
   create_table "team_levels", force: :cascade do |t|
-    t.integer "team_id"
+    t.integer "team_info_id"
     t.integer "level_name"
     t.integer "level"
     t.datetime "created_at", null: false

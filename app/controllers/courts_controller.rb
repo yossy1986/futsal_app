@@ -36,6 +36,7 @@ class CourtsController < ApplicationController
   def edit
     @courts = Facility.all.order(created_at: :desc)
     @court = Facility.find_by(id: params[:id])
+    @posts = Post.all.order(created_at: :desc)
   end
   
   def update

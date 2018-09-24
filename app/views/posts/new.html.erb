@@ -9,25 +9,12 @@
     <%= f.label :image,"記事写真" %><br>
     <%= f.file_field :image %><br>
     <%= f.label :title,"タイトル" %><br>
-    <%= f.text_field :title %><br>
+    <%= f.text_field :title, :required => true %><br>
     <%= f.label :content,"内容" %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :required => true %>
     <%= f.submit "新規投稿する",:class => "btn btn-info" %>
     <% end %>
   </div>
-  
-  <div class="right">
-    <h2>オススメ記事</h2>
-    <ul class="post">
-      <% @posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-      <li class="post-item clearfix">
-        <img src="<%="/post_images/#{post.image}" %>">
-        <p><%= post.title %></p>
-      </li>
-      <% end %>
-      <% end %>
-    </ul>
-  </div>
+  <%= render partial: 'posts/post' %>
 </div>
 </main>

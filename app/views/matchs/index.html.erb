@@ -24,7 +24,7 @@
       (<%= @week[matchreq.match_date.wday] %>)　
       ●<%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %>　
       ●<%= matchreq.court.name %></h3>
-      <h3>●ランク　<%= matchreq.ranking.name %>　●カテゴリー　<%= matchreq.category.name %></h3>
+      <h3>●募集ランク　<%= matchreq.ranking.name %>　●募集カテゴリー　<%= matchreq.category.name %></h3>
       <h3>●応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
       <img src="<%= "/logo_images/#{matchreq.team.logo}" %>">
       <p><%= matchreq.team.name %></p>
@@ -32,19 +32,6 @@
     <% end %>
     <% end %>
   </div>
-    
-  <div class="right">
-    <h2>最新記事</h2>
-    <ul class="post">
-      <% @posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-      <li class="post-item clearfix">
-        <img src="<%="/post_images/#{post.image}" %>">
-        <p><%= post.title %></p>
-      </li>
-      <% end %>
-      <% end %>
-    </ul>
-  </div>
+  <%= render partial: 'posts/post' %>
 </div>
 </main>

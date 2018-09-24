@@ -21,6 +21,7 @@ class TeamsController < ApplicationController
   end
   
   def create
+    @posts = Post.all.order(created_at: :desc)
     logger.debug("xxxxxxxxxx = #{params[:team_info][:name]}")
     @teaminfo = TeamInfo.new(name: params[:team_info][:name],
                               logo: "default_logo.jpg",
@@ -40,11 +41,10 @@ class TeamsController < ApplicationController
       image = params[:team_info][:image]
       File.binwrite("public/logo_images/#{@teaminfo.logo}",logo.read)
       File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
-      
     end
     @teaminfo.save
     
-    @teamlevel = TeamLevel.new(team_id: @teaminfo.id,
+    @teamlevel = TeamLevel.new(team_info_id: @teaminfo.id,
                                 attack: params[:team_level][:attack],
                                 physical: params[:team_level][:physical],
                                 stamina: params[:team_level][:stamina],
@@ -53,6 +53,26 @@ class TeamsController < ApplicationController
                                 technique: params[:team_level][:technique]
                                 )
     @teamlevel.level = @teamlevel.attack.to_i + @teamlevel.physical.to_i + @teamlevel.stamina.to_i + @teamlevel.defense.to_i + @teamlevel.tactics.to_i + @teamlevel.technique.to_i
+    @teaminfo.rank = @teamlevel.level
+    
+    if @teaminfo.rank <= 60 && @teaminfo.rank >= 55
+            @teaminfo.rank = 1
+        elsif @teaminfo.rank <= 54 && @teaminfo.rank >=48 
+            @teaminfo.rank = 2
+        elsif @teaminfo.rank <= 47 && @teaminfo.rank >= 41
+            @teaminfo.rank = 3
+        elsif @teaminfo.rank <= 40 && @teaminfo.rank >= 34
+            @teaminfo.rank = 4
+        elsif @teaminfo.rank <= 33 && @teaminfo.rank >= 27
+            @teaminfo.rank = 5
+        elsif @teaminfo.rank <= 26 && @teaminfo.rank >= 20
+            @teaminfo.rank = 6
+        elsif @teaminfo.rank <= 19 && @teaminfo.rank >= 13
+            @teaminfo.rank = 7
+        else
+            @teaminfo.rank = 8
+    end
+            
     if @teaminfo.save && @teamlevel.save
     redirect_to action: 'index'
     else
