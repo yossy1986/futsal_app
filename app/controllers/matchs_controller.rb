@@ -11,6 +11,8 @@ class MatchsController < ApplicationController
     @team = @matchreq.team
     @posts = Post.all.order(created_at: :desc)
     @week = Week
+    @applymatchs = ApplyMatch.all
+    @applymatch = ApplyMatch.new
   end
   
   def new

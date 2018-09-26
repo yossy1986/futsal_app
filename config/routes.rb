@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'rooms/show'
+  get 'apply_matchs/new' => 'apply_matchs#new'
+  post 'apply_matchs/create' => 'apply_matchs#create'
+  delete 'apply_matchs/destroy' => 'apply_matchs#destroy'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_222620) do
+ActiveRecord::Schema.define(version: 2018_09_25_215436) do
 
   create_table "apply_matches", force: :cascade do |t|
     t.integer "team_info_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_09_23_222620) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "comment"
   end
 
   create_table "cats", force: :cascade do |t|
@@ -31,14 +32,6 @@ ActiveRecord::Schema.define(version: 2018_09_23_222620) do
     t.integer "receive_team_id"
     t.integer "request_team_id"
     t.text "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "chat_messages", force: :cascade do |t|
-    t.integer "chat_link_id"
-    t.integer "team_id"
-    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,6 +60,12 @@ ActiveRecord::Schema.define(version: 2018_09_23_222620) do
     t.integer "req_cat"
     t.integer "req_rank"
     t.integer "req_team_num"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

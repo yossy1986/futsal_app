@@ -10,6 +10,7 @@ class TeamInfo < ApplicationRecord
       
      has_secure_password
      has_many :match_reqs
+     has_many :apply_matches
 
     def court
         Facility.find_by(id: self.facility)

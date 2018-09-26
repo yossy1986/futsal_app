@@ -17,6 +17,11 @@
         <p><%= @matchreq.content %></p>
       </div>
       <div class="ede">
+        <%= form_for @applymatch, url: apply_matchs_create_path do |f| %>
+        <%= f.label :comment %><br>
+        <%= f.text_area :comment %><br>
+        <%= f.submit "応募する", class: "btn btn-info" %>
+        <% end %>
         <%= link_to "編集","/matchs/#{@matchreq.id}/edit",class: "btn btn-info" %>
         <%= link_to "削除", match_path(@matchreq), :method => :delete, class: "btn btn-danger" %>
       </div>
@@ -24,62 +29,64 @@
     
     <h2>参加チーム</h2>
     <div class="team-list-flex">
-      <%= link_to team_path(:id) do %>
+      <%= link_to team_path(@matchreq.team_info) do %>
       <div class="team-list">
-        <h3>名古屋オーシャンズ</h3>
+        <h3><%= @matchreq.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <img class="img" src="/team.jpg">
+            <img class="img" src="<%= "/team_images/#{@matchreq.team_info.image}"%>">
           </div>
           <div class="team-list-right">
-            <img class="chart" src="/chart.jpg">
+            <p>ランク　<%= @matchreq.team_info.ranking.name %></p>
+            <p><%= @matchreq.team_info.prefecture.name %></p>
+            <p><%= @matchreq.team_info.court.name %></p>
+            <p><%= @matchreq.team_info.category.name %></p>
           </div>
         </div>
       </div>
       <% end %>
       
-      <%= link_to team_path(:id) do %>
+      <% @matchreq.apply_matches.each do |applymatch| %>
+      <% if applymatch.status == 1 %>
+      <%= link_to team_path(applymatch.team_info) do %>
       <div class="team-list">
-        <h3>名古屋オーシャンズ</h3>
+        <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <img class="img" src="/team.jpg">
+            <img class="img" src="<%= "/team_images/#{applymatch.team.image}" %>">
           </div>
           <div class="team-list-right">
-            <img class="chart" src="/chart.jpg">
+            <p><%= applymatch.team.ranking.name %></p>
+            <p><%= applymatch.team.prefecture.name %></p>
+            <p><%= applymatch.team.court.name %></p>
+            <p><%= applymatch.team.category.name %></p>
           </div>
         </div>
       </div>
+      <% end %>
+      <% end %>
       <% end %>
     </div>
     
     <h2>承認待ちチーム</h2>
     <div class="team-list-flex">
-      <%= link_to match_path(:id) do %>
+      <% @matchreq.apply_matches.each do |applymatch| %>
+      <%= link_to team_path(applymatch.team_info) do %>
       <div class="team-list">
-        <h3>名古屋オーシャンズ</h3>
+        <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <img class="img" src="/team.jpg">
+            <img class="img" src="<%= "/team_images/#{applymatch.team.image}" %>">
           </div>
           <div class="team-list-right">
-            <img class="chart" src="/chart.jpg">
+            <p><%= applymatch.team.ranking.name %></p>
+            <p><%= applymatch.team.prefecture.name %></p>
+            <p><%= applymatch.team.court.name %></p>
+            <p><%= applymatch.team.category.name %></p>
           </div>
         </div>
       </div>
       <% end %>
-      <%= link_to match_path(:id) do %>
-      <div class="team-list">
-        <h3>名古屋オーシャンズ</h3>
-        <div class="team-list-item">
-          <div class="team-list-left">
-            <img class="img" src="/team.jpg">
-          </div>
-          <div class="team-list-right">
-            <img class="chart" src="/chart.jpg">
-          </div>
-        </div>
-      </div>
       <% end %>
     </div>
   </div>
