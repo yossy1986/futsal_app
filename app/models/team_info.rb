@@ -11,6 +11,8 @@ class TeamInfo < ApplicationRecord
      has_secure_password
      has_many :match_reqs
      has_many :apply_matches
+     has_many :messages
+     has_many :chat_links
 
     def court
         Facility.find_by(id: self.facility)
@@ -24,6 +26,14 @@ class TeamInfo < ApplicationRecord
     def prefecture
         Pref.find_by(id: self.pref)
     end
+    
+    def serch
+    @teaminfo = TeamInfo.where(pref: pref)
+    @teaminfo = TeamInfo.where(facirity: facility)
+    @teaminfo = TeamInfo.where(rank: rank)
+    @teaminfo = TeamInfo.where(category: category)
+    end
+    
     
    
 end

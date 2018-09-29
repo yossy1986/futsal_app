@@ -7,51 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # coding: utf-8
 
-MatchReq.create(team_info_id: 1,
-                match_date: (Time.local(2018,10,10)),
-                start_time: (Time.local(2018,10,10,10,10,0)),
-                end_time: (Time.local(2018,10,10,12,12,0)),
-                pref: 1,
-                facility: 1,
-                req_cat: 1,
-                req_rank: 3,
-                req_team_num: 4,
-                content: "よろしくお願いします。"
-                )
-MatchReq.create(team_info_id: 2,
-                match_date: (Time.local(2018,9,1)),
-                start_time: (Time.local(2018,9,1,10,10,0)),
-                end_time: (Time.local(2018,9,1,12,12,0)),
-                pref: 2,
-                facility: 2,
-                req_cat: 2,
-                req_rank: 2,
-                req_team_num: 4,
-                content: "よろしくお願いします。"
-                )
-MatchReq.create(team_info_id: 3,
-                match_date: (Time.local(2018,9,3)),
-                start_time: (Time.local(2018,9,3,10,10,0)),
-                end_time: (Time.local(2018,9,3,12,12,0)),
-                pref: 3,
-                facility: 1,
-                req_cat: 3,
-                req_rank: 3,
-                req_team_num: 4,
-                content: "よろしくお願いします。"
-                )
-MatchReq.create(team_info_id: 4,
-                match_date: (Time.local(2018,9,22)),
-                start_time: (Time.local(2018,9,22,10,10,0)),
-                end_time: (Time.local(2018,9,22,12,12,0)),
-                pref: 2,
-                facility: 2,
-                req_cat: 4,
-                req_rank: 4,
-                req_team_num: 4,
-                content: "よろしくお願いします。"
-                )
-
 TeamInfo.create(name: "名古屋オーシャンズ",
                 logo: "logo1.jpg",
                 image: "team1.jpg",
@@ -173,45 +128,45 @@ TeamLevel.create(team_info_id: 4,
                   defense: 6,
                   tactics: 6,
                   technique: 6)
-Rank.create(id: 1,
+Rank.create(
             name: "SS")
-Rank.create(id: 2,
+Rank.create(
             name: "S")
-Rank.create(id: 3,
+Rank.create(
             name: "A")
-Rank.create(id: 4,
+Rank.create(
             name: "B")
-Rank.create(id: 5,
+Rank.create(
             name: "C")
-Rank.create(id: 6,
+Rank.create(
             name: "D")
-Rank.create(id: 7,
+Rank.create(
             name: "E")
-Rank.create(id: 8,
+Rank.create(
             name: "F")
-Pref.create(id: 1,
+Pref.create(
             name: "大阪府")
-Pref.create(id: 2,
+Pref.create(
             name: "兵庫県")
-Pref.create(id: 3,
+Pref.create(
             name: "京都府")
-Pref.create(id: 4,
+Pref.create(
             name: "滋賀県")
-Pref.create(id: 5,
+Pref.create(
             name: "奈良県")
-Pref.create(id: 6,
+Pref.create(
             name: "和歌山県")
-Cat.create(id: 1,
+Cat.create(
             name: "関西リーグ")
-Cat.create(id: 2,
+Cat.create(
             name: "都道府県リーグ")
-Cat.create(id: 3,
+Cat.create(
             name: "競技志向")
-Cat.create(id: 4,
+Cat.create(
             name: "エンジョイ")
-Cat.create(id: 5,
+Cat.create(
             name: "女子")
-Cat.create(id: 6,
+Cat.create(
             name: "MIX")
-Cat.create(id: 7,
+Cat.create(
             name: "U-18")

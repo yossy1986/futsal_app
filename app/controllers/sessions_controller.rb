@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    @posts = Post.all.order(created_at: :desc)
   end
   def create
     team = TeamInfo.find_by(email: params[:session][:email].downcase)

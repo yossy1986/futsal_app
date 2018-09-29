@@ -17,10 +17,10 @@
         <p><%= @matchreq.content %></p>
       </div>
       <div class="ede">
-        <%= form_for @applymatch, url: apply_matchs_create_path do |f| %>
-        <%= f.label :comment %><br>
-        <%= f.text_area :comment %><br>
-        <%= f.submit "応募する", class: "btn btn-info" %>
+        <%= form_tag("/apply_matchs/#{@matchreq.id}/create", :method => :post) do %>
+        <P>コメント</P>
+        <input name="comment" value="<%= @applymatch.comment %>"><br>
+        <input type="submit" value="応募する" class="btn btn-info">
         <% end %>
         <%= link_to "編集","/matchs/#{@matchreq.id}/edit",class: "btn btn-info" %>
         <%= link_to "削除", match_path(@matchreq), :method => :delete, class: "btn btn-danger" %>
@@ -71,7 +71,7 @@
     <h2>承認待ちチーム</h2>
     <div class="team-list-flex">
       <% @matchreq.apply_matches.each do |applymatch| %>
-      <%= link_to team_path(applymatch.team_info) do %>
+      <% if applymatch.status == 0 %>
       <div class="team-list">
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
@@ -86,6 +86,10 @@
           </div>
         </div>
       </div>
+      <%= form_tag("/apply_matchs/#{@matchreq.id}/update", :method => :patch) do %>
+        <input type="submit" value="承認する" class="btn btn-info">
+        <%= hidden_field_tag :team_info_id, applymatch.team_info_id  %> 
+        <% end %>
       <% end %>
       <% end %>
     </div>

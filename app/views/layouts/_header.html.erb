@@ -25,16 +25,16 @@
         <%= link_to "チーム",teams_path %>
       </li>
       <li class="awsome">
-        <%= link_to courts_path do %>
+        <%= link_to new_match_path do %>
         <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
         <% end %>
-        <%= link_to "マッチメイク","#" %>
+        <%= link_to "対戦作成", new_match_path %>
       </li>
       <li class="awsome">
-        <%= link_to posts_path do %>
+        <%= link_to rooms_path do %>
         <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
         <% end %>
-        <%= link_to "やりとり", "#"%>
+        <%= link_to "やりとり", rooms_path%>
       </li>
       <li class="hidden">
         <%= link_to posts_path do %>
@@ -115,10 +115,10 @@
             <%= link_to "チーム",teams_path %>
           </li>
           <li>
-            <%= link_to courts_path do %>
+            <%= link_to new_match_path do %>
             <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
             <% end %>
-            <%= link_to "マッチメイク",courts_path %>
+            <%= link_to "対戦作成",new_match_path %>
           </li>
           <li>
             <%= link_to posts_path do %>
@@ -134,7 +134,7 @@
           </li>
           <li>
             <%= link_to posts_path do %>
-            <i class="fas fa-volume-up fa-2x" style="color: #81D59E;"></i>
+            <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
             <% end %>
             <%= link_to "ニュース",posts_path %>
           </li>

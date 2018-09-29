@@ -1,0 +1,15 @@
+<main>
+<div class="advertising">
+    <img src="/banner.jpg" width="100%">
+</div>
+<div class="wrapper matchs new">
+  <div class="left">
+    <h2>チャット一覧</h2>
+      <% @rooms.each do |room| %>
+        <%= room.id %>
+        <hr>
+      <% end %>
+  </div>
+  <%= render partial: 'posts/post' %>
+</div>
+</main>

@@ -2,16 +2,14 @@ class PostsController < ApplicationController
   
   PER = 5
   def index
-    @posts = Post.page(params[:page]).per(PER).order(created_at: :desc)
+    @posts = Post.page(params[:page]).per(PER)
   end
 
   def show
-    @posts = Post.all.order(created_at: :desc)
     @post = Post.find_by(id: params[:id])
   end
   
   def new
-    @posts = Post.all.order(created_at: :desc)
     @post = Post.new
   end
   
@@ -29,7 +27,6 @@ class PostsController < ApplicationController
   end
   
   def edit
-    @posts = Post.all.order(created_at: :desc)
     @post = Post.find_by(id: params[:id])
   end
   
@@ -50,7 +47,6 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = Post.find_by(id: params[:id])
     @post.destroy
     redirect_to action: 'index'
   end

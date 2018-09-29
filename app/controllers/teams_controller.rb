@@ -1,27 +1,34 @@
 class TeamsController < ApplicationController
   def index
-    @teaminfos = TeamInfo.all.order(created_at: :desc)
+    @teaminfos = TeamInfo.all
     @teaminfo = TeamInfo.new
-    @posts = Post.all.order(created_at: :desc)
     @week = Week
+  end
+  
+  def serch
+    @teaminfo = TeamInfo.new
+    @week = Week
+    @teaminfos =TeamInfo.all
+    if params[:team_info]
+    @teaminfos = @teaminfo.serch
+  else
+    @teaminfos =TeamInfo.all
+    end
   end
 
   def show
     @teaminfo = TeamInfo.find_by(id: params[:id])
     @teamlevel = TeamLevel.find_by(id: params[:id])
-    @posts = Post.all.order(created_at: :desc)
     @week = Week
     gon.data = [@teamlevel.attack,@teamlevel.physical,@teamlevel.stamina,@teamlevel.defense,@teamlevel.tactics,@teamlevel.technique]
   end
   
   def new
-    @posts = Post.all.order(created_at: :desc)
     @teaminfo = TeamInfo.new
     @teamlevel = TeamLevel.new
   end
   
   def create
-    @posts = Post.all.order(created_at: :desc)
     logger.debug("xxxxxxxxxx = #{params[:team_info][:name]}")
     @teaminfo = TeamInfo.new(name: params[:team_info][:name],
                               logo: "default_logo.jpg",
@@ -81,7 +88,6 @@ class TeamsController < ApplicationController
   end
   
   def edit
-    @posts = Post.all.order(created_at: :desc)
     @teaminfo = TeamInfo.find_by(id: params[:id])
   end
   

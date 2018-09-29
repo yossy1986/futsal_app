@@ -1,7 +1,7 @@
 class MatchsController < ApplicationController
   def index
+
     @matchreqs = MatchReq.all.order(created_at: :desc)
-    @posts = Post.all.order(created_at: :desc)
     @matchreq = MatchReq.new
     @week = Week
   end
@@ -9,14 +9,12 @@ class MatchsController < ApplicationController
   def show
     @matchreq = MatchReq.find_by(id: params[:id])
     @team = @matchreq.team
-    @posts = Post.all.order(created_at: :desc)
     @week = Week
     @applymatchs = ApplyMatch.all
     @applymatch = ApplyMatch.new
   end
   
   def new
-    @posts = Post.all.order(created_at: :desc)
     @matchreq = MatchReq.new
   end
   
@@ -47,11 +45,13 @@ class MatchsController < ApplicationController
                                           params[:match_req]["end_time(4i)"].to_i,
                                           params[:match_req]["end_time(5i)"].to_i)
     @matchreq.save
+    
+    @room = Room.create
+    @chatlink = ChatLink.create(team_info_id: @current_team.id,room_id: @room.id)
     redirect_to action: "index"
   end
   
   def edit
-    @posts = Post.all.order(created_at: :desc)
     @matchreq = MatchReq.find_by(id: params[:id])
   end
   

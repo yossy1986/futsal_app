@@ -2,12 +2,10 @@ class CourtsController < ApplicationController
   def index
     @courts = Facility.all.order(created_at: :desc)
     @court = Facility.new
-    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
     @court = Facility.find_by(id: params[:id])
-    @posts = Post.all.order(created_at: :desc)
   end
   
   def new
@@ -36,7 +34,6 @@ class CourtsController < ApplicationController
   def edit
     @courts = Facility.all.order(created_at: :desc)
     @court = Facility.find_by(id: params[:id])
-    @posts = Post.all.order(created_at: :desc)
   end
   
   def update

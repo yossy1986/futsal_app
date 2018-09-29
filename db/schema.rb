@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_25_215436) do
+ActiveRecord::Schema.define(version: 2018_09_27_212459) do
 
   create_table "apply_matches", force: :cascade do |t|
     t.integer "team_info_id"
     t.integer "match_req_id"
-    t.string "status"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "comment"
@@ -28,10 +28,8 @@ ActiveRecord::Schema.define(version: 2018_09_25_215436) do
   end
 
   create_table "chat_links", force: :cascade do |t|
-    t.integer "match_req_id"
-    t.integer "receive_team_id"
-    t.integer "request_team_id"
-    t.text "comment"
+    t.integer "room_id"
+    t.integer "team_info_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,6 +67,8 @@ ActiveRecord::Schema.define(version: 2018_09_25_215436) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "team_info_id"
+    t.integer "room_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -87,6 +87,11 @@ ActiveRecord::Schema.define(version: 2018_09_25_215436) do
 
   create_table "ranks", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
