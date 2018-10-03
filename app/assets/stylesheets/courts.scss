@@ -63,6 +63,23 @@
 .new form #facility_image {
     background:#fff;
 }
+
+.court-detail table {
+    width:100%;
+    margin-top:30px;
+}
+
+.court-detail tr {
+    border-bottom:1px solid #EFEFEF;
+}
+.court-detail th {
+    width:150px;
+    padding:12px;
+    vertical-align:top;
+}
+.court-detail table p {
+    padding:12px 24px 12px 0;
+}
 @media screen and ( max-width:576px ) {
     
 .court-list-right {
@@ -77,4 +94,10 @@
     font-size:12px;
 }
 
+.court-detail table {
+    font-size:70%;
+}
+.court-detail th {
+    width:100px;
+}
 }

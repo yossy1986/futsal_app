@@ -1,7 +1,5 @@
 <main>
-<div class="advertising">
-    <img src="/banner.jpg" width="100%">
-</div>
+<%= render partial: 'layouts/advertising' %>
 <div class="wrapper matchs new">
   <div class="left">
     <h2>対戦募集作成</h2>
@@ -22,7 +20,7 @@
       <%= f.collection_select :req_rank, Rank.all, :id, :name %><br>
       <%= f.label :req_team_num,"募集チーム数" %><br>
       <%= f.select :req_team_num,[1,2,3,4,5,6,7,8] %><br>
-      <%= f.label :content,"募集詳細" %><br>
+      <%= f.label :content,"募集詳細" %><span>※</span><br>
       <%= f.text_area :content, :required  => true%><br>
       <%= f.submit "対戦募集を作成する" ,:class => "btn btn-info"%>
       <% end %>

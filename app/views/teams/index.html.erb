@@ -1,7 +1,5 @@
 <main>
-<div class="advertising">
-<img src="/banner.jpg" width="100%">
-</div>
+<%= render partial: 'layouts/advertising' %>
 <div class="wrapper teams">
   <div class="left">
     <h2>チーム検索</h2>
@@ -26,10 +24,24 @@
             <img class="img" src="<%= "/team_images/#{teaminfo.image}" %>">
           </div>
           <div class="team-list-right">
-            <p><%= teaminfo.ranking.name %></p>
-            <p><%= teaminfo.prefecture.name %></p>
-            <p><%= teaminfo.court.name %></p>
-            <p><%= teaminfo.category.name %></p>
+            <table>
+              <tr>
+                <th><i class="fas fa-medal"></i></th>
+                <td><%= teaminfo.ranking.name %></td>
+              </tr>
+              <tr>
+                <th><i class="fas fa-map-marker-alt"></i></th>
+                <td><%= teaminfo.prefecture.name %></td>
+              </tr>
+              <tr>
+                <th><i class="fas fa-map-marked-alt"></i></th>
+                <td><%= teaminfo.court.name %></td>
+              </tr>
+              <tr>
+                <th><i class="fas fa-futbol"></i></th>
+                <td><%= teaminfo.category.name %></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

@@ -1,14 +1,24 @@
 class MatchsController < ApplicationController
-  def index
+  before_action :authenticate_team,{only:[:new,:create,:edit,:update,:destroy]}
 
+  def index
     @matchreqs = MatchReq.all.order(created_at: :desc)
     @matchreq = MatchReq.new
     @week = Week
   end
+  
+  def index_second
+    if params[:match_req][:pref].nil?
+      logger.debug("--------- params[:match_req][:pref] = #{params[:match_req][:pref]}")
+    end
+    @matchreqs = MatchReq.all.order(created_at: :desc)
+    @matchreq = MatchReq.new
+    @week = Week
+    render("matchs/index")
+  end
 
   def show
     @matchreq = MatchReq.find_by(id: params[:id])
-    @team = @matchreq.team
     @week = Week
     @applymatchs = ApplyMatch.all
     @applymatch = ApplyMatch.new
@@ -44,15 +54,20 @@ class MatchsController < ApplicationController
                                           params[:match_req]["end_time(3i)"].to_i,
                                           params[:match_req]["end_time(4i)"].to_i,
                                           params[:match_req]["end_time(5i)"].to_i)
-    @matchreq.save
+    if @matchreq.save
     
-    @room = Room.create
-    @chatlink = ChatLink.create(team_info_id: @current_team.id,room_id: @room.id)
-    redirect_to action: "index"
+      @room = Room.create(match_req_id: @matchreq.id)
+      @chatlink = ChatLink.create(team_info_id: @current_team.id,room_id: @room.id)
+      flash[:notice] = "対戦募集を作成しました"
+      redirect_to action: "index"
+    else
+      render action: "new"
+    end
   end
   
   def edit
     @matchreq = MatchReq.find_by(id: params[:id])
+    @week = Week
   end
   
   def update
@@ -82,8 +97,12 @@ class MatchsController < ApplicationController
                                           params[:match_req]["end_time(3i)"].to_i,
                                           params[:match_req]["end_time(4i)"].to_i,
                                           params[:match_req]["end_time(5i)"].to_i)
-    @matchreq.save
-    redirect_to action: "index"
+    if @matchreq.save
+      flash[:notice] = "対戦募集を変更しました  "
+      redirect_to action: "index"
+    else
+      render action: "edit"
+    end
   end
   
   def destroy

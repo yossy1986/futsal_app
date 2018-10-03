@@ -1,6 +1,7 @@
 class MatchReq < ApplicationRecord
     belongs_to :team_info
-    has_many :apply_matches
+    has_many :apply_matches, dependent: :destroy
+    has_one :room, dependent: :destroy
     validates :content, presence: true
     def team
         TeamInfo.find_by(id: self.team_info_id)

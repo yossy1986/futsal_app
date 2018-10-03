@@ -1,15 +1,13 @@
 <main>
-<div class="advertising">
-  <img src="/banner.jpg" width="100%">
-</div>
+<%= render partial: 'layouts/advertising' %>
 <div class="wrapper teams new">
   <div class="left">
     <h2>ログイン</h2>
     <%= form_for(:session, url: login_path) do |f| %>
     <%= f.label :email %><br>
-    <%= f.email_field :email %><br>
+    <%= f.email_field :email, :required => true %><br>
     <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
+    <%= f.password_field :password, :required => true %><br>
     <%= f.submit "ログイン", class: "btn btn-info" %>
     <% end %>
   </div>

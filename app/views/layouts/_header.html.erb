@@ -26,15 +26,15 @@
       </li>
       <li class="awsome">
         <%= link_to new_match_path do %>
-        <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+        <i class="far fa-handshake fa-2x" style="color: #65222B;"></i>
         <% end %>
         <%= link_to "対戦作成", new_match_path %>
       </li>
       <li class="awsome">
         <%= link_to rooms_path do %>
-        <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+        <i class="far fa-comment-dots fa-2x" style="color: #5BC44E;"></i>
         <% end %>
-        <%= link_to "やりとり", rooms_path%>
+        <%= link_to "メッセージ", rooms_path%>
       </li>
       <li class="hidden">
         <%= link_to posts_path do %>
@@ -43,7 +43,7 @@
         <%= link_to "ニュース",posts_path %>
       </li>
       <li class="hidden">
-        <i class="fas fa-key fa-2x text-success"></i>
+        <i class="fas fa-user fa-2x" style="color:#54B4C6;"></i>
         <%= link_to "マイページ", "/teams/#{@current_team.id}" %>
       </li>
       
@@ -116,15 +116,15 @@
           </li>
           <li>
             <%= link_to new_match_path do %>
-            <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+            <i class="far fa-handshake fa-2x" style="color: #65222B;"></i>
             <% end %>
             <%= link_to "対戦作成",new_match_path %>
           </li>
           <li>
             <%= link_to posts_path do %>
-            <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
+            <i class="far fa-comment-dots fa-2x" style="color: #5BC44E"></i>
             <% end %>
-            <%= link_to "やりとり",posts_path %>
+            <%= link_to "メッセージ",posts_path %>
           </li>
           <li>
             <%= link_to courts_path do %>
@@ -139,6 +139,12 @@
             <%= link_to "ニュース",posts_path %>
           </li>
           <li>
+            <%= link_to logout_path, method: :delete do %>
+            <i class="fas fa-unlock-alt fa-2x"></i>
+            <% end %>
+            <%= link_to "ログアウト",posts_path %>
+          </li>
+          <li>
             <a>利用規約</a>
           </li>
           <li>
@@ -149,9 +155,6 @@
           </li>
           <li>
             <a>広告主募集</a>
-          </li>
-          <li>
-            <%= link_to "ログアウト", logout_path, method: :delete %>
           </li>
           
           <!--ログアウト-->

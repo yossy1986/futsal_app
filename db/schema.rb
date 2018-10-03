@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_212459) do
+ActiveRecord::Schema.define(version: 2018_10_02_013004) do
 
   create_table "apply_matches", force: :cascade do |t|
     t.integer "team_info_id"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2018_09_27_212459) do
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "match_req_id"
   end
 
   create_table "team_infos", force: :cascade do |t|

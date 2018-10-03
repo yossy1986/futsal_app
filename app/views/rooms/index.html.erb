@@ -1,13 +1,18 @@
 <main>
-<div class="advertising">
-    <img src="/banner.jpg" width="100%">
-</div>
-<div class="wrapper matchs new">
+<%= render partial: 'layouts/advertising' %>
+<div class="wrapper rooms new">
   <div class="left">
-    <h2>チャット一覧</h2>
+    <h2>メッセージ一覧</h2>
       <% @rooms.each do |room| %>
-        <%= room.id %>
-        <hr>
+      <% if ChatLink.find_by(team_info_id: @current_team.id,room_id: room.id) %>
+        <%= link_to room_path(room) do %>
+        <div class="match-list">
+        <h3><%= room.match_req.match_date.strftime("%-m月%-d日") %>　
+        <%= room.match_req.start_time.strftime("%R") %>〜<%= room.match_req.end_time.strftime("%R") %>　
+        <%= room.match_req.court.name %></h3>
+        <% end %>
+        </div>
+      <% end %>
       <% end %>
   </div>
   <%= render partial: 'posts/post' %>

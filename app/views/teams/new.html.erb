@@ -1,7 +1,5 @@
 <main>
-<div class="advertising">
-  <img src="/banner.jpg" width="100%">
-</div>
+<%= render partial: 'layouts/advertising' %>
 <div class="wrapper teams new">
   <div class="left">
     <h2>新規登録</h2>
@@ -9,13 +7,9 @@
   <%= message %>
 <% end %>
     <%= form_for @teaminfo, url: teams_path  do |f| %>
-    <%= f.label :email,"メールアドレス" %><br>
-    <%= f.email_field :email, :required => true %><br>
-    <%= f.label :password,"パスワード" %><br>
-    <%= f.password_field :password, :required => true %><br>
-    <%= f.label :name,"チーム名" %><br>
+    <%= f.label :name,"チーム名(25文字以内)" %><span>※</span><br>
     <%= f.text_field :name, :required => true %><br>
-    <%= f.label :logo,"ロゴ" %><br>
+    <%= f.label :logo,"チームロゴ" %><br>
     <%= f.file_field :logo %><br>
     <%= f.label :image,"チーム写真" %><br>
     <%= f.file_field :image %><br>
@@ -41,7 +35,11 @@
     <%= teamlevel.label:technique,"テクニック" %><br>
     <%= teamlevel.select :technique,(1..10) %><br>
     <% end %>
-    <%= f.label :comment,"チーム紹介" %><br>
+    <%= f.label :email,"メールアドレス" %><span>※</span><br>
+    <%= f.email_field :email, :required => true %><br>
+    <%= f.label :password,"パスワード" %><span>※</span><br>
+    <%= f.password_field :password, :required => true %><br>
+    <%= f.label :comment,"チーム紹介" %><span>※</span><br>
     <%= f.text_area :comment, :required => true %><br>
     <%= f.submit "新規登録する" ,:class => "btn btn-info" %>
     <% end %>

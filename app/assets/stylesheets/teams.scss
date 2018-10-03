@@ -25,20 +25,20 @@
     box-shadow: 0 0 2px rgba(150, 150, 150, 0.1);
 }
 
-table {
+.team-detail table {
     width:100%;
     margin-top:30px;
 }
 
-tr {
+.team-detail tr {
     border-bottom:1px solid #EFEFEF;
 }
-th {
+.team-detail th {
     width:150px;
     padding:12px;
     vertical-align:top;
 }
-table p {
+.team-detail table p {
     padding:12px 24px 12px 0;
 }
 .team-list h3 {
@@ -55,9 +55,21 @@ table p {
 
 .team-list-right {
     width:50%;
+    padding-left:10px;
+}
+.team-list-right p {
+    margin-bottom:5px;
+    font-size:14px;
+}
+.team-list-right th {
+    font-size:14px;
+    padding-right:5px;
+    vertical-align:top;
     text-align:center;
 }
-
+.team-list-right tr {
+    font-size:14px;
+}
 .team-list-left .img {
     width:100%;
     height:auto;
@@ -87,10 +99,10 @@ table p {
 .team-list-flex a {
     width:100%;
 }
-table {
+.team-detail table {
     font-size:70%;
 }
-th {
+.team-detail th {
     width:100px;
 }
 

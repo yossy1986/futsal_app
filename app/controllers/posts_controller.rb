@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+      before_action :authenticate_team,{only:[:new,:create,:edit,:update,:destroy]}
+
   
   PER = 5
   def index

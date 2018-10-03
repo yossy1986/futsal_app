@@ -7,7 +7,23 @@ class ApplicationController < ActionController::Base
     end
     
     def set_current_team
+      if session[:team_id]
         @current_team = TeamInfo.find_by(id: session[:team_id])
+      end
+    end
+    
+    def authenticate_team
+      if @current_team == nil
+          flash[:notice] = "ログインが必要です"
+          redirect_to("/login")
+      end
+    end
+    
+    def forbid_login_team
+      if @current_team
+        flash[:notice] = "すでにログインしています"
+        redirect_to matchs_path
+      end
     end
     
     include SessionsHelper

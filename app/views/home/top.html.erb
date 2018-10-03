@@ -1,9 +1,15 @@
+
 <div class="jumbotron">
   <div class="container">
+    <% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
     <h1 class="display-3">フットサルとは</h1>
     <p>フットサルの対戦相手を手軽に探せるマッチングサービスです。</p>
     <p><%= link_to "新規登録",new_team_path ,class: "btn btn-primary btn-lg"%>
-    <a class="btn btn-success btn-lg" href="#" role="button">ログイン &raquo;</a></p>
+    <%= link_to "ログイン ",login_path ,class: "btn btn-success btn-lg"%></p>
   </div>
 </div>
 <div class="main">

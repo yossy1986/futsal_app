@@ -1,17 +1,11 @@
 <main>
-<div class="advertising">
-  <img src="/banner.jpg" width="100%">
-</div>
+<%= render partial: 'layouts/advertising' %>
 <div class="wrapper teams new">
   <div class="left">
     <h2>チーム編集</h2>
     <%= form_for @teaminfo, url: team_path do |f| %>
-    <%= f.label :email,"メールアドレス" %><br>
-    <%= f.email_field :email %><br>
-    <%= f.label :password,"パスワード" %><br>
-    <%= f.password_field :password %><br>
     <%= f.label :name,"チーム名" %><br>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name, :required => true %><br>
     <%= f.label :logo,"ロゴ" %><br>
     <%= f.file_field :logo %><br>
     <%= f.label :image,"チーム写真" %><br>
@@ -38,9 +32,13 @@
     <%= teamlevel.label:technique,"テクニック" %><br>
     <%= teamlevel.select :technique,(1..10) %><br>
     <% end %>
+        <%= f.label :email,"メールアドレス" %><br>
+    <%= f.email_field :email, :required => true %><br>
+    <%= f.label :password,"パスワード" %><br>
+    <%= f.password_field :password, :required => true %><br>
     <%= f.label :comment,"チーム紹介" %><br>
-    <%= f.text_area :comment %><br>
-    <%= f.submit "編集する" ,:class => "btn btn-info" %>
+    <%= f.text_area :comment, :required => true %><br>
+    <%= f.submit "プロフィールを変更する" ,:class => "btn btn-info" %>
     <% end %>
   </div>
   <%= render partial: 'posts/post' %>

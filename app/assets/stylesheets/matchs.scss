@@ -40,6 +40,7 @@ main {
     width:100%;
     background:#fff;
     padding:10px;
+    padding-left:30px;
 }
 
 .detail {
@@ -69,6 +70,28 @@ main {
 .new #match_req_end_time_5i {
     width:60px;
 }
+
+.ede textarea {
+    width:300px;
+    height:200px;
+}
+
+.apply-comment {
+    width:51%;
+    margin-bottom:10px;
+    padding:10px;
+    text-align:left;
+    background:#fff;
+    box-shadow: 0 0 2px rgba(150, 150, 150, 0.1);
+}
+.apply-comment form {
+    text-align:center;
+
+}
+.apply-comment p {
+    margin-bottom:5px;
+    font-size:12px;
+}
 @media screen and ( max-width:576px ) {
 
 .match-list h3,.match-detail h3 {
@@ -80,5 +103,9 @@ main {
 .match-list img {
     width:30px;
     height:30px;
+}
+
+.apply-comment {
+    width:100%;
 }
 }

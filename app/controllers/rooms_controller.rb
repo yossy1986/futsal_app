@@ -1,7 +1,10 @@
 class RoomsController < ApplicationController
+      before_action :authenticate_team
+
   def index
     @rooms = Room.all
   end
+  
   def show
     @room = Room.find(params[:id])
     @message = Message.new
@@ -13,11 +16,14 @@ class RoomsController < ApplicationController
       redirect_to action: 'index'
     end
   end
+  
   def create
   end
+  
   def edit
     @room = Room.find(params[:id])
   end
+  
   def update
   end
 end
