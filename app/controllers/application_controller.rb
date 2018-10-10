@@ -26,6 +26,11 @@ class ApplicationController < ActionController::Base
       end
     end
     
+    private
+    def admin_team
+      redirect_to("/matchs") unless set_current_team.admin?
+    end
+    
     include SessionsHelper
     
     Week = ["日", "月", "火", "水", "木", "金", "土"]

@@ -6,6 +6,11 @@
     border-left:6px solid #FB9C1E;
 }
 
+.chart {
+    margin-top:50px;
+    width:90%;
+}
+
 .team-list {
     margin-bottom:10px;
     padding:10px;
@@ -13,6 +18,7 @@
     text-align:left;
     background:#fff;
     box-shadow: 0 0 2px rgba(150, 150, 150, 0.1);
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
 }
 .team-list:hover {
     opacity: .7;
@@ -41,9 +47,19 @@
 .team-detail table p {
     padding:12px 24px 12px 0;
 }
+.team-detail h3 {
+    background:#FB9C1E;
+    line-height: 1.5;
+    color:#fff;
+    border-radius:5px;
+    font-size:20px;
+}
 .team-list h3 {
     font-size:16px;
-    font-weight:bold;
+    background:#FB9C1E;
+    line-height: 1.5;
+    color:#fff;
+    border-radius:5px;
 }
 .team-list-item {
     display:flex;
@@ -74,7 +90,13 @@
     width:100%;
     height:auto;
 }
-
+.team-list-right .img {
+    width:50%;
+    height:auto;
+}
+.team-show {
+    display:flex;
+}
 .team-list-right .chart {
     width:100%;
     height:auto;
@@ -97,8 +119,9 @@
     flex-direction:column;
 }
 .team-list-flex a {
-    width:100%;
+    width:auto;
 }
+
 .team-detail table {
     font-size:70%;
 }
@@ -115,10 +138,22 @@
 .new form textarea {
     width:100%;
 }
+.team-show-left {
+    width:100%;
+}
+.team-show-right {
+    width:100%;
+}
+.chart {
+    margin-top:50px;
+    width:100%;
+}
 }
 
 @media screen and ( max-width:768px ) {
 .team-list-right p {
     font-size:12px;
 }
+
+
 }

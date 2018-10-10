@@ -4,8 +4,8 @@
   <div class="left">
     <h2>新規登録</h2>
     <% @teaminfo.errors.full_messages.each do |message| %>
-  <%= message %>
-<% end %>
+    <%= message %>
+    <% end %>
     <%= form_for @teaminfo, url: teams_path  do |f| %>
     <%= f.label :name,"チーム名(25文字以内)" %><span>※</span><br>
     <%= f.text_field :name, :required => true %><br>

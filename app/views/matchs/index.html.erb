@@ -21,11 +21,10 @@
       <h3><i class="far fa-calendar-alt"></i>　<%= matchreq.match_date.strftime("%-m月%-d日") %>
       (<%= @week[matchreq.match_date.wday] %>)　
       <%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %>　
-      <i class="fas fa-map-marked-alt"></i>　<%= matchreq.court.name %></h3>
+      <i class="fas fa-map-marked-alt"></i>　<%= matchreq.facility.name %></h3>
       <h3><i class="fas fa-medal"></i>　募集ランク　<%= matchreq.ranking.name %>　<i class="fas fa-futbol"></i>　募集カテゴリー　<%= matchreq.category.name %></h3>
-      <h3><i class="fas fa-stopwatch"></i>　応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　<i class="fas fa-search-plus"></i>　募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
-      <img src="<%= "/logo_images/#{matchreq.team.logo}" %>">
-      <p><%= matchreq.team.name %></p>
+      <img src="<%= "/logo_images/#{matchreq.team_info.logo}" %>">
+      <p><%= matchreq.team_info.name %></p>
       </div>
     <% end %>
     <% end %>

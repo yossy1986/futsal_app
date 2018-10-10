@@ -5,4 +5,5 @@ class TeamLevel < ApplicationRecord
     validates :defense, presence: true
     validates :tactics, presence: true
     validates :technique, presence: true
+    belongs_to :team_info, optional: true 
 end

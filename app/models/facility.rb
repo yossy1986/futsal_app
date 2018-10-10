@@ -1,9 +1,6 @@
 class Facility < ApplicationRecord
-    
-    def court
-        Facility.find_by(id: self.facility)
-    end
-    def prefecture
-        Pref.find_by(id: self.pref)
-    end
+    belongs_to :pref
+    has_many :team_info
+    has_many :match_reqs
+
 end

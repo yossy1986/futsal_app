@@ -16,14 +16,13 @@ main {
     width:100%;
     text-align:left;
     background:#fff;
-    box-shadow: 0 0 2px rgba(150, 150, 150, 0.1);
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
 }
 .match-list:hover {
     opacity: .7;
 }
 .match-list h3,.match-detail h3{
     font-size:16px;
-    font-weight:bold;
 }
 
 .match-list img {
@@ -82,15 +81,25 @@ main {
     padding:10px;
     text-align:left;
     background:#fff;
-    box-shadow: 0 0 2px rgba(150, 150, 150, 0.1);
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
+    position:relative;
 }
 .apply-comment form {
-    text-align:center;
-
+    display:inline-block;
+    position:absolute;
+    bottom:5px;
+    right:10px;
 }
+.apply-comment a {
+   
+}
+
 .apply-comment p {
     margin-bottom:5px;
     font-size:12px;
+}
+.comment-btn {
+    height:30px;
 }
 @media screen and ( max-width:576px ) {
 
@@ -105,7 +114,55 @@ main {
     height:30px;
 }
 
+.match-detail a {
+    font-size:10px;
+}
 .apply-comment {
     width:100%;
+    margin-top:-10px;
 }
+
 }
+
+#open {
+    position:absolute;
+    bottom:5px;
+    left:10px;
+    color: #fff;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal {
+  background: #fff;
+  width: 500px;
+  padding-left: 30px;
+  border-radius: 4px;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 ;
+  transition: .8s;
+  z-index: 2;
+}
+
+#modal p {
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+#mask.aa {
+  display: none;
+}
+
+#modal.aa {
+  transform: translate(0, -500px);}

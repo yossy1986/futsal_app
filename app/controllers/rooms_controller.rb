@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @message = Message.new
     if ChatLink.where(team_info_id: @current_team.id, room_id: @room.id).present?
-    @messages = @room.messages
+    @messages = @room.messages.order(created_at: :desc)
     @message = Message.new
     else
       flash[:alert] = "無効なユーザー"

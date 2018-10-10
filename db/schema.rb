@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_02_013004) do
+ActiveRecord::Schema.define(version: 2018_10_10_025230) do
 
   create_table "apply_matches", force: :cascade do |t|
     t.integer "team_info_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_013004) do
   create_table "facilities", force: :cascade do |t|
     t.string "image"
     t.string "name"
-    t.integer "pref"
+    t.integer "pref_id"
     t.string "address"
     t.string "tel"
     t.string "site"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_013004) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "pref"
-    t.integer "facility"
+    t.integer "facility_id"
     t.integer "req_cat"
     t.integer "req_rank"
     t.integer "req_team_num"
@@ -101,16 +101,17 @@ ActiveRecord::Schema.define(version: 2018_10_02_013004) do
     t.string "name"
     t.string "logo"
     t.string "image"
-    t.integer "pref"
-    t.integer "facility"
-    t.integer "cat"
-    t.integer "rank"
+    t.integer "pref_id"
+    t.integer "facility_id"
+    t.integer "cat_id"
+    t.integer "rank_id"
     t.integer "age_ave"
     t.text "comment"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
   end
 
   create_table "team_levels", force: :cascade do |t|

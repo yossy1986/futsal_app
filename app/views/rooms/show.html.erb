@@ -1,26 +1,25 @@
 <main>
 <%= render partial: 'layouts/advertising' %>
-<div class="wrapper matchs new">
+<div class="wrapper rooms new">
   <div class="left">
     <h2>チャット</h2>
     <% if @messages.present? %>
       <% @messages.each do |message| %>
       <% if message.team_info_id == @current_team.id %>
-        <h4 class="text-right">
-        <p class="alert alert-success">
+        <div class="text-right">
+        <p><%= message.created_at.strftime('%m/%d %H:%M') %></p>
+        <p class="alert">
         <%= message.content %>
-        <br><br>
-        <small><strong><%= message.team_info.name %></strong></small>
         </p>
-        </h4>
+        </div>
       <% else %>
-        <h4 class="text-left">
+        <div class="text-left">
+        <h3><%= message.team_info.name %></h3>
         <p class="alert alert-info">
         <%= message.content %>
-        <br><br>
-        <small><strong><%= message.team_info.name %></strong></small>
         </p>
-        </h4>
+        <p><%= message.created_at.strftime('%m/%d %H:%M') %></p>
+        </div>
       <% end %>
       <% end %>
     <% else %>

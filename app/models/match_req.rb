@@ -2,13 +2,9 @@ class MatchReq < ApplicationRecord
     belongs_to :team_info
     has_many :apply_matches, dependent: :destroy
     has_one :room, dependent: :destroy
+    belongs_to :facility
     validates :content, presence: true
-    def team
-        TeamInfo.find_by(id: self.team_info_id)
-    end
-    def court
-        Facility.find_by(id: self.facility)
-    end
+
     def category
         Cat.find_by(id: self.req_cat)
     end

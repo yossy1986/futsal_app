@@ -24,9 +24,23 @@ class ApplyMatchsController < ApplicationController
     @applymatch = ApplyMatch.find_by(match_req_id: params[:id],team_info_id: params[:team_info_id])
     @applymatch.status = 1
     if @applymatch.save
-      
-      @chatlink = ChatLink.create(room_id: @applymatch.match_req_id,team_info_id: @applymatch.team_info_id,)
+      @chatlink = ChatLink.new(room_id: @applymatch.match_req_id,team_info_id: @applymatch.team_info_id)
+      @chatlink.save
       flash[:notice] = "#{@applymatch.team_info.name}が参加しました"
+      redirect_to("/matchs/#{@matchreq.id}")
+    else
+      render("matchs")
+    end
+  end
+  
+  def remove
+    @matchreq = MatchReq.find_by(id: params[:id])
+    @applymatch = ApplyMatch.find_by(match_req_id: params[:id],team_info_id: params[:team_info_id])
+    @applymatch.status = 0
+    if @applymatch.save
+      @chatlink = ChatLink.find_by(room_id: @applymatch.match_req_id,team_info_id: @applymatch.team_info_id)
+      @chatlink.destroy
+      flash[:notice] = "#{@applymatch.team_info.name}を参加チームから外しました"
       redirect_to("/matchs/#{@matchreq.id}")
     else
       render("matchs")

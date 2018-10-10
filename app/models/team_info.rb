@@ -14,20 +14,12 @@ class TeamInfo < ApplicationRecord
     has_many :apply_matches, dependent: :destroy
     has_many :messages, dependent: :destroy
     has_many :chat_links, dependent: :destroy
+    has_one :team_level, dependent: :destroy
+    belongs_to :pref
+    belongs_to :facility
+    belongs_to :cat
+    belongs_to :rank
 
-    def court
-        Facility.find_by(id: self.facility)
-    end
-    def category
-        Cat.find_by(id: self.cat)
-    end
-    def ranking
-        Rank.find_by(id: self.rank)
-    end
-    def prefecture
-        Pref.find_by(id: self.pref)
-    end
-    
     def serch
     @teaminfo = TeamInfo.where(pref: pref)
     @teaminfo = TeamInfo.where(facirity: facility)
