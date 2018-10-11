@@ -4,7 +4,7 @@
   <div class="left">
     <h2>メッセージ一覧</h2>
       <% @rooms.each do |room| %>
-      <% if ChatLink.find_by(team_info_id: @current_team.id,room_id: room.id) %>
+      <% if ChatLink.find_by(team_info_id: @current_team.id,room_id: room.id) || session[:team_id] ==1 %>
         <%= link_to room_path(room) do %>
         <div class="room-list">
         <h3><i class="far fa-calendar-alt"></i>　<%= room.match_req.match_date.strftime("%-m月%-d日") %>　

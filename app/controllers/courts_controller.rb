@@ -1,5 +1,5 @@
 class CourtsController < ApplicationController
-  before_action :authenticate_team,{only:[:new,:create,:edit,:update,:destroy]}
+  before_action :authenticate_team,:admin_team,{only:[:new,:create,:edit,:update,:destroy]}
 
   def index
     @courts = Facility.all.order(created_at: :desc)

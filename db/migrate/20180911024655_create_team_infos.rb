@@ -6,7 +6,7 @@ class CreateTeamInfos < ActiveRecord::Migration[5.2]
       t.string :logo
       t.string :image
       t.integer :pref
-      t.string :facility
+      t.integer :facility
       t.string :cat
       t.string :rank
       t.integer :age_ave

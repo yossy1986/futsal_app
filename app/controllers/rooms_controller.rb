@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
       before_action :authenticate_team
+      before_action :admin_team,{only:[:edit,:update,:destroy]}
+      
 
   def index
     @rooms = Room.all
@@ -7,8 +9,8 @@ class RoomsController < ApplicationController
   
   def show
     @room = Room.find(params[:id])
-    @message = Message.new
-    if ChatLink.where(team_info_id: @current_team.id, room_id: @room.id).present?
+    @m = Message.find_by(room_id: params[:id],team_info_id: 1)
+    if ChatLink.where(team_info_id: @current_team.id, room_id: @room.id).present? || session[:team_id] == 1
     @messages = @room.messages.order(created_at: :desc)
     @message = Message.new
     else
@@ -25,5 +27,8 @@ class RoomsController < ApplicationController
   end
   
   def update
+  end
+  
+  def destroy
   end
 end

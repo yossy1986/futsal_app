@@ -3,6 +3,26 @@
 <div class="wrapper rooms new">
   <div class="left">
     <h2>チャット</h2>
+    <% if session[:team_id] == 1 %>
+    <% if @messages.present? %>
+      <% @messages.each do |message| %>
+        <div class="text-left">
+        <h3><%= message.team_info.name %></h3>
+        <%= link_to message_path(message) do %>
+        <p class="alert alert-info">
+        <%= message.content %>
+        </p>
+        <% end %>
+        <p><%= message.created_at.strftime('%m/%d %H:%M') %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <br>
+      <h3 class="text-center">メッセージはまだありません</h3>
+      <br>
+    <% end %>
+    
+    <% else %>
     <% if @messages.present? %>
       <% @messages.each do |message| %>
       <% if message.team_info_id == @current_team.id %>
@@ -36,6 +56,7 @@
       <div class="text-center">
         <%= f.submit "投稿する", :class => "btn btn-primary" %>
       </div>
+    <% end %>
     <% end %>
   </div>
   <%= render partial: 'posts/post' %>
