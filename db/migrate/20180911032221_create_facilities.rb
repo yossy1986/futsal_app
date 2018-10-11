@@ -4,7 +4,7 @@ class CreateFacilities < ActiveRecord::Migration[5.2]
       
       t.string :image
       t.string :name
-      t.integer :pref
+      t.integer :pref_id
       t.string :address
       t.integer :tel
       t.string :site
