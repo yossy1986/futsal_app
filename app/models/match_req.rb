@@ -12,10 +12,6 @@ class MatchReq < ApplicationRecord
         Rank.find_by(id: self.req_rank)
     end
     
-    def serch
-      if params[:match_req][:pref].present?
-        @result = MatchReq.where(pref: params[:match_req][:pref])
-      end
-    end
+
 
 end
