@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_10_10_025230) do
     t.integer "pref"
     t.integer "facility_id"
     t.integer "req_cat"
-    t.integer "req_rank"
+    t.string "req_rank"
     t.integer "req_team_num"
     t.text "content"
     t.datetime "created_at", null: false

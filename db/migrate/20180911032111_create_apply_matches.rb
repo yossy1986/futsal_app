@@ -4,7 +4,7 @@ class CreateApplyMatches < ActiveRecord::Migration[5.2]
       
       t.integer :team_id
       t.integer :match_req_id
-      t.string :status
+      t.integer :status
 
       t.timestamps
     end
