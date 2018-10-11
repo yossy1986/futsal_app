@@ -1,4 +1,5 @@
 class Pref < ApplicationRecord
-    has_many :facility
-    has_many :team_info
+    has_many :facilities
+    has_many :team_infos
+    has_many :match_reqs
 end

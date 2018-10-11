@@ -14,7 +14,6 @@ class TeamInfo < ApplicationRecord
     has_many :apply_matches, dependent: :destroy
     has_many :messages, dependent: :destroy
     has_many :chat_links, dependent: :destroy
-    has_one :team_level, dependent: :destroy
     belongs_to :pref
     belongs_to :facility
     belongs_to :cat

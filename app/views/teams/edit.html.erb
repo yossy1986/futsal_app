@@ -18,21 +18,19 @@
     <%= f.collection_select :cat, Cat.all, :id, :name %><br>
     <%= f.label :age_ave,"平均年齢" %><br>
     <%= f.select :age_ave,(10..50) %><br>
-    <%= fields_for @teamlevel do |teamlevel| %>
-    <%= teamlevel.label:attack,"攻撃" %><br>
-    <%= teamlevel.select :attack,(1..10) %><br>
-    <%= teamlevel.label:phisycal,"フィジカル" %><br>
-    <%= teamlevel.select :physical,(1..10) %><br>
-    <%= teamlevel.label:stamina,"スタミナ" %><br>
-    <%= teamlevel.select :stamina,(1..10) %><br>
-    <%= teamlevel.label:defense,"守備" %><br>
-    <%= teamlevel.select :defense,(1..10) %><br>
-    <%= teamlevel.label:tactics,"戦術" %><br>
-    <%= teamlevel.select :tactics,(1..10) %><br>
-    <%= teamlevel.label:technique,"テクニック" %><br>
-    <%= teamlevel.select :technique,(1..10) %><br>
-    <% end %>
-        <%= f.label :email,"メールアドレス" %><br>
+    <%= f.label:attack,"攻撃" %><br>
+    <%= f.select :attack,(1..10) %><br>
+    <%= f.label:phisycal,"フィジカル" %><br>
+    <%= f.select :physical,(1..10) %><br>
+    <%= f.label:stamina,"スタミナ" %><br>
+    <%= f.select :stamina,(1..10) %><br>
+    <%= f.label:defense,"守備" %><br>
+    <%= f.select :defense,(1..10) %><br>
+    <%= f.label:tactics,"戦術" %><br>
+    <%= f.select :tactics,(1..10) %><br>
+    <%= f.label:technique,"テクニック" %><br>
+    <%= f.select :technique,(1..10) %><br>
+    <%= f.label :email,"メールアドレス" %><br>
     <%= f.email_field :email, :required => true %><br>
     <%= f.label :password,"パスワード" %><br>
     <%= f.password_field :password, :required => true %><br>

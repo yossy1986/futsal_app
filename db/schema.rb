@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2018_10_10_025230) do
     t.integer "team_info_id"
     t.integer "match_req_id"
     t.integer "status"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "comment"
   end
 
   create_table "cats", force: :cascade do |t|
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 2018_10_10_025230) do
     t.datetime "match_date"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.integer "pref"
+    t.integer "pref_id"
     t.integer "facility_id"
     t.integer "req_cat"
-    t.string "req_rank"
+    t.integer "req_rank"
     t.integer "req_team_num"
     t.text "content"
     t.datetime "created_at", null: false
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 2018_10_10_025230) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "team_info_id"
     t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -92,9 +92,9 @@ ActiveRecord::Schema.define(version: 2018_10_10_025230) do
   end
 
   create_table "rooms", force: :cascade do |t|
+    t.integer "match_req_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "match_req_id"
   end
 
   create_table "team_infos", force: :cascade do |t|
@@ -109,23 +109,15 @@ ActiveRecord::Schema.define(version: 2018_10_10_025230) do
     t.text "comment"
     t.string "email"
     t.string "password_digest"
+    t.integer "attack"
+    t.integer "defense"
+    t.integer "technique"
+    t.integer "tactics"
+    t.integer "stamina"
+    t.integer "physical"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
-  end
-
-  create_table "team_levels", force: :cascade do |t|
-    t.integer "team_info_id"
-    t.integer "level_name"
-    t.integer "level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "attack"
-    t.integer "physical"
-    t.integer "stamina"
-    t.integer "defense"
-    t.integer "tactics"
-    t.integer "technique"
   end
 
 end

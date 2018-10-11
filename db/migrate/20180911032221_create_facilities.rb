@@ -6,7 +6,7 @@ class CreateFacilities < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :pref_id
       t.string :address
-      t.integer :tel
+      t.string :tel
       t.string :site
       t.text :open_hour
       t.text :fee

@@ -2,10 +2,8 @@ class CreateChatLinks < ActiveRecord::Migration[5.2]
   def change
     create_table :chat_links do |t|
       
-      t.integer :match_req_id
-      t.integer :receive_team_id
-      t.integer :request_team_id
-      t.text :comment
+      t.integer :room_id
+      t.integer :team_info_id
 
       t.timestamps
     end

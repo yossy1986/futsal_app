@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :authenticate_team,:admin_team,{only:[:edit,:update,:destroy]}
+  before_action :authenticate_team || :admin_team,{only:[:edit,:update,:destroy]}
   before_action :forbid_login_team,{only:[:new,:create]}
 
   def index
@@ -21,14 +21,12 @@ class TeamsController < ApplicationController
 
   def show
     @teaminfo = TeamInfo.find_by(id: params[:id])
-    @teamlevel = TeamLevel.find_by(id: params[:id])
     @week = Week
-    gon.data = [@teamlevel.attack,@teamlevel.physical,@teamlevel.stamina,@teamlevel.defense,@teamlevel.tactics,@teamlevel.technique]
+    gon.data = [@teaminfo.attack,@teaminfo.physical,@teaminfo.stamina,@teaminfo.defense,@teaminfo.tactics,@teaminfo.technique]
   end
   
   def new
     @teaminfo = TeamInfo.new
-    @teamlevel = TeamLevel.new
   end
   
   def create
@@ -42,7 +40,13 @@ class TeamsController < ApplicationController
                               age_ave: params[:team_info][:age_ave],
                               comment: params[:team_info][:comment],
                               email: params[:team_info][:email],
-                              password: params[:team_info][:password]
+                              password: params[:team_info][:password],
+                              attack: params[:team_info][:attack],
+                              physical: params[:team_info][:physical],
+                              stamina: params[:team_info][:stamina],
+                              defense: params[:team_info][:defense],
+                              tactics: params[:team_info][:tactics],
+                              technique: params[:team_info][:technique]
                               )
     if params[:team_info][:logo]
       @teaminfo.logo = "logo#{@teaminfo.id}.jpg"
@@ -54,19 +58,9 @@ class TeamsController < ApplicationController
       image = params[:team_info][:image]
       File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
     end
-    @teaminfo.save
-    @teamlevel = TeamLevel.new(team_info_id: 1,
-                                level_name: 1,
-                                level: 1,
-                                attack: params[:team_level][:attack],
-                                physical: params[:team_level][:physical],
-                                stamina: params[:team_level][:stamina],
-                                defense: params[:team_level][:defense],
-                                tactics: params[:team_level][:tactics],
-                                technique: params[:team_level][:technique])
-    @teamlevel.level = @teamlevel.attack.to_i + @teamlevel.physical.to_i + @teamlevel.stamina.to_i + @teamlevel.defense.to_i + @teamlevel.tactics.to_i + @teamlevel.technique.to_i
-    @teaminfo.rank_id = @teamlevel.level
-    
+
+    @teaminfo.rank_id = @teaminfo.attack.to_i + @teaminfo.physical.to_i + @teaminfo.stamina.to_i + @teaminfo.defense.to_i + @teaminfo.tactics.to_i + @teaminfo.technique.to_i
+
     if @teaminfo.rank_id <= 60 && @teaminfo.rank_id >= 55
             @teaminfo.rank = 1
     elsif @teaminfo.rank_id <= 54 && @teaminfo.rank_id >=48 
@@ -84,7 +78,7 @@ class TeamsController < ApplicationController
     else
         @teaminfo.rank_id = 8
     end
-    if @teaminfo.save && @teamlevel.save
+    if @teaminfo.save
       log_in @teaminfo
       flash[:notice] = "登録を受け付けました(#{@teaminfo.name})"
       redirect_to("/matchs")
@@ -92,6 +86,7 @@ class TeamsController < ApplicationController
       render("teams/new")
     end
   end
+
   
   def edit
     @teaminfo = TeamInfo.find_by(id: params[:id])
@@ -107,6 +102,12 @@ class TeamsController < ApplicationController
     @teaminfo.cat_id = params[:team_info][:cat]
     @teaminfo.age_ave = params[:team_info][:age_ave]
     @teaminfo.comment = params[:team_info][:comment]
+    @teaminfo.attack  = params[:team_info][:attack]
+    @teaminfo.defense  = params[:team_info][:defense]
+    @teaminfo.technique  = params[:team_info][:technique]
+    @teaminfo.tactics  = params[:team_info][:tactics]
+    @teaminfo.stamina  = params[:team_info][:stamina]
+    @teaminfo.physical  = params[:team_info][:physical]
     if params[:team_info][:logo]
       @teaminfo.logo = "logo#{@teaminfo.id}.jpg"
       logo = params[:team_info][:logo]
@@ -117,17 +118,9 @@ class TeamsController < ApplicationController
       image = params[:team_info][:image]
       File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
     end
-    @teaminfo.save
-    
-    @teamlevel = TeamLevel.find_by(id: params[:id])
-    @teamlevel.attack = params[:attack]
-    @teamlevel.physical = params[:physical]
-    @teamlevel.stamina = params[:stamina]
-    @teamlevel.defense = params[:defense]
-    @teamlevel.tactics = params[:tactics]
-    @teamlevel.technique = params[:technique]
-    @teamlevel.level = @teamlevel.attack.to_i + @teamlevel.physical.to_i + @teamlevel.stamina.to_i + @teamlevel.defense.to_i + @teamlevel.tactics.to_i + @teamlevel.technique.to_i
-    @teaminfo.rank_id = @teamlevel.level
+
+    @teaminfo.rank_id = @teaminfo.attack.to_i + @teaminfo.physical.to_i + @teaminfo.stamina.to_i + @teaminfo.defense.to_i + @teaminfo.tactics.to_i + @teaminfo.technique.to_i
+
     
     if @teaminfo.rank_id <= 60 && @teaminfo.rank_id >= 55
             @teaminfo.rank = 1
@@ -147,7 +140,8 @@ class TeamsController < ApplicationController
         @teaminfo.rank_id = 8
     end
     
-    if @teaminfo.save && @teamlevel.save
+    if @teaminfo.save
+      flash[:notice] = "チームデータを変更しました"
       redirect_to action: 'show'
     else
       render("teams/edit")
@@ -156,9 +150,8 @@ class TeamsController < ApplicationController
 
   def destroy
     @teaminfo = TeamInfo.find_by(id: params[:id])
-    @teamlevel = TeamLevel.find_by(id: params[:id])
     @teaminfo.destroy
-    @teamlevel.destroy
+    flash[:notice] = "退会しました"
     redirect_to action: 'index'
   end
 end
