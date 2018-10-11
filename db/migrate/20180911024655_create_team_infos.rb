@@ -19,6 +19,7 @@ class CreateTeamInfos < ActiveRecord::Migration[5.2]
       t.integer :tactics
       t.integer :stamina
       t.integer :physical
+      t.boolean :admin, default: false
       
       t.timestamps
     end

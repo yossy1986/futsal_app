@@ -6,16 +6,7 @@ class MatchsController < ApplicationController
     @matchreq = MatchReq.new
     @week = Week
   end
-  
-  def index_second
-    if params[:match_req][:pref].nil?
-      logger.debug("--------- params[:match_req][:pref] = #{params[:match_req][:pref]}")
-    end
-    @matchreqs = MatchReq.all.order(created_at: :desc)
-    @matchreq = MatchReq.new
-    @week = Week
-    render("matchs/index")
-  end
+
 
   def show
     @matchreq = MatchReq.find_by(id: params[:id])
