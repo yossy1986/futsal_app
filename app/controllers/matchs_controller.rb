@@ -27,8 +27,8 @@ class MatchsController < ApplicationController
                               match_date: params[:match_req][:match_date],
                               start_time: params[:match_req][:start_time],
                               end_time: params[:match_req][:end_time],
-                              pref_id: params[:match_req][:pref_id],
-                              facility_id: params[:match_req][:facility_id],
+                              pref_id: params[:match_req][:pref],
+                              facility_id: params[:match_req][:facility],
                               req_cat: params[:match_req][:req_cat],
                               req_rank: params[:match_req][:req_rank],
                               req_team_num: params[:match_req][:req_team_num],
@@ -70,8 +70,8 @@ class MatchsController < ApplicationController
     @matchreq.match_date = params[:match_req][:match_date]
     @matchreq.start_time = params[:match_req][:start_time]
     @matchreq.end_time = params[:match_req][:end_time]
-    @matchreq.pref_id = params[:match_req][:pref_id]
-    @matchreq.facility_id = params[:match_req][:facility_id]
+    @matchreq.pref_id = params[:match_req][:pref]
+    @matchreq.facility_id = params[:match_req][:facility]
     @matchreq.req_cat = params[:match_req][:req_cat]
     @matchreq.req_rank = params[:match_req][:req_rank]
     @matchreq.req_team_num = params[:match_req][:req_team_num]

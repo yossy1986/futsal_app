@@ -3,6 +3,7 @@ class MatchReq < ApplicationRecord
     has_many :apply_matches, dependent: :destroy
     has_one :room, dependent: :destroy
     belongs_to :facility
+    belongs_to :pref
     validates :content, presence: true
 
     def category

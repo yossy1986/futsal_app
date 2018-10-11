@@ -6,8 +6,8 @@
     <div class="serch">
       <%= form_for @matchreq, url: "/matchs/index_second",  :method => 'get' do |f| %>
       <%= f.date_select :match_date,{:use_month_numbers => true, :start_year => (Time.now.year)}, {:class => "wi33"} %>
-      <%= f.collection_select :pref_id, Pref.all, :id, :name, {:prompt => "地域"}, :class => "wi25" %>
-      <%= f.collection_select :facility_id, Facility.all, :id, :name, {:include_blank => "開催施設"}, :class => "wi73" %>
+      <%= f.collection_select :pref, Pref.all, :id, :name, {:prompt => "地域"}, :class => "wi25" %>
+      <%= f.collection_select :facility, Facility.all, :id, :name, {:include_blank => "開催施設"}, :class => "wi73" %>
       <%= f.collection_select :req_rank, Rank.all, :id, :name, {:include_blank => "ランク"}, :class => "wi25" %>
       <%= f.collection_select :req_cat, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi73" %>
       <%= f.submit "検索", :class => "match-color"%>

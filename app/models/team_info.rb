@@ -19,11 +19,6 @@ class TeamInfo < ApplicationRecord
     belongs_to :cat
     belongs_to :rank
 
-    def serch
-    @teaminfo = TeamInfo.where(pref: pref)
-    @teaminfo = TeamInfo.where(facirity: facility)
-    @teaminfo = TeamInfo.where(rank: rank)
-    @teaminfo = TeamInfo.where(category: category)
-    end
+ 
    
 end
