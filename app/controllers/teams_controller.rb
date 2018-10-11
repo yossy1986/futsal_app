@@ -34,9 +34,9 @@ class TeamsController < ApplicationController
     @teaminfo = TeamInfo.new(name: params[:team_info][:name],
                               logo: "default_logo.jpg",
                               image: "default_team.jpg",
-                              pref_id: params[:team_info][:pref],
-                              facility_id: params[:team_info][:facility],
-                              cat_id: params[:team_info][:cat],
+                              pref_id: params[:team_info][:pref_id],
+                              facility_id: params[:team_info][:facility_id],
+                              cat_id: params[:team_info][:cat_id],
                               age_ave: params[:team_info][:age_ave],
                               comment: params[:team_info][:comment],
                               email: params[:team_info][:email],
@@ -97,9 +97,9 @@ class TeamsController < ApplicationController
     @teaminfo.email = params[:team_info][:email]
     @teaminfo.password = params[:team_info][:password]
     @teaminfo.name = params[:team_info][:name]
-    @teaminfo.pref_id = params[:team_info][:pref]
-    @teaminfo.facility_id = params[:team_info][:facility]
-    @teaminfo.cat_id = params[:team_info][:cat]
+    @teaminfo.pref_id = params[:team_info][:pref_id]
+    @teaminfo.facility_id = params[:team_info][:facility_id]
+    @teaminfo.cat_id = params[:team_info][:cat_id]
     @teaminfo.age_ave = params[:team_info][:age_ave]
     @teaminfo.comment = params[:team_info][:comment]
     @teaminfo.attack  = params[:team_info][:attack]

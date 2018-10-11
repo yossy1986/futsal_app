@@ -5,10 +5,10 @@
     <h2>チーム検索</h2>
     <div class="serch">
       <%= form_for @teaminfo, url: teams_serch_path,  :method => 'get' do |f| %>
-      <%= f.collection_select :pref, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi25" %>
-      <%= f.collection_select :facility, Facility.all, :id, :name, {:include_blank => "主な活動施設"}, :class => "wi73" %>
-      <%= f.collection_select :rank, Rank.all, :id, :name, {:include_blank => "ランク"}, :class => "wi25" %>
-      <%= f.collection_select :cat, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi73" %>
+      <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi25" %>
+      <%= f.collection_select :facility_id, Facility.all, :id, :name, {:include_blank => "主な活動施設"}, :class => "wi73" %>
+      <%= f.collection_select :rank_id, Rank.all, :id, :name, {:include_blank => "ランク"}, :class => "wi25" %>
+      <%= f.collection_select :cat_id, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi73" %>
       <%= f.submit "検索", :class => "team-color"%>
       <% end %>
     </div>
