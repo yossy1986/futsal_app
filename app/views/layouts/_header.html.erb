@@ -37,6 +37,12 @@
         <%= link_to "メッセージ", rooms_path%>
       </li>
       <li class="hidden">
+        <%= link_to courts_path do %>
+        <i class="fas fa-map-marked-alt fa-2x" style="color: #B9FE28;"></i>
+        <% end %>
+        <%= link_to "コート",courts_path %>
+      </li>
+      <li class="hidden">
         <%= link_to posts_path do %>
         <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
         <% end %>
