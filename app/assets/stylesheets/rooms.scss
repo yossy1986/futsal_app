@@ -4,6 +4,7 @@
 
 .rooms h2 {
     border-left:6px solid #5BC44E;
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
 }
 .rooms h3 {
     font-size:16px;
@@ -15,7 +16,6 @@
     width:100%;
     text-align:left;
     background:#fff;
-    box-shadow: 0 0 2px rgba(150, 150, 150, 0.1);
     box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
 }
 .room-list:hover {

@@ -4,6 +4,7 @@
 
 .courts h2 {
     border-left:6px solid #B9FE28;
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
 }
 .courts .serch input {
     background:#B9FE28;
@@ -13,7 +14,7 @@
     padding:10px;
     width:100%;
     background:#fff;
-    box-shadow: 0 0 2px rgba(150, 150, 150, 0.1);
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
 }
 
 .court-list {

@@ -4,6 +4,7 @@
 
 .posts h2 {
     border-left:6px solid #FCF023;
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
 }
 .post-list {
     margin-bottom:10px;
@@ -39,6 +40,7 @@
 .post-detail {
     width:100%;
     background:#fff;
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
 }
 .post-detail h1 {
     font-size: 1.8em;
