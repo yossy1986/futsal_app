@@ -5,6 +5,7 @@
       <h2>フットサルコート検索</h2>
       <div class="serch">
         <%= form_for @court, url: courts_path,  :method => 'get' do |f| %>
+        <%= hidden_field_tag :id, 0  %>
         <%= f.collection_select :pref, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi98" %>
         <%= f.submit "検索", :class => "match-color"%>
         <% end %>

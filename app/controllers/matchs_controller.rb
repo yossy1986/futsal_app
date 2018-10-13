@@ -5,6 +5,12 @@ class MatchsController < ApplicationController
     @matchreqs = MatchReq.all.order(created_at: :desc)
     @matchreq = MatchReq.new
     @week = Week
+    if params[:id].present?
+      @matchreqs = @matchreqs.where(pref_id: params[:match_req][:pref]) if params[:match_req][:pref].present?
+      @matchreqs = @matchreqs.where(facility_id: params[:match_req][:facility]) if params[:match_req][:facility].present?
+      @matchreqs = @matchreqs.where(pref_id: params[:match_req][:req_rank]) if params[:match_req][:req_rank].present?
+      @matchreqs = @matchreqs.where(pref_id: params[:match_req][:req_cat]) if params[:match_req][:req_cat].present?
+    end
   end
 
 

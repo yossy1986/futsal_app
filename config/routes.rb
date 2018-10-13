@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get 'teams/serch' => 'teams#serch'
-  get 'matchs/index_second' => 'matchs#index_second'
   post 'apply_matchs/:id/remove' => 'apply_matchs#remove'
   resources :matchs
   resources :teams

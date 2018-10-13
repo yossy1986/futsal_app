@@ -2,8 +2,12 @@ class CourtsController < ApplicationController
   before_action :authenticate_team,:admin_team,{only:[:new,:create,:edit,:update,:destroy]}
 
   def index
-    @courts = Facility.all.order(created_at: :desc)
-    @court = Facility.new
+    
+      @court = Facility.new
+      @courts = Facility.all
+    if params[:id].present?
+      @courts = Facility.where(pref_id: params[:facility][:pref]) if params[:facility][:pref].present?
+    end
   end
 
   def show

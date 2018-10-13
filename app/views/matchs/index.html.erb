@@ -4,9 +4,9 @@
   <div class="left">
     <h2>対戦募集検索</h2>
     <div class="serch">
-      <%= form_for @matchreq, url: "/matchs/index_second",  :method => 'get' do |f| %>
-      <%= f.date_select :match_date,{:use_month_numbers => true, :start_year => (Time.now.year)}, {:class => "wi33"} %>
-      <%= f.collection_select :pref, Pref.all, :id, :name, {:prompt => "地域"}, :class => "wi25" %>
+      <%= form_for @matchreq, url: matchs_path,  :method => 'get' do |f| %>
+      <%= hidden_field_tag :id, 0  %>
+      <%= f.collection_select :pref, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi25" %>
       <%= f.collection_select :facility, Facility.all, :id, :name, {:include_blank => "開催施設"}, :class => "wi73" %>
       <%= f.collection_select :req_rank, Rank.all, :id, :name, {:include_blank => "ランク"}, :class => "wi25" %>
       <%= f.collection_select :req_cat, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi73" %>

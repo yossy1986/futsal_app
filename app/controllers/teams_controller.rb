@@ -3,21 +3,17 @@ class TeamsController < ApplicationController
   before_action :forbid_login_team,{only:[:new,:create]}
 
   def index
-    @teaminfos = TeamInfo.all
-    @teaminfo = TeamInfo.new
-    @week = Week
-  end
-  
-  def serch
-    @teaminfo = TeamInfo.new
-    @week = Week
-    @teaminfos =TeamInfo.all
-    if params[:team_info]
-    @teaminfos = @teaminfo.serch
-  else
-    @teaminfos =TeamInfo.all
+      @teaminfos = TeamInfo.all
+      @teaminfo = TeamInfo.new
+      @week = Week
+    if params[:id].present?
+      @teaminfos = @teaminfos.where(pref_id: params[:team_info][:pref_id]) if params[:team_info][:pref_id].present?
+      @teaminfos = @teaminfos.where(facility_id: params[:team_info][:facility_id]) if params[:team_info][:facility_id].present?
+      @teaminfos = @teaminfos.where(rank_id: params[:team_info][:rank_id]) if params[:team_info][:rank_id].present?
+      @teaminfos = @teaminfos.where(cat_id: params[:team_info][:cat_id]) if params[:team_info][:cat_id].present?
     end
   end
+  
 
   def show
     @teaminfo = TeamInfo.find_by(id: params[:id])
