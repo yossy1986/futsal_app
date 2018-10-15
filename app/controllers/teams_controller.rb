@@ -6,14 +6,17 @@ class TeamsController < ApplicationController
       @teaminfos = TeamInfo.all
       @teaminfo = TeamInfo.new
       @week = Week
+      @pref = Pref.all
     if params[:id].present?
       @teaminfos = @teaminfos.where(pref_id: params[:team_info][:pref_id]) if params[:team_info][:pref_id].present?
-      @teaminfos = @teaminfos.where(facility_id: params[:team_info][:facility_id]) if params[:team_info][:facility_id].present?
-      @teaminfos = @teaminfos.where(rank_id: params[:team_info][:rank_id]) if params[:team_info][:rank_id].present?
+      @teaminfos = @teaminfos.where(facility_id: params[:teaminfo][:facility_id]) if params[:teaminfo][:facility_id].present?
       @teaminfos = @teaminfos.where(cat_id: params[:team_info][:cat_id]) if params[:team_info][:cat_id].present?
     end
   end
   
+  def get_facilities
+    render partial: 'select_facility', locals: {pref_id: params[:pref_id]}
+  end
 
   def show
     @teaminfo = TeamInfo.find_by(id: params[:id])
@@ -31,7 +34,7 @@ class TeamsController < ApplicationController
                               logo: "default_logo.jpg",
                               image: "default_team.jpg",
                               pref_id: params[:team_info][:pref_id],
-                              facility_id: params[:team_info][:facility_id],
+                              facility_id: params[:teaminfo][:facility_id],
                               cat_id: params[:team_info][:cat_id],
                               age_ave: params[:team_info][:age_ave],
                               comment: params[:team_info][:comment],
@@ -55,25 +58,6 @@ class TeamsController < ApplicationController
       File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
     end
 
-    @teaminfo.rank_id = @teaminfo.attack.to_i + @teaminfo.physical.to_i + @teaminfo.stamina.to_i + @teaminfo.defense.to_i + @teaminfo.tactics.to_i + @teaminfo.technique.to_i
-
-    if @teaminfo.rank_id <= 60 && @teaminfo.rank_id >= 55
-            @teaminfo.rank = 1
-    elsif @teaminfo.rank_id <= 54 && @teaminfo.rank_id >=48 
-        @teaminfo.rank_id = 2
-    elsif @teaminfo.rank_id <= 47 && @teaminfo.rank_id >= 41
-        @teaminfo.rank_id = 3
-    elsif @teaminfo.rank_id <= 40 && @teaminfo.rank_id >= 34
-        @teaminfo.rank_id = 4
-    elsif @teaminfo.rank_id <= 33 && @teaminfo.rank_id >= 27
-        @teaminfo.rank_id = 5
-    elsif @teaminfo.rank_id <= 26 && @teaminfo.rank_id >= 20
-        @teaminfo.rank_id = 6
-    elsif @teaminfo.rank_id <= 19 && @teaminfo.rank_id >= 13
-        @teaminfo.rank_id = 7
-    else
-        @teaminfo.rank_id = 8
-    end
     if @teaminfo.save
       log_in @teaminfo
       flash[:notice] = "登録を受け付けました(#{@teaminfo.name})"
@@ -94,8 +78,7 @@ class TeamsController < ApplicationController
     @teaminfo.password = params[:team_info][:password]
     @teaminfo.name = params[:team_info][:name]
     @teaminfo.pref_id = params[:team_info][:pref_id]
-    @teaminfo.facility_id = params[:team_info][:facility_id]
-    @teaminfo.cat_id = params[:team_info][:cat_id]
+    @teaminfo.facility_id = params[:teaminfo][:facility_id]
     @teaminfo.age_ave = params[:team_info][:age_ave]
     @teaminfo.comment = params[:team_info][:comment]
     @teaminfo.attack  = params[:team_info][:attack]
@@ -115,27 +98,6 @@ class TeamsController < ApplicationController
       File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
     end
 
-    @teaminfo.rank_id = @teaminfo.attack.to_i + @teaminfo.physical.to_i + @teaminfo.stamina.to_i + @teaminfo.defense.to_i + @teaminfo.tactics.to_i + @teaminfo.technique.to_i
-
-    
-    if @teaminfo.rank_id <= 60 && @teaminfo.rank_id >= 55
-            @teaminfo.rank = 1
-    elsif @teaminfo.rank_id <= 54 && @teaminfo.rank_id >=48 
-        @teaminfo.rank_id = 2
-    elsif @teaminfo.rank_id <= 47 && @teaminfo.rank_id >= 41
-        @teaminfo.rank_id = 3
-    elsif @teaminfo.rank_id <= 40 && @teaminfo.rank_id >= 34
-        @teaminfo.rank_id = 4
-    elsif @teaminfo.rank_id <= 33 && @teaminfo.rank_id >= 27
-        @teaminfo.rank_id = 5
-    elsif @teaminfo.rank_id <= 26 && @teaminfo.rank_id >= 20
-        @teaminfo.rank_id = 6
-    elsif @teaminfo.rank_id <= 19 && @teaminfo.rank_id >= 13
-        @teaminfo.rank_id = 7
-    else
-        @teaminfo.rank_id = 8
-    end
-    
     if @teaminfo.save
       flash[:notice] = "チームデータを変更しました"
       redirect_to action: 'show'

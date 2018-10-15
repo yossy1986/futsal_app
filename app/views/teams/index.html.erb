@@ -6,10 +6,9 @@
     <div class="serch">
       <%= form_for @teaminfo, url: teams_path,  :method => 'get' do |f| %>
       <%= hidden_field_tag :id, 0  %>
-      <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi25" %>
-      <%= f.collection_select :facility_id, Facility.all, :id, :name, {:include_blank => "主な活動施設"}, :class => "wi73" %>
-      <%= f.collection_select :rank_id, Rank.all, :id, :name, {:include_blank => "ランク"}, :class => "wi25" %>
-      <%= f.collection_select :cat_id, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi73" %>
+      <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi100" %>
+      <%= render partial: 'select_facility', locals: {pref_id: Pref.first.id} %>
+      <%= f.collection_select :cat_id, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi100" %>
       <%= f.submit "検索", :class => "team-color"%>
       <% end %>
     </div>
@@ -26,10 +25,6 @@
           </div>
           <div class="team-list-right">
             <table>
-              <tr>
-                <th><i class="fas fa-medal"></i></th>
-                <td><%= teaminfo.rank.name %></td>
-              </tr>
               <tr>
                 <th><i class="fas fa-map-marker-alt"></i></th>
                 <td><%= teaminfo.pref.name %></td>

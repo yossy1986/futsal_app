@@ -22,7 +22,7 @@ main {
 .match-list:hover {
     opacity: .7;
 }
-.match-list h3,.match-detail h3{
+.match-list h3,.match-detail h3,.match-list h4 {
     font-size:16px;
 }
 
@@ -106,10 +106,13 @@ main {
 @media screen and ( max-width:576px ) {
 
 .match-list h3,.match-detail h3 {
-    font-size:10px;
+    font-size:14px;
+}
+.match-list h4 {
+    font-size:12px;
 }
 .match-list p,.match-detail p {
-    font-size:10px;
+    font-size:14px;
 }
 .match-list img {
     width:30px;
@@ -117,7 +120,7 @@ main {
 }
 
 .match-detail a {
-    font-size:10px;
+    font-size:12px;
 }
 .apply-comment {
     width:100%;

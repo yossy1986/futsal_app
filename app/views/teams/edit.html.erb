@@ -13,7 +13,7 @@
     <%= f.label :pref_id,"主な活動地域" %><br>
     <%= f.collection_select :pref_id, Pref.all, :id, :name %><br>
     <%= f.label:facility_id,"主な活動施設" %><br>
-    <%= f.collection_select :facility_id, Facility.all, :id, :name %><br>
+    <%= render partial: 'select_facility', locals: {pref_id: Pref.first.id} %><br>
     <%= f.label :cat_id,"カテゴリー" %><br>
     <%= f.collection_select :cat_id, Cat.all, :id, :name %><br>
     <%= f.label :age_ave,"平均年齢" %><br>

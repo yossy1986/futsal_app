@@ -16,8 +16,6 @@
       <%= f.collection_select :facility, Facility.all, :id, :name %><br>
       <%= f.label :req_cat,"募集カテゴリー" %><br>
       <%= f.collection_select :req_cat, Cat.all, :id, :name %><br>
-      <%= f.label :req_rank,"募集ランク" %><br>
-      <%= f.collection_select :req_rank, Rank.all, :id, :name %><br>
       <%= f.label :req_team_num,"募集チーム数" %><br>
       <%= f.select :req_team_num,[1,2,3,4,5,6,7,8] %><br>
       <%= f.label :content,"募集詳細" %><span>※</span><br>

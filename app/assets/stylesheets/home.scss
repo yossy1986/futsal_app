@@ -21,8 +21,49 @@
 .main {
     height:1000px;
 }
-
-
+.privacy {
+    margin: 0 auto;
+    margin-top:50px;
+    padding:30px;
+    border:2px solid #EFEFEF;
+    border-radius:10px;
+    width:80%;
+}
+.privacy h2 {
+    font-weight:bold;
+}
+.privacy h3{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.privacy li {
+    padding: 0 15px 15px 0;
+}
+@media screen and ( max-width:576px ) {
+    
+.privacy {
+    width:95%;
+}
+.privacy h2 {
+    font-size:18px;
+}
+.privacy h3{
+    font-size:16px;
+}
+.privacy p {
+    font-size:14px;
+}
+.privacy li {
+    padding: 0 5px 5px 0;
+    font-size:14px;
+}
+.privacy ol {
+    padding-left:20px;
+}
+    
+}
 @media screen and ( max-width:768px ) {
     
     .jumbotron h1 {

@@ -9,7 +9,6 @@ class CreateMatchReqs < ActiveRecord::Migration[5.2]
       t.integer :pref_id
       t.integer :facility_id
       t.integer :req_cat
-      t.integer :req_rank
       t.integer :req_team_num
       t.text :content
       

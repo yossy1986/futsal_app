@@ -17,7 +17,6 @@ class TeamInfo < ApplicationRecord
     belongs_to :pref
     belongs_to :facility
     belongs_to :cat
-    belongs_to :rank
 
    
 end

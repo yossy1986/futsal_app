@@ -28,3 +28,13 @@ window.draw_graph = ->
             }
         }
     })
+    
+$(document).on 'change', '#match_req_pref_id', ->
+  $.ajax(
+    type: 'GET'
+    url: '/matchs/get_facilities'
+    data: {
+      pref_id: $(this).val()
+    }
+  ).done (data) ->
+    $('#matchreq_facility_id').html(data)

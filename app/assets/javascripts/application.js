@@ -23,50 +23,50 @@
 
 /* global $ */
 
-$(document).on('turbolinks:load', function() { 
+// $(document).on('turbolinks:load', function() { 
 
-(function() {
-  'use strict';
+// (function() {
+//   'use strict';
 
-  var open = document.getElementById('open');
-  var close = document.getElementById('close');
-  var modal = document.getElementById('modal');
-  var mask = document.getElementById('mask');
+//   var open = document.getElementById('open');
+//   var close = document.getElementById('close');
+//   var modal = document.getElementById('modal');
+//   var mask = document.getElementById('mask');
 
-  open.addEventListener('click', function() {
-    modal.className = '';
-    mask.className = '';
-  });
+//   open.addEventListener('click', function() {
+//     modal.className = '';
+//     mask.className = '';
+//   });
 
-  close.addEventListener('click', function() {
-    modal.className = 'aa';
-    mask.className = 'aa';
-  });
+//   close.addEventListener('click', function() {
+//     modal.className = 'aa';
+//     mask.className = 'aa';
+//   });
 
-  mask.addEventListener('click', function() {
-    // modal.className = 'hidden';
-    // mask.className = 'hidden';
-    close.click();
-  });
-  modalResize();
-  $(window).resize(modalResize);
-      function modalResize(){
+//   mask.addEventListener('click', function() {
+//     // modal.className = 'hidden';
+//     // mask.className = 'hidden';
+//     close.click();
+//   });
+//   modalResize();
+//   $(window).resize(modalResize);
+//       function modalResize(){
  
-            var w = $(window).width();
-          var h = $(window).height();
+//             var w = $(window).width();
+//           var h = $(window).height();
  
-            var cw = $("#modal").outerWidth();
-           var ch = $("#modal").outerHeight();
+//             var cw = $("#modal").outerWidth();
+//           var ch = $("#modal").outerHeight();
  
-            $("#modal").css({
-                "left": ((w - cw)/2) + "px",
-                "top": ((h - ch)/2) + "px"
-          });
-     }
-})();
+//             $("#modal").css({
+//                 "left": ((w - cw)/2) + "px",
+//                 "top": ((h - ch)/2) + "px"
+//           });
+//     }
+// })();
 
     
     
     
     
-});
+// });

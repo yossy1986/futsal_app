@@ -28,3 +28,13 @@ window.draw_graph = ->
             }
         }
     })
+    
+$(document).on 'change', '#team_info_pref_id', ->
+  $.ajax(
+    type: 'GET'
+    url: '/teams/get_facilities'
+    data: {
+      pref_id: $(this).val()
+    }
+  ).done (data) ->
+    $('#teaminfo_facility_id').html(data)

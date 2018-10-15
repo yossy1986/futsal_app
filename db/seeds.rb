@@ -31,22 +31,6 @@ Post.create(title:"体調に気を付けて楽しみましょう！",
             フェスに参加する方は日陰を見つけて日を避けるようにしないと熱中症のリスクがとても高くて危険です。",
             image:"post4.jpg",
             )
-Rank.create(
-            name: "SS")
-Rank.create(
-            name: "S")
-Rank.create(
-            name: "A")
-Rank.create(
-            name: "B")
-Rank.create(
-            name: "C")
-Rank.create(
-            name: "D")
-Rank.create(
-            name: "E")
-Rank.create(
-            name: "F")
 Pref.create(
             name: "大阪府")
 Pref.create(
@@ -73,6 +57,19 @@ Cat.create(
             name: "MIX")
 Cat.create(
             name: "U-18")
+Facility.create(name: "Meijiフットサル",
+                image: "court2.jpg",
+                pref_id: 1,
+                address: "吹田市西御旅町7-53",
+                tel: "1111111",
+                site: "https://www.meiji-s.ac.jp/mt_futsal_main.html",
+                open_hour: "月～金　/　10：00～22：30　土・日・祝　/　9：00～22：00",
+                fee: "平日10時～18時
+                メンバー　￥7,000　ビジター　￥9,200
+                平日18時～24時　土日祝 8時～24時
+                メンバー　￥10,800　ビジター　￥13,000",
+                parking:"30台",
+                )
 Facility.create(name: "宝塚フットサルドームCABO",
                 image: "court1.jpg",
                 pref_id: 2,
@@ -87,18 +84,57 @@ Facility.create(name: "宝塚フットサルドームCABO",
                 メンバー　￥10,800　ビジター　￥13,000",
                 parking:"30台",
                 )
-Facility.create(name: "Meijiフットサル",
-                image: "court2.jpg",
-                pref_id: 1,
-                address: "吹田市西御旅町7-53",
-                tel: "1111111",
-                site: "https://www.meiji-s.ac.jp/mt_futsal_main.html",
-                open_hour: "月～金　/　10：00～22：30　土・日・祝　/　9：00～22：00",
+Facility.create(name: "フットサルスクエア京都南",
+                image: "court3.jpg",
+                pref_id: 3,
+                address: "京都市伏見区竹田青池町135(ふしみっとビル2F)",
+                tel: "075-642-2036",
+                site: "http://www.2036.jp/",
+                open_hour: "平日/10:00～26:00　土・日・祝日/8:00～26:00",
                 fee: "平日10時～18時
                 メンバー　￥7,000　ビジター　￥9,200
                 平日18時～24時　土日祝 8時～24時
                 メンバー　￥10,800　ビジター　￥13,000",
-                parking:"30台",
+                parking:"25台",
+                )
+Facility.create(name: "ダックマンフットボールガーデン草津",
+                image: "court4.jpg",
+                pref_id: 4,
+                address: "滋賀県草津市川原町129-1",
+                tel: "075-642-2036",
+                site: "http://duck-man.net/",
+                open_hour: "平日/10:00～26:00　土・日・祝日/8:00～26:00",
+                fee: "平日10時～18時
+                メンバー　￥7,000　ビジター　￥9,200
+                平日18時～24時　土日祝 8時～24時
+                メンバー　￥10,800　ビジター　￥13,000",
+                parking:"25台",
+                )
+Facility.create(name: "香芝フットサルパーク",
+                image: "court5.jpg",
+                pref_id: 5,
+                address: "奈良県香芝市平野595番地の1",
+                tel: "0745-79-8717",
+                site: "http://www.kashibafutsalpark.com/",
+                open_hour: "平日/10:00～26:00　土・日・祝日/8:00～26:00",
+                fee: "平日10時～18時
+                メンバー　￥7,000　ビジター　￥9,200
+                平日18時～24時　土日祝 8時～24時
+                メンバー　￥10,800　ビジター　￥13,000",
+                parking:"25台",
+                )
+Facility.create(name: "ＦＵＴＳＡＬ ＣＬＵＢ西浜ハットトリック",
+                image: "court6.jpg",
+                pref_id: 6,
+                address: "和歌山県和歌山市湊５１７",
+                tel: "073-431-2132",
+                site: "http://http://www.n-hattrick.com/",
+                open_hour: "平日/10:00～26:00　土・日・祝日/8:00～26:00",
+                fee: "平日10時～18時
+                メンバー　￥7,000　ビジター　￥9,200
+                平日18時～24時　土日祝 8時～24時
+                メンバー　￥10,800　ビジター　￥13,000",
+                parking:"25台",
                 )
 TeamInfo.create(name: "サンプル",
                 logo: "default_logo.jpg",
@@ -106,7 +142,6 @@ TeamInfo.create(name: "サンプル",
                 pref_id: 1,
                 facility_id: 1,
                 cat_id: 1,
-                rank_id: 1,
                 age_ave: 10,
                 comment: "よろしくお願いします。",
                 email: "fujiwara@yahoo.co.jp",
@@ -121,10 +156,9 @@ TeamInfo.create(name: "サンプル",
 TeamInfo.create(name: "名古屋オーシャンズ",
                 logo: "logo1.jpg",
                 image: "team1.jpg",
-                pref_id: 1,
-                facility_id: 1,
+                pref_id: 2,
+                facility_id: 2,
                 cat_id: 3,
-                rank_id: 5,
                 age_ave: 25,
                 comment: "よろしくお願いします。",
                 email: "yossy1986512@yahoo.co.jp",
@@ -138,10 +172,9 @@ TeamInfo.create(name: "名古屋オーシャンズ",
 TeamInfo.create(name: "シュライカー大阪",
                 logo: "logo2.jpg",
                 image: "team2.jpg",
-                pref_id: 2,
-                facility_id: 2,
+                pref_id: 3,
+                facility_id: 3,
                 cat_id: 4,
-                rank_id: 7,
                 age_ave: 23,
                 comment: "よろしくお願いします。",
                 email: "yoshi1986512@yahoo.co.jp",
@@ -155,10 +188,9 @@ TeamInfo.create(name: "シュライカー大阪",
 TeamInfo.create(name: "バルドラール浦安",
                 logo: "logo3.jpg",
                 image: "team3.jpg",
-                pref_id: 3,
-                facility_id: 1,
+                pref_id: 4,
+                facility_id: 4,
                 cat_id: 5,
-                rank_id: 2,
                 age_ave: 30,
                 comment: "よろしくお願いします。",
                 email: "yossy1986512@gmail.com",
@@ -172,10 +204,9 @@ TeamInfo.create(name: "バルドラール浦安",
 TeamInfo.create(name: "バサジィ大分",
                 logo: "logo4.jpg",
                 image: "team4.jpg",
-                pref_id: 4,
-                facility_id: 2,
+                pref_id: 5,
+                facility_id: 5,
                 cat_id: 6,
-                rank_id: 4,
                 age_ave: 25,
                 comment: "よろしくお願いします。",
                 email: "yoshi1986512@gmail.com",
@@ -186,3 +217,55 @@ TeamInfo.create(name: "バサジィ大分",
                 defense: 6,
                 tactics: 6,
                 technique: 6)
+MatchReq.create(team_info_id: 2,
+                match_date: (Time.local(2018,10,30)),
+                start_time: (Time.local(2018,10,30,18,0,0)),
+                end_time: (Time.local(2018,10,30,20,0,0)),
+                pref_id: 2,
+                facility_id: 2,
+                req_cat: 1,
+                req_team_num: 4,
+                content: "よろしくお願いします。"
+                )
+MatchReq.create(team_info_id: 3,
+                match_date: (Time.local(2018,10,30)),
+                start_time: (Time.local(2018,10,30,18,0,0)),
+                end_time: (Time.local(2018,10,30,20,0,0)),
+                pref_id: 3,
+                facility_id: 3,
+                req_cat: 2,
+                req_team_num: 4,
+                content: "よろしくお願いします。"
+                )
+MatchReq.create(team_info_id: 4,
+                match_date: (Time.local(2018,10,30)),
+                start_time: (Time.local(2018,10,30,18,0,0)),
+                end_time: (Time.local(2018,10,30,20,0,0)),
+                pref_id: 4,
+                facility_id: 4,
+                req_cat: 3,
+                req_team_num: 4,
+                content: "よろしくお願いします。"
+                )
+MatchReq.create(team_info_id: 5,
+                match_date: (Time.local(2018,10,30)),
+                start_time: (Time.local(2018,10,30,18,0,0)),
+                end_time: (Time.local(2018,10,30,20,0,0)),
+                pref_id: 5,
+                facility_id: 5,
+                req_cat: 4,
+                req_team_num: 4,
+                content: "よろしくお願いします。"
+                )
+Room.create(match_req_id: 1)
+Room.create(match_req_id: 2)
+Room.create(match_req_id: 3)
+Room.create(match_req_id: 4)
+ChatLink.create(room_id: 1,
+                team_info_id: 2)
+ChatLink.create(room_id: 2,
+                team_info_id: 3)
+ChatLink.create(room_id: 3,
+                team_info_id: 4)
+ChatLink.create(room_id: 4,
+                team_info_id: 5)

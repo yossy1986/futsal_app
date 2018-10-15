@@ -6,7 +6,7 @@ class CourtsController < ApplicationController
       @court = Facility.new
       @courts = Facility.all
     if params[:id].present?
-      @courts = Facility.where(pref_id: params[:facility][:pref]) if params[:facility][:pref].present?
+      @courts = Facility.where(pref_id: params[:facility][:pref_id]) if params[:facility][:pref_id].present?
     end
   end
 
@@ -21,7 +21,7 @@ class CourtsController < ApplicationController
   def create
     @court = Facility.new(image: "default_court.jpg",
                           name: params[:facility][:name],
-                          pref: params[:facility][:pref],
+                          pref_id: params[:facility][:pref_id],
                           address: params[:facility][:address],
                           tel: params[:facility][:tel],
                           site: params[:facility][:site],
@@ -45,7 +45,7 @@ class CourtsController < ApplicationController
   def update
     @court = Facility.find_by(id: params[:id])
     @court.name = params[:facility][:name]
-    @court.pref = params[:facility][:pref]
+    @court.pref_id = params[:facility][:pref_id]
     @court.address = params[:facility][:address]
     @court.tel = params[:facility][:tel]
     @court.site = params[:facility][:site]

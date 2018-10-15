@@ -6,22 +6,27 @@ class MatchsController < ApplicationController
     @matchreq = MatchReq.new
     @week = Week
     if params[:id].present?
-      @matchreqs = @matchreqs.where(pref_id: params[:match_req][:pref]) if params[:match_req][:pref].present?
-      @matchreqs = @matchreqs.where(facility_id: params[:match_req][:facility]) if params[:match_req][:facility].present?
-      @matchreqs = @matchreqs.where(pref_id: params[:match_req][:req_rank]) if params[:match_req][:req_rank].present?
-      @matchreqs = @matchreqs.where(pref_id: params[:match_req][:req_cat]) if params[:match_req][:req_cat].present?
+      @matchreqs = @matchreqs.where(pref_id: params[:match_req][:pref_id]) if params[:match_req][:pref_id].present?
+      @matchreqs = @matchreqs.where(facility_id: params[:matchreq][:facility_id]) if params[:matchreq][:facility_id].present?
+      @matchreqs = @matchreqs.where(req_cat: params[:match_req][:req_cat]) if params[:match_req][:req_cat].present?
     end
+  end
+  
+  def get_facilities
+    render partial: 'select_facilityy', locals: {pref_id: params[:pref_id]}
   end
 
 
   def show
     @matchreq = MatchReq.find_by(id: params[:id])
     @exdate = @matchreq.start_time - 12.hour
+    @time = Time.now
     @accept = ApplyMatch.where(match_req_id: @matchreq.id).where(status: 1).count
     @remaining = @matchreq.req_team_num - @accept
     @week = Week
     @applymatchs = ApplyMatch.all
     @applymatch = ApplyMatch.new
+    @applymatch_check = ApplyMatch.find_by(match_req_id: params[:id], team_info_id: session[:team_id])
   end
   
   def new

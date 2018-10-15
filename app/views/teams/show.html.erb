@@ -55,12 +55,11 @@
     <% @teaminfo.match_reqs.each do |matchreq| %>
     <%= link_to match_path(matchreq) do %>
     <div class="match-list">
-      <h3>●<%= matchreq.match_date.strftime("%-m月%-d日") %>
+      <h3><i class="far fa-calendar-alt"></i>　<%= matchreq.match_date.strftime("%-m月%-d日") %>
           (<%= @week[matchreq.match_date.wday] %>)　
-          ●<%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %>　
-          ●<%= matchreq.facility.name %></h3>
-      <h3>●募集ランク　<%= matchreq.ranking.name %>　●募集カテゴリー　<%= matchreq.category.name %></h3>
-      <h3>●応募期限　<%= matchreq.start_time.strftime("%Y年 %-m月%-d日 %R") %>まで　●募集チーム<%= matchreq.req_team_num %>(空き枠)</h3>
+          <%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %></h3>
+      <h3><i class="fas fa-map-marked-alt"></i>　<%= matchreq.facility.name %></h3>
+      <h4><i class="fas fa-futbol"></i>　募集カテゴリー　<%= matchreq.category.name %></h4>
       <img src="<%= "/logo_images/#{@teaminfo.logo}" %>">
       <p><%= matchreq.team_info.name %></p>
     </div>

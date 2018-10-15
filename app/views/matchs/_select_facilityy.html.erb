@@ -1,0 +1,1 @@
+<%= collection_select :matchreq, :facility_id, Facility.where(pref_id: pref_id), :id, :name, {:include_blank => "開催施設"}, :class => "wi100" %>

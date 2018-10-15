@@ -32,7 +32,10 @@ nav ul {
 nav li {
     list-style:none;
 }
-
+.empty {
+    height:62px;
+    width:100%;
+}
 a {
   cursor:pointer;
   text-decoration:none !important;
@@ -56,7 +59,6 @@ a:hover {
 .advertising {
     width:100%;
     height:auto;
-    padding-top:62px;
     margin:0 auto;
     position:static;
 }
@@ -128,7 +130,9 @@ span {
 header ul {
     height:50px;
 }
-
+.empty {
+    height:100px;
+}
 nav {
     flex-direction:column;
 }
@@ -144,10 +148,6 @@ nav {
     height:100%;
     border-right:1px solid #EFEFEF;
     padding-top:6px;
-}
-
-.advertising {
-     padding-top:100px;
 }
 
 .left {
