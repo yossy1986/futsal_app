@@ -18,27 +18,29 @@
     border-radius:10px;
 }
 
-.main {
-    height:1000px;
+.main-footer {
+    background-color:#EFEFEF;
+    padding:70px 0;
 }
-.privacy {
+
+.privacy,.terms {
     margin: 0 auto;
-    margin-top:50px;
     padding:30px;
     border:2px solid #EFEFEF;
     border-radius:10px;
     width:80%;
+    background:#fff;
 }
-.privacy h2 {
+.privacy h2,.terms h2 {
     font-weight:bold;
 }
-.privacy h3{
+.privacy h3,.terms h3 {
     font-size:20px;
     font-weight:bold;
     margin-top:20px;
     margin-bottom:20px;
 }
-.privacy li {
+.privacy li,.terms li {
     padding: 0 15px 15px 0;
 }
 @media screen and ( max-width:576px ) {
