@@ -10,7 +10,6 @@ class MatchsController < ApplicationController
       @matchreqs = @matchreqs.where(pref_id: params[:match_req][:pref_id]) if params[:match_req][:pref_id].present?
       @matchreqs = @matchreqs.where(facility_id: params[:matchreq][:facility_id]) if params[:matchreq][:facility_id].present?
       @matchreqs = @matchreqs.where(req_cat: params[:match_req][:req_cat]) if params[:match_req][:req_cat].present?
-      @matchreqs.order(created_at: :desc).page(params[:page]).per(PER)
     end
   end
   

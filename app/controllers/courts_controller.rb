@@ -3,11 +3,10 @@ class CourtsController < ApplicationController
   
   PER = 10
   def index
-    @courts = Facility.order(created_at: :desc).page(params[:page]).per(PER)
+      @courts = Facility.order(created_at: :desc).page(params[:page]).per(PER)
       @court = Facility.new
     if params[:id].present?
-      @courts = Facility.where(pref_id: params[:facility][:pref_id]) if params[:facility][:pref_id].present?
-      @courts.order(created_at: :desc).page(params[:page]).per(PER)
+      @courts = Facility.where(pref_id: params[:facility][:pref_id]).page(params[:page]).per(PER) if params[:facility][:pref_id].present?
     end
   end
 
