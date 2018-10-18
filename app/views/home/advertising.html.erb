@@ -1,2 +1,13 @@
-<main class="main-footer">
+<main>
+<%= render partial: 'layouts/advertising' %>
+<div class="wrapper contact">
+<div class="left">
+  <h2>広告掲載</h2>
+  <div class="ad">
+      <h4>お問い合わせよりご確認ください。</h4>
+      <%= link_to "お問い合わせ",new_contact_path %>
+  </div>
+  </div>
+  <%= render partial: 'posts/post' %>
+  </div>
 </main>

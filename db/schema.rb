@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_153723) do
+ActiveRecord::Schema.define(version: 2018_10_17_045830) do
 
   create_table "apply_matches", force: :cascade do |t|
     t.integer "team_info_id"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2018_09_27_153723) do
   create_table "chat_links", force: :cascade do |t|
     t.integer "room_id"
     t.integer "team_info_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "tel"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

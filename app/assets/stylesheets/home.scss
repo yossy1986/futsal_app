@@ -43,6 +43,17 @@
 .privacy li,.terms li {
     padding: 0 15px 15px 0;
 }
+
+.ad {
+    text-align:center;
+    width:100%;
+    background:#fff;
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
+    padding-bottom: 50px;
+}
+.ad h4 {
+    padding:20px 0;
+}
 @media screen and ( max-width:576px ) {
     
 .privacy,.terms {

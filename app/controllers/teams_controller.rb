@@ -2,8 +2,9 @@ class TeamsController < ApplicationController
   before_action :authenticate_team || :admin_team,{only:[:edit,:update,:destroy]}
   before_action :forbid_login_team,{only:[:new,:create]}
 
+  PER = 10
   def index
-      @teaminfos = TeamInfo.all
+      @teaminfos = TeamInfo.order(created_at: :desc).page(params[:page]).per(PER)
       @teaminfo = TeamInfo.new
       @week = Week
       @pref = Pref.all
@@ -11,6 +12,7 @@ class TeamsController < ApplicationController
       @teaminfos = @teaminfos.where(pref_id: params[:team_info][:pref_id]) if params[:team_info][:pref_id].present?
       @teaminfos = @teaminfos.where(facility_id: params[:teaminfo][:facility_id]) if params[:teaminfo][:facility_id].present?
       @teaminfos = @teaminfos.where(cat_id: params[:team_info][:cat_id]) if params[:team_info][:cat_id].present?
+      @teaminfos.order(created_at: :desc).page(params[:page]).per(PER)
     end
   end
   

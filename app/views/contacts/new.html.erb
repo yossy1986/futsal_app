@@ -1,0 +1,21 @@
+<main>
+<%= render partial: 'layouts/advertising' %>
+<div class="wrapper contact">
+<div class="left">
+  <h2>お問い合わせ</h2>
+    <%= form_for @contact do |f| %>
+    <p>必須項目(<span>※</span>)</p>
+    <%= f.label :name,"名前" %><span>※</span><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :email,"メールアドレス" %><span>※</span><br>
+    <%= f.text_field :email %><br>
+    <%= f.label :tel,"電話番号" %><br>
+    <%= f.text_field :tel %><br>
+    <%= f.label :content,"内容" %><span>※</span><br>
+    <%= f.text_area :content %><br>
+    <%= f.submit '送信', :class => 'btn btn-info' %>
+    <% end %>
+  </div>
+  <%= render partial: 'posts/post' %>
+  </div>
+</main>

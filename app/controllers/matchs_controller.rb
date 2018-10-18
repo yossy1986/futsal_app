@@ -1,14 +1,16 @@
 class MatchsController < ApplicationController
   before_action :authenticate_team,{only:[:new,:create,:edit,:update,:destroy]}
 
+  PER = 10
   def index
-    @matchreqs = MatchReq.all.order(created_at: :desc)
+    @matchreqs = MatchReq.order(created_at: :desc).page(params[:page]).per(PER)
     @matchreq = MatchReq.new
     @week = Week
     if params[:id].present?
       @matchreqs = @matchreqs.where(pref_id: params[:match_req][:pref_id]) if params[:match_req][:pref_id].present?
       @matchreqs = @matchreqs.where(facility_id: params[:matchreq][:facility_id]) if params[:matchreq][:facility_id].present?
       @matchreqs = @matchreqs.where(req_cat: params[:match_req][:req_cat]) if params[:match_req][:req_cat].present?
+      @matchreqs.order(created_at: :desc).page(params[:page]).per(PER)
     end
   end
   
@@ -41,7 +43,6 @@ class MatchsController < ApplicationController
                               pref_id: params[:match_req][:pref],
                               facility_id: params[:match_req][:facility],
                               req_cat: params[:match_req][:req_cat],
-                              req_rank: params[:match_req][:req_rank],
                               req_team_num: params[:match_req][:req_team_num],
                               content: params[:match_req][:content])
     @matchreq.match_date = Time.zone.local(params[:match_req]["match_date(1i)"].to_i,
@@ -84,7 +85,6 @@ class MatchsController < ApplicationController
     @matchreq.pref_id = params[:match_req][:pref]
     @matchreq.facility_id = params[:match_req][:facility]
     @matchreq.req_cat = params[:match_req][:req_cat]
-    @matchreq.req_rank = params[:match_req][:req_rank]
     @matchreq.req_team_num = params[:match_req][:req_team_num]
     @matchreq.content = params[:match_req][:content]
     @matchreq.match_date = Time.zone.local(params[:match_req]["match_date(1i)"].to_i,

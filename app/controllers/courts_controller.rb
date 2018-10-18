@@ -1,12 +1,13 @@
 class CourtsController < ApplicationController
   before_action :authenticate_team,:admin_team,{only:[:new,:create,:edit,:update,:destroy]}
-
+  
+  PER = 10
   def index
-    
+    @courts = Facility.order(created_at: :desc).page(params[:page]).per(PER)
       @court = Facility.new
-      @courts = Facility.all
     if params[:id].present?
       @courts = Facility.where(pref_id: params[:facility][:pref_id]) if params[:facility][:pref_id].present?
+      @courts.order(created_at: :desc).page(params[:page]).per(PER)
     end
   end
 

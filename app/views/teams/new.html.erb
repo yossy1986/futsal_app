@@ -7,6 +7,7 @@
     <%= message %>
     <% end %>
     <%= form_for @teaminfo, url: teams_path  do |f| %>
+    <p>必須項目(<span>※</span>)</p>
     <%= f.label :name,"チーム名(25文字以内)" %><span>※</span><br>
     <%= f.text_field :name, :required => true %><br>
     <%= f.label :logo,"チームロゴ" %><br>

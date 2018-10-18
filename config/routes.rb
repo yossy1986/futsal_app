@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   
   get 'terms' => 'home#terms'
   get 'privacy' => 'home#privacy'
-  get 'contact' => 'home#contact'
   get 'advertising' => 'home#advertising'
+  
+  get 'thanks' => 'contacts#thanks'
   
   resources :matchs do
     collection do
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :rooms
   resources :messages
+  resources :contacts
+  
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

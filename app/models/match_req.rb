@@ -9,10 +9,5 @@ class MatchReq < ApplicationRecord
     def category
         Cat.find_by(id: self.req_cat)
     end
-    def ranking
-        Rank.find_by(id: self.req_rank)
-    end
-    
-
 
 end
