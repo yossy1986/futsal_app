@@ -3,6 +3,9 @@
 <div class="wrapper matchs new">
   <div class="left">
     <h2>対戦募集詳細</h2>
+    <% @matchreq.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
     <%= form_for @matchreq, url: match_path  do |f| %><br>
     <%= f.label :match_date,"開催日" %><br>
     <%= f.date_select :match_date,:use_month_numbers => true, :date_separator => "/" ,:start_year => (Time.now.year)%><br>
@@ -13,7 +16,7 @@
     <%= f.label :pref_id,"地域" %><br>
     <%= f.collection_select :pref_id, Pref.all, :id, :name %><br>
     <%= f.label:facility_id,"開催施設" %><br>
-    <%= f.collection_select :facility_id, Facility.all, :id, :name %><br>
+    <%= render partial: 'select_facilityy', locals: {pref_id: Pref.first.id} %><br>
     <%= f.label :req_cat,"募集カテゴリー" %><br>
     <%= f.collection_select :req_cat, Cat.all, :id, :name %><br>
     <%= f.label :req_team_num,"募集チーム数" %><br>

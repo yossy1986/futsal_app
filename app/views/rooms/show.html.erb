@@ -2,7 +2,7 @@
 <%= render partial: 'layouts/advertising' %>
 <div class="wrapper rooms new">
   <div class="left">
-    <h2>チャット</h2>
+    <h2>メッセージ</h2>
     <% if session[:team_id] == 1 %>
     <% if @messages.present? %>
       <% @messages.each do |message| %>
