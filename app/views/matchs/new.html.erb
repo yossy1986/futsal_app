@@ -5,6 +5,9 @@
     <h2>対戦募集作成</h2>
       <%= form_for @matchreq, url: matchs_path  do |f| %>
       <p>必須項目(<span>※</span>)</p>
+      <% @matchreq.errors.full_messages.each do |message| %>
+      <%= message %>
+      <% end %>
       <%= f.label :match_date,"開催日" %><br>
       <%= f.date_select :match_date,:use_month_numbers => true, :date_separator => "/" ,:start_year => (Time.now.year)%><br>
       <%= f.label :start_time,"開始時間" %><br>

@@ -39,8 +39,8 @@ class MatchsController < ApplicationController
                               match_date: params[:match_req][:match_date],
                               start_time: params[:match_req][:start_time],
                               end_time: params[:match_req][:end_time],
-                              pref_id: params[:match_req][:pref],
-                              facility_id: params[:match_req][:facility],
+                              pref_id: params[:match_req][:pref_id],
+                              facility_id: params[:matchreq][:facility_id],
                               req_cat: params[:match_req][:req_cat],
                               req_team_num: params[:match_req][:req_team_num],
                               content: params[:match_req][:content])

@@ -35,6 +35,7 @@
       <% end %>
     </div>
     
+  <% if session[:team_id] == @matchreq.team_info_id %>
     <h2>参加チーム</h2>
     <div class="team-list-flex">
       <%= link_to team_path(@matchreq.team_info) do %>
@@ -52,8 +53,8 @@
         </div>
       </div>
       <% end %>
-      </div>
-      <div class="team-list-flex">
+    </div>
+    <div class="team-list-flex">
       <% @matchreq.apply_matches.each do |applymatch| %>
       <% if applymatch.status == 1 %>
       <%= link_to team_path(applymatch.team_info) do %>
@@ -86,7 +87,6 @@
       <% end %>
     </div>
     
-    <% if session[:team_id] == @matchreq.team_info_id %>
     <h2>応募チーム</h2>
     <div class="team-list-flex">
       <% @matchreq.apply_matches.each do |applymatch| %>
@@ -120,7 +120,52 @@
       <% end %>
       <% end %>
     </div>
-    <% end %>
+    
+  <% else %>
+    <h2>参加チーム</h2>
+    <div class="team-list-flex">
+      <%= link_to team_path(@matchreq.team_info) do %>
+      <div class="team-list">
+        <h3><%= @matchreq.team_info.name %></h3>
+        <div class="team-list-item">
+          <div class="team-list-left">
+            <img class="img" src="<%= "/team_images/#{@matchreq.team_info.image}"%>">
+          </div>
+          <div class="team-list-right">
+            <p><i class="fas fa-map-marker-alt"></i>　<%= @matchreq.team_info.pref.name %></p>
+            <p><i class="fas fa-futbol"></i>　<%= @matchreq.team_info.cat.name %></p>
+            <p>平均年齢　<%= @matchreq.team_info.age_ave %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    
+      <% @matchreq.apply_matches.each do |applymatch| %>
+      <% if applymatch.status == 1 %>
+      <%= link_to team_path(applymatch.team_info) do %>
+      <div class="team-list">
+        <h3><%= applymatch.team_info.name %></h3>
+        <div class="team-list-item">
+          <div class="team-list-left">
+            <img class="img" src="<%= "/team_images/#{applymatch.team_info.image}" %>">
+          </div>
+          <div class="team-list-right">
+            <p><i class="fas fa-map-marker-alt"></i>　<%= applymatch.team_info.pref.name %></p>
+            <p><i class="fas fa-futbol"></i>　<%= applymatch.team_info.cat.name %></p>
+            <p>平均年齢　<%= applymatch.team_info.age_ave %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+  <% end %>
+    
+    
+    
+    
+    
   </div>
   <%= render partial: 'posts/post' %>
 </div>
