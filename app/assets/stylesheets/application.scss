@@ -170,16 +170,7 @@ footer p {
 
 @media screen and ( max-width:768px ) {
 
-.hidden {
-    display:none;
-}
 
-.awsome {
-  display:flex;
-  flex-direction: column;
-  text-align:center;
-  font-size:12px;
-}
 
 .wrapper {
     flex-direction:column;
@@ -195,7 +186,19 @@ footer p {
 
 }
 
+@media screen and ( max-width:900px ) {
+    
+.hidden {
+    display:none;
+}
 
+.awsome {
+  display:flex;
+  flex-direction: column;
+  text-align:center;
+  font-size:12px;
+}
 
+}
 
 

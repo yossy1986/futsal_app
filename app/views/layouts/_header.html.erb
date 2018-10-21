@@ -10,8 +10,6 @@
     <ul class="col-sm-9">
       <!--ログイン-->
       <% if logged_in? %>
-      <%= current_team.name %>
-      <%= link_to "Log out", logout_path, method: :delete %>
       <li class="awsome">
         <%= link_to matchs_path do %>
         <i class="fas fa-handshake fa-2x" style="color: #F94519;"></i>
