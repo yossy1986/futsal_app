@@ -80,7 +80,7 @@
         <div class="comment-btn">
         <%= form_tag("/apply_matchs/#{@matchreq.id}/remove", :method => :post) do %>
         <%= hidden_field_tag :team_info_id, applymatch.team_info_id  %> 
-        <%= submit_tag "参加チームから外す" ,:class => "btn btn-danger btn-sm",data: { confirm: '参加チームから外しますか？' }%>
+        <%= submit_tag "参加チームから外す" ,:class => "btn btn-danger btn-sm",data: { confirm: '...' }%>
         <% end %>
         </div>
       </div>
