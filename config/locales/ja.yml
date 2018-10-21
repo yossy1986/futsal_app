@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      team_info: チーム
+    attributes:
+      team_info:
+        name: チーム名
+        facility: 活動施設
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード再入力
+        comment: チーム紹介
+        
+ja:
+  activerecord:
+    models:
+      match_req: 対戦募集
+    attributes:
+      match_req:
+      facility: 開催施設
+      content: 募集詳細

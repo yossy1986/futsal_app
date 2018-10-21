@@ -6,7 +6,7 @@ class TeamInfo < ApplicationRecord
     validates :age_ave, presence: true
     validates :comment, presence: true
     validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },uniqueness: true
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 6 },:confirmation => true
       
     has_secure_password
     

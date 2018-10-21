@@ -52,9 +52,11 @@
         </div>
       </div>
       <% end %>
-      
+      </div>
+      <div class="team-list-flex">
       <% @matchreq.apply_matches.each do |applymatch| %>
       <% if applymatch.status == 1 %>
+      <%= link_to team_path(applymatch.team_info) do %>
       <div class="team-list">
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
@@ -65,11 +67,19 @@
             <p><i class="fas fa-map-marker-alt"></i>　<%= applymatch.team_info.pref.name %></p>
             <p><i class="fas fa-futbol"></i>　<%= applymatch.team_info.cat.name %></p>
             <p>平均年齢　<%= applymatch.team_info.age_ave %></p>
-            <%= form_tag("/apply_matchs/#{@matchreq.id}/remove", :method => :post) do %>
-        <input type="submit" value="除外する" class="btn btn-info btn-sm">
+          </div>
+        </div>
+      </div>
+      <% end %>
+      
+      <div class="apply-comment">
+        <p>応募コメント</p>
+        <p><%= applymatch.comment %></p>
+        <div class="comment-btn">
+        <%= form_tag("/apply_matchs/#{@matchreq.id}/remove", :method => :post) do %>
+        <input type="submit" value="除外する" class="btn btn-danger btn-sm">
         <%= hidden_field_tag :team_info_id, applymatch.team_info_id  %> 
         <% end %>
-          </div>
         </div>
       </div>
       <% end %>
@@ -96,26 +106,11 @@
         </div>
       </div>
       <% end %>
-      <!--<div id="modal" class="aa">-->
-      <!--  <div class="chart">-->
-      <!--  <canvas id="myChart" width="350" height="170">-->
-      <!--        Canvas not supported...-->
-      <!--  </canvas>-->
-      <!--  <script>draw_graph();</script>-->
-      <!--</div>-->
-      <!--  <div id="close">-->
-      <!--    Close-->
-      <!--  </div>-->
-      <!--</div>-->
 
-
-
-  <div id="mask" class="aa"></div>
       <div class="apply-comment">
         <p>応募コメント</p>
         <p><%= applymatch.comment %></p>
         <div class="comment-btn">
-        <!--<button type="button" class="btn btn-warning btn-sm" id="open">チームグラフ</button>-->
         <%= form_tag("/apply_matchs/#{@matchreq.id}/update", :method => :patch) do %>
         <input type="submit" value="承認する" class="btn btn-info btn-sm">
         <%= hidden_field_tag :team_info_id, applymatch.team_info_id  %> 
@@ -130,3 +125,5 @@
   <%= render partial: 'posts/post' %>
 </div>
 </main>
+
+        

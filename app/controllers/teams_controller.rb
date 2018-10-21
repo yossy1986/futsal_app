@@ -41,6 +41,7 @@ class TeamsController < ApplicationController
                               comment: params[:team_info][:comment],
                               email: params[:team_info][:email],
                               password: params[:team_info][:password],
+                              password_confirmation: params[:team_info][:password_confirmation],
                               attack: params[:team_info][:attack],
                               physical: params[:team_info][:physical],
                               stamina: params[:team_info][:stamina],

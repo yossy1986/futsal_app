@@ -21,14 +21,17 @@
 .room-list:hover {
     opacity: .7;
 }
+.message {
+    margin-top:30px;
+}
 .alert {
     width:70%;
-    padding:7px !important;
+    padding: 7px 10px 7px 7px !important;
     background:#6BC85B;
 }
 .text-right p, .text-left p{
     display:inline-block;
-    border-radius:40px;
+    border-radius:20px;
 }
 
 @media screen and ( max-width:576px ) {

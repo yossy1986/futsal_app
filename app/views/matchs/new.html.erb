@@ -11,12 +11,12 @@
       <%= f.time_select :start_time ,:minute_step => 30 %><br>
       <%= f.label :end_time,"終了時間" %><br>
       <%= f.time_select :end_time ,:minute_step => 30 %><br>
-      <%= f.label :pref,"地域" %><br>
-      <%= f.collection_select :pref, Pref.all, :id, :name %><br>
-      <%= f.label:facility,"開催施設" %><br>
-      <%= f.collection_select :facility, Facility.all, :id, :name %><br>
+      <%= f.label :pref_id,"地域" %><span>※</span><br>
+      <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"} %><br>
+      <%= f.label:facility_id,"開催施設" %><span>※</span><br>
+      <%= render partial: 'select_facilityy', locals: {pref_id: Pref.first.id} %><br>
       <%= f.label :req_cat,"募集カテゴリー" %><br>
-      <%= f.collection_select :req_cat, Cat.all, :id, :name %><br>
+      <%= f.collection_select :req_cat, Cat.all, :id, :name,:selected => 4 %><br>
       <%= f.label :req_team_num,"募集チーム数" %><br>
       <%= f.select :req_team_num,[1,2,3,4,5,6,7,8] %><br>
       <%= f.label :content,"募集詳細" %><span>※</span><br>

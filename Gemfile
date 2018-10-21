@@ -23,6 +23,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'chart-js-rails'
 gem 'gon'
+gem 'rails-i18n'
 gem 'mini_magick'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

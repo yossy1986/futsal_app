@@ -13,7 +13,7 @@
     <%= f.label :pref_id,"主な活動地域" %><br>
     <%= f.collection_select :pref_id, Pref.all, :id, :name %><br>
     <%= f.label:facility_id,"主な活動施設" %><br>
-    <%= render partial: 'select_facility', locals: {pref_id: Pref.first.id} %><br>
+    <%= render partial: 'select_facility', locals: {pref_id: @teaminfo.facility_id} %><br>
     <%= f.label :cat_id,"カテゴリー" %><br>
     <%= f.collection_select :cat_id, Cat.all, :id, :name %><br>
     <%= f.label :age_ave,"平均年齢" %><br>
@@ -32,7 +32,7 @@
     <%= f.select :technique,(1..10) %><br>
     <%= f.label :email,"メールアドレス" %><br>
     <%= f.email_field :email, :required => true %><br>
-    <%= f.label :password,"パスワード" %><br>
+    <%= f.label :password,"パスワード" %><span>※</span><br>
     <%= f.password_field :password, :required => true %><br>
     <%= f.label :comment,"チーム紹介" %><br>
     <%= f.text_area :comment, :required => true %><br>

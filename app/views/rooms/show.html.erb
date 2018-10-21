@@ -3,6 +3,7 @@
 <div class="wrapper rooms new">
   <div class="left">
     <h2>メッセージ</h2>
+    <div class="message">
     <% if session[:team_id] == 1 %>
     <% if @messages.present? %>
       <% @messages.each do |message| %>
@@ -34,7 +35,7 @@
         </div>
       <% else %>
         <div class="text-left">
-        <h3><%= message.team_info.name %></h3>
+        <h3><img style="width:30px;height:30px;"src="<%= "/logo_images/#{message.team_info.logo}" %>"><%= message.team_info.name %></h3>
         <p class="alert alert-info">
         <%= message.content %>
         </p>
@@ -54,11 +55,13 @@
       <%= f.hidden_field :room_id, :value => @room.id %>
       <br>
       <div class="text-center">
-        <%= f.submit "投稿する", :class => "btn btn-info" %>
+        <%= f.submit "送信する", :class => "btn btn-info" %>
       </div>
     <% end %>
     <% end %>
+    </div>
   </div>
   <%= render partial: 'posts/post' %>
 </div>
 </main>
+<img src="<%= "/logo_images/message.team_info.logo" %>">
