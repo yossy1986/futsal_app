@@ -5,7 +5,9 @@
     <h2>チーム検索</h2>
     <div class="serch">
       <%= form_for @teaminfo, url: teams_path,  :method => 'get' do |f| %>
+      <!--paramsとるためのダミー-->
       <%= hidden_field_tag :id, 0  %>
+      <!--end-->
       <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi100" %>
       <%= render partial: 'select_facility', locals: {pref_id: Pref.first.id} %>
       <%= f.collection_select :cat_id, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi100" %>

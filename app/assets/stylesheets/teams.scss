@@ -114,7 +114,9 @@
 .new form #team_info_logo,.new form #team_info_image {
     background:#fff;
 }
-
+.btn-warning {
+  color:#fff !important;
+}
 @media screen and ( max-width:576px ) {
 .team-list-flex {
     flex-direction:column;

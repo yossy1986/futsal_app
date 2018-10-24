@@ -1,17 +1,21 @@
-
 <div class="jumbotron">
   <div class="container">
     <% if flash[:notice] %>
-  <div class="flash">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-    <h1 class="display-3">フットサルとは</h1>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+    <h1 class="display-3">フットメイクとは</h1>
     <p>フットサルの対戦相手を手軽に探せるマッチングサービスです。</p>
     <p><%= link_to "新規登録",new_team_path ,class: "btn btn-primary btn-lg"%>
     <%= link_to "ログイン ",login_path ,class: "btn btn-success btn-lg"%></p>
   </div>
 </div>
+
 <div class="main">
-  <h1>フットサルの使い方</h1>
+  <h1>フットメイクで自分たちのチームに合った対戦相手を</h1>
+  
 </div>
+細かく分けられたカテゴリー　細かく分けられたカテゴリーで自分たちのチームに合った対戦相手を探せる
+チームバランスをグラフで表示　攻撃、フィジカル、スタミナ、守備、戦術、テクニックのチームバランスをグラフで表示することでチームの特徴がわかる
+参加チームがわかる　対戦募集の参加チームが表示されるので、

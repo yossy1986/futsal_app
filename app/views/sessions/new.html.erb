@@ -4,9 +4,9 @@
   <div class="left">
     <h2>ログイン</h2>
     <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.label :email %><br>
+    <%= f.label :email,"メールアドレス" %><br>
     <%= f.email_field :email, :required => true %><br>
-    <%= f.label :password %><br>
+    <%= f.label :password, "パスワード" %><br>
     <%= f.password_field :password, :required => true %><br>
     <%= f.submit "ログイン", class: "btn btn-info" %>
     <% end %>

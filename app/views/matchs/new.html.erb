@@ -6,7 +6,7 @@
       <%= form_for @matchreq, url: matchs_path  do |f| %>
       <p>必須項目(<span>※</span>)</p>
       <% @matchreq.errors.full_messages.each do |message| %>
-      <%= message %>
+      <%= message %><br>
       <% end %>
       <%= f.label :match_date,"開催日" %><br>
       <%= f.date_select :match_date,:use_month_numbers => true, :date_separator => "/" ,:start_year => (Time.now.year)%><br>

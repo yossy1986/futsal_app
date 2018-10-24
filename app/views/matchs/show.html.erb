@@ -16,7 +16,7 @@
       <%= simple_format @matchreq.content %>
       </div>
       <% if session[:team_id] %>
-      <div class="ede">
+      <div class="edit-delete">
         <%= form_tag("/apply_matchs/#{@matchreq.id}/create", :method => :post) do %>
         <% if @applymatch_check %>
         <p class="btn btn-danger btn-sm">応募済み</p>

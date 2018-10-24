@@ -42,9 +42,9 @@
             </tr>
           </table>
           <% if session[:team_id] == 1 %>
-            <div class="ede">
+            <div class="edit-delete">
               <%= link_to "編集",edit_court_path(@court),class: "btn btn-info" %>
-              <%= link_to "削除", court_path(@court), :method => :delete, class: "btn btn-danger" %>
+              <%= link_to "削除", court_path(@court), :method => :delete, class: "btn btn-danger",data: { confirm: '削除してもよろしいですか？' } %>
             </div>
           <% end %>
         </div>
