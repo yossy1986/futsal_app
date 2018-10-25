@@ -10,10 +10,10 @@ body {
 
 header {
     width:100%;
-    background-color:#fff;
+    // background-color:#fff;
     position: fixed;
     z-index:2;
-    border-top:2px solid #28A745;
+    // border-bottom:2px solid #28A745;
 }
 
 nav {
@@ -35,6 +35,7 @@ nav li {
 
 .futmake {
     padding-top:10px;
+    width:200px;
 }
 
 .empty {
@@ -145,9 +146,7 @@ header ul {
 nav {
     flex-direction:column;
 }
-.futmake {
-    padding-top:0;
-}
+
 .col-sm-9 {
     padding-left:0;
     border-top:1px solid #EFEFEF;
@@ -177,11 +176,6 @@ footer p {
 
 @media screen and ( max-width:768px ) {
 
-
-
-
-
-
  footer li {
     font-size:12px;
 }
@@ -189,7 +183,7 @@ footer p {
 }
 
 @media screen and ( max-width:900px ) {
-    
+
 .hidden {
     display:none;
 }
