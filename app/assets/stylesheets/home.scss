@@ -2,20 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.jumbotron {
-    background-image: url(/soccer.jpg);
+.top-bg {
+    background-image: url(/zaza.jpg);
     background-size: cover;
     background-position:center;
-    width:100%;
-    height:500px;
-    padding-top:150px;
+    height:600px;
 }
-
-.jumbotron .container {
-    padding:20px;
+.top-bg {
     text-align:center;
-    background: rgba(255,255,255,0.6);
-    border-radius:10px;
+    padding-top:200px;
+    color:#fff;
+}
+.top-box {
+    text-align:center;
 }
 
 .main-footer {
@@ -82,4 +81,10 @@
     .jumbotron h1 {
         font-size:40px;
     }
+    .top-bg {
+    background-image: url(/zaza.jpg);
+    background-size: cover;
+    background-position:left;
+    height:600px;
+}
 }

@@ -172,13 +172,8 @@ footer p {
 
 
 
-.wrapper {
-    flex-direction:column;
-}
-.right {
-    margin:0;
-    width:100%;
-}
+
+
 
  footer li {
     font-size:12px;
@@ -198,7 +193,13 @@ footer p {
   text-align:center;
   font-size:12px;
 }
-
+.wrapper {
+    flex-direction:column;
+}
+.right {
+    margin:0;
+    width:100%;
+}
 }
 
 
