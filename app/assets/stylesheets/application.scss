@@ -32,6 +32,11 @@ nav ul {
 nav li {
     list-style:none;
 }
+
+.futmake {
+    padding-top:10px;
+}
+
 .empty {
     height:62px;
     width:100%;
@@ -104,7 +109,7 @@ footer ul {
 footer p {
     text-align:center;
     margin:0;
-    padding-bottom:30px;
+    padding-bottom:20px;
 }
 
 footer li:hover {
@@ -130,7 +135,7 @@ span {
     margin-top:10px;
 }
 @media screen and ( max-width:576px ) {
-    
+
 header ul {
     height:50px;
 }
@@ -140,7 +145,9 @@ header ul {
 nav {
     flex-direction:column;
 }
-
+.futmake {
+    padding-top:0;
+}
 .col-sm-9 {
     padding-left:0;
     border-top:1px solid #EFEFEF;

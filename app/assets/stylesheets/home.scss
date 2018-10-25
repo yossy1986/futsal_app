@@ -7,12 +7,12 @@
     background-size: cover;
     background-position:center;
     height:600px;
-}
-.top-bg {
     text-align:center;
     padding-top:200px;
     color:#fff;
 }
+
+
 .top-box {
     text-align:center;
 }
@@ -54,7 +54,9 @@
     padding:20px 0;
 }
 @media screen and ( max-width:576px ) {
-    
+    .top-bg h1{
+    font-size:26px;
+}
 .privacy,.terms {
     width:95%;
 }
