@@ -2,20 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top-bg {
-    // background-image: url(/s.jpg);
-    // background-size: cover;
-    // background-position: center;
-    // height:500px;
-    // text-align:center;
-    // color:#fff;
-}
-
-
-.top-box {
-    text-align:center;
-}
-
 .main-footer {
     background-color:#EFEFEF;
     padding:70px 0;
@@ -53,9 +39,7 @@
     padding:20px 0;
 }
 @media screen and ( max-width:576px ) {
-    .top-bg h1{
-    font-size:26px;
-}
+
 .privacy,.terms {
     width:95%;
 }
@@ -79,8 +63,5 @@
 }
 @media screen and ( max-width:768px ) {
     
-    .jumbotron h1 {
-        font-size:40px;
-    }
 
 }
