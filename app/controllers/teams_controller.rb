@@ -32,8 +32,8 @@ class TeamsController < ApplicationController
   def create
     logger.debug("xxxxxxxxxx = #{params[:team_info][:name]}")
     @teaminfo = TeamInfo.new(name: params[:team_info][:name],
-                              logo: "default_logo.jpg",
-                              image: "default_team.jpg",
+                              logo: "default_logo_image.jpg",
+                              image: "default_team_image.jpg",
                               pref_id: params[:team_info][:pref_id],
                               facility_id: params[:teaminfo][:facility_id],
                               cat_id: params[:team_info][:cat_id],
