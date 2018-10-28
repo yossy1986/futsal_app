@@ -102,6 +102,7 @@ class MatchsController < ApplicationController
                                           params[:match_req]["end_time(3i)"].to_i,
                                           params[:match_req]["end_time(4i)"].to_i,
                                           params[:match_req]["end_time(5i)"].to_i)
+    @exdate = @matchreq.start_time - 12.hour
     if @matchreq.save
       flash[:notice] = "対戦募集を変更しました  "
       redirect_to action: "index"
