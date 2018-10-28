@@ -17,15 +17,26 @@
   <header>
   <nav>
     <ul class="col-sm-3">
+      <!--ログイン-->
+      <% if logged_in? %>
       <li>
         <%= link_to root_url do %>
         <img class="futmake" src="/futmake-logo.png"></a>
         <% end %>
-        </li>
+      </li>
+        
+        <!--ログアウト-->
+      <% else %>
+      <li>
+        <%= link_to root_url do %>
+        <img class="futmake" src="/futmake-logo.png"></a>
+        <% end %>
+      </li>
       <li class="top-box">
         <%= link_to "新規登録",new_team_path ,class: "btn btn-primary btn-sm"%>
         <%= link_to "ログイン ",login_path ,class: "btn btn-success btn-sm"%>
       </li>
+      <% end %>
     </ul>
     <ul class="col-sm-9">
       <!--ログイン-->
