@@ -20,7 +20,6 @@ class MatchsController < ApplicationController
 
   def show
     @matchreq = MatchReq.find_by(id: params[:id])
-    @exdate = @matchreq.start_time - 12.hour
     @time = Time.now
     @accept = ApplyMatch.where(match_req_id: @matchreq.id).where(status: 1).count
     @remaining = @matchreq.req_team_num - @accept
@@ -59,9 +58,12 @@ class MatchsController < ApplicationController
                                           params[:match_req]["end_time(3i)"].to_i,
                                           params[:match_req]["end_time(4i)"].to_i,
                                           params[:match_req]["end_time(5i)"].to_i)
-                            
+    @matchreq.ex_time = Time.zone.local(params[:match_req]["ex_time(1i)"].to_i,
+                                            params[:match_req]["ex_time(2i)"].to_i,
+                                            params[:match_req]["ex_time(3i)"].to_i,
+                                            params[:match_req]["ex_time(4i)"].to_i,
+                                            params[:match_req]["ex_time(5i)"].to_i)
     if @matchreq.save
-    
       @room = Room.create(match_req_id: @matchreq.id)
       @chatlink = ChatLink.create(team_info_id: @current_team.id,room_id: @room.id)
       flash[:notice] = "対戦募集を作成しました"
@@ -102,7 +104,11 @@ class MatchsController < ApplicationController
                                           params[:match_req]["end_time(3i)"].to_i,
                                           params[:match_req]["end_time(4i)"].to_i,
                                           params[:match_req]["end_time(5i)"].to_i)
-    @exdate = @matchreq.start_time - 12.hour
+    @matchreq.ex_time = Time.zone.local(params[:match_req]["ex_time(1i)"].to_i,
+                                            params[:match_req]["ex_time(2i)"].to_i,
+                                            params[:match_req]["ex_time(3i)"].to_i,
+                                            params[:match_req]["ex_time(4i)"].to_i,
+                                            params[:match_req]["ex_time(5i)"].to_i)
     if @matchreq.save
       flash[:notice] = "対戦募集を変更しました  "
       redirect_to action: "index"

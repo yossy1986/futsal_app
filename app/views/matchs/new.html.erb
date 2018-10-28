@@ -14,6 +14,8 @@
       <%= f.time_select :start_time ,:minute_step => 30 %><br>
       <%= f.label :end_time,"終了時間" %><br>
       <%= f.time_select :end_time ,:minute_step => 30 %><br>
+      <%= f.label :match_date,"応募締め切り日時" %><br>
+      <%= f.datetime_select :ex_time,:use_month_numbers => true, :date_separator => "/" ,:start_year => (Time.now.year),:minute_step => 30%><br>
       <%= f.label :pref_id,"地域" %><span>※</span><br>
       <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"} %><br>
       <%= f.label:facility_id,"開催施設" %><span>※</span><br>

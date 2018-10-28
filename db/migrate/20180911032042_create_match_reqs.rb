@@ -6,6 +6,7 @@ class CreateMatchReqs < ActiveRecord::Migration[5.2]
       t.datetime :match_date
       t.datetime :start_time
       t.datetime :end_time
+      t.datetime :ex_time
       t.integer :pref_id
       t.integer :facility_id
       t.integer :req_cat
