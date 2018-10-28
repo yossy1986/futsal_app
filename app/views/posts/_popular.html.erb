@@ -1,0 +1,13 @@
+<div class="right">
+    <h2>オススメ記事</h2>
+    <ul class="post">
+      <% @popular.each do |popular| %>
+      <%= link_to post_path(popular) do %>
+      <li class="post-item clearfix">
+        <img src="<%="/post_images/#{popular.image}" %>">
+        <p><%= popular.title %></p>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>

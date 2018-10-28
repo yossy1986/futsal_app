@@ -8,12 +8,18 @@
     <% end %>
     <%= form_for @teaminfo, url: teams_path  do |f| %>
     <p>必須項目(<span>※</span>)</p>
+    <%= f.label :email,"メールアドレス" %><span>※</span><br>
+    <%= f.email_field :email, :required => true %><br>
+    <%= f.label :password,"パスワード" %>(6文字以上)<span>※</span><br>
+    <%= f.password_field :password, :required => true %><br>
+    <%= f.label :password_confirmation, "パスワード再入力" %><span>※</span><br>
+    <%= f.password_field :password_confirmation %><br>
     <%= f.label :name,"チーム名(25文字以内)" %><span>※</span><br>
     <%= f.text_field :name, :required => true %><br>
-    <%= f.label :logo,"チームロゴ" %><br>
-    <%= f.file_field :logo %><br>
     <%= f.label :image,"チーム写真" %><br>
     <%= f.file_field :image %><br>
+    <%= f.label :logo,"チームロゴ" %><br>
+    <%= f.file_field :logo %><br>
     <%= f.label :pref_id,"主な活動地域" %><span>※</span><br>
     <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"} %><br>
     <%= f.label:facility_id,"主な活動施設" %><span>※</span><br>
@@ -21,7 +27,7 @@
     <%= f.label :cat_id,"カテゴリー" %><br>
     <%= f.collection_select :cat_id, Cat.all, :id, :name %><br>
     <%= f.label :age_ave,"平均年齢" %><br>
-    <%= f.select :age_ave,(10..50),:selected => 20 %><br>
+    <%= f.select :age_ave,(10..50),:selected => 20 %><br><br>
     <%= f.label:attack,"攻撃" %><br>
     <%= f.select :attack,(1..10),:selected => 5 %><br>
     <%= f.label:phisycal,"フィジカル" %><br>
@@ -34,12 +40,6 @@
     <%= f.select :tactics,(1..10),:selected => 5 %><br>
     <%= f.label:technique,"テクニック" %><br>
     <%= f.select :technique,(1..10),:selected => 5 %><br>
-    <%= f.label :email,"メールアドレス" %><span>※</span><br>
-    <%= f.email_field :email, :required => true %><br>
-    <%= f.label :password,"パスワード" %>(6文字以上)<span>※</span><br>
-    <%= f.password_field :password, :required => true %><br>
-    <%= f.label :password_confirmation, "パスワード再入力" %><span>※</span><br>
-    <%= f.password_field :password_confirmation %><br>
     <%= f.label :comment,"チーム紹介" %><span>※</span><br>
     <%= f.text_area :comment, :required => true %><br>
     <%= f.submit "新規登録する" ,:class => "btn btn-info" %>

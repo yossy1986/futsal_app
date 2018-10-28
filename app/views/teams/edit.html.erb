@@ -4,6 +4,11 @@
   <div class="left">
     <h2>チーム編集</h2>
     <%= form_for @teaminfo, url: team_path do |f| %>
+        <%= f.label :email,"メールアドレス" %><br>
+    <%= f.email_field :email, :required => true %><br>
+    <%= f.label :password,"パスワード" %><span>※</span><br>
+    <%= f.password_field :password, :required => true %><br>
+
     <%= f.label :name,"チーム名" %><br>
     <%= f.text_field :name, :required => true %><br>
     <%= f.label :logo,"ロゴ" %><br>
@@ -30,10 +35,6 @@
     <%= f.select :tactics,(1..10) %><br>
     <%= f.label:technique,"テクニック" %><br>
     <%= f.select :technique,(1..10) %><br>
-    <%= f.label :email,"メールアドレス" %><br>
-    <%= f.email_field :email, :required => true %><br>
-    <%= f.label :password,"パスワード" %><span>※</span><br>
-    <%= f.password_field :password, :required => true %><br>
     <%= f.label :comment,"チーム紹介" %><br>
     <%= f.text_area :comment, :required => true %><br>
     <%= f.submit "プロフィールを変更する" ,:class => "btn btn-info" %>

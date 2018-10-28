@@ -7,7 +7,7 @@ window.draw_graph = ->
     myChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ["攻撃", "フィジカル", "スタミナ", "守備", "戦術", "テクニック"],
+            labels: ["攻撃", "フィジカル", "スタミナ", "ディフェンス", "戦術", "テクニック"],
             datasets: [{
                 data: gon.data,
                 backgroundColor: [
