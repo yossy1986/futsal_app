@@ -1,6 +1,6 @@
 <main>
 <!--<%= render partial: 'layouts/advertising' %>-->
-<div class="wrapper teams new">
+<div class="wrapper signup new">
   <div class="left">
     <h2>新規登録</h2>
     <% @teaminfo.errors.full_messages.each do |message| %>
@@ -28,7 +28,7 @@
     <%= f.collection_select :cat_id, Cat.all, :id, :name %><br>
     <%= f.label :age_ave,"平均年齢" %><br>
     <%= f.select :age_ave,(10..50),:selected => 20 %><br><br>
-    <%= f.label:attack,"攻撃" %><br>
+    <%= f.label:attack,"攻撃　　チームバランスを入力してください" %><br>
     <%= f.select :attack,(1..10),:selected => 5 %><br>
     <%= f.label:phisycal,"フィジカル" %><br>
     <%= f.select :physical,(1..10),:selected => 5 %><br>

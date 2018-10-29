@@ -8,13 +8,12 @@
     <%= f.email_field :email, :required => true %><br>
     <%= f.label :password,"パスワード" %><span>※</span><br>
     <%= f.password_field :password, :required => true %><br>
-
     <%= f.label :name,"チーム名" %><br>
     <%= f.text_field :name, :required => true %><br>
-    <%= f.label :logo,"ロゴ" %><br>
-    <%= f.file_field :logo %><br>
     <%= f.label :image,"チーム写真" %><br>
     <%= f.file_field :image %><br>
+    <%= f.label :logo,"ロゴ" %><br>
+    <%= f.file_field :logo %><br>
     <%= f.label :pref_id,"主な活動地域" %><br>
     <%= f.collection_select :pref_id, Pref.all, :id, :name %><br>
     <%= f.label:facility_id,"主な活動施設" %><br>
