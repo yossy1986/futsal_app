@@ -66,6 +66,7 @@
     <% end %>
     <% end %>
     
+    <% if @teaminfo.id == session[:team_id] %>
     <h2>応募中</h2>
     <% @teaminfo.apply_matches.each do |applymatch| %>
     <%= link_to match_path(applymatch) do %>
@@ -78,6 +79,7 @@
       <%= image_tag "logo_images/#{applymatch.match_req.team_info.logo}" %>
       <p><%= applymatch.match_req.team_info.name %></p>
     </div>
+    <% end %>
     <% end %>
     <% end %>
   </div>
