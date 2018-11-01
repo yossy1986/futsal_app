@@ -25,6 +25,7 @@ gem 'chart-js-rails'
 gem 'gon'
 gem 'rails-i18n'
 gem 'mini_magick'
+gem 'validates_timeliness'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

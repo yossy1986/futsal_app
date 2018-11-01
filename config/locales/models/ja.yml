@@ -13,6 +13,7 @@ ja:
         password_confirmation: パスワード再入力
         comment: チーム紹介
       match_req:
+        match_date: 開催日
         facility: 開催施設
         pref: 地域
         

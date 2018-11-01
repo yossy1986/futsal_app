@@ -72,7 +72,6 @@ class MatchsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @matchreq = MatchReq.find_by(id: params[:id])
     @matchreq.match_date = params[:match_req][:match_date]
-    @matchreq.start_time = params[:match_req][:start_time]
     @matchreq.end_time = params[:match_req][:end_time]
     @matchreq.pref_id = params[:match_req][:pref_id]
     @matchreq.facility_id = params[:matchreq][:facility_id]

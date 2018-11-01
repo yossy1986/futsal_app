@@ -20,7 +20,7 @@
         <%= form_tag("/apply_matchs/#{@matchreq.id}/create", :method => :post) do %>
         <% if @applymatch_check %>
         <p class="btn btn-danger btn-sm">応募済み</p>
-        <% elsif @time >= @matchreq.ex_time %>
+        <% elsif @time >= @exdate %>
         <p style="color:red;">応募を締め切りました</p>
         <% elsif @matchreq.team_info.id != session[:team_id] %>
         <P>コメント(130文字以内)</P>

@@ -7,8 +7,10 @@
     <p style="color:red;"><%= message %></p>
     <% end %>
     <%= form_for @matchreq, url: match_path  do |f| %><br>
-      <%= f.label :match_date,"開催日　　　　　　　　　　　開始時間" %><br>
-      <%= f.datetime_select :match_date,:use_month_numbers => true, :date_separator => "/" ,:start_year => (Time.now.year),:minute_step => 30%><br>
+    <%= f.label :match_date,"開催日" %><br>
+    <%= f.date_select :match_date,:use_month_numbers => true, :date_separator => "/" ,:start_year => (Time.now.year)%><br>
+    <%= f.label :match_date,"開始時間" %><br>
+    <%= f.time_select :match_date,:use_month_numbers => true, :date_separator => "/" ,:minute_step => 30%><br>
     <%= f.label :end_time,"終了時間" %><br>
     <%= f.time_select :end_time ,:minute_step => 30 %><br>
     <%= f.label :pref_id,"地域" %><br>
