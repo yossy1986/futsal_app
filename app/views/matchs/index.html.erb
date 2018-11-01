@@ -24,7 +24,7 @@
       <%= matchreq.match_date.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %></h3>
       <h3><i class="fas fa-map-marked-alt"></i>　<%= matchreq.facility.name %></h3>
       <h4><i class="fas fa-futbol"></i>　募集カテゴリー　<%= matchreq.category.name %></h4>
-      <img src="<%= "/logo_images/#{matchreq.team_info.logo}" %>">
+      <%= image_tag "logo_images/#{matchreq.team_info.logo}" %>
       <p><%= matchreq.team_info.name %></p>
       </div>
     <% end %>

@@ -7,7 +7,7 @@
     <%= link_to post_path(post) do %>
     <div class="post-list">
       <div class="post-list-left">
-        <img class="img" src="<%= "/post_images/#{post.image}" %>">
+        <%= image_tag "post_images/#{post.image}",class:"img" %>
       </div>
       <div class="post-list-right">
         <h3><%= post.title %></h3>

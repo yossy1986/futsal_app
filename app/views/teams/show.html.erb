@@ -7,10 +7,10 @@
       <h3><%= @teaminfo.name %></h3>
       <div class ="team-show">
         <div class="team-list-left">
-          <img class="img" src="<%= "/team_images/#{@teaminfo.image}" %>">
+          <%= image_tag "team_images/#{@teaminfo.image}",class:"img"%>
         </div>
         <div class="team-list-right" style="text-align:center">
-          <img class="img" src="<%= "/logo_images/#{@teaminfo.logo}" %>">
+          <%= image_tag "logo_images/#{@teaminfo.logo}",class:"img"%>
         </div>
       </div>
       
@@ -60,7 +60,7 @@
           <%= matchreq.match_date.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %></h3>
       <h3><i class="fas fa-map-marked-alt"></i>　<%= matchreq.facility.name %></h3>
       <h4><i class="fas fa-futbol"></i>　募集カテゴリー　<%= matchreq.category.name %></h4>
-      <img src="<%= "/logo_images/#{@teaminfo.logo}" %>">
+      <%= image_tag "logo_images/#{@teaminfo.logo}",class:"img"%>
       <p><%= matchreq.team_info.name %></p>
     </div>
     <% end %>
@@ -75,7 +75,7 @@
           <%= applymatch.match_req.match_date.strftime("%R") %>〜<%= applymatch.match_req.end_time.strftime("%R") %></h3>
       <h3><i class="fas fa-map-marked-alt"></i>　<%= applymatch.match_req.facility.name %></h3>
       <h4><i class="fas fa-futbol"></i>　募集カテゴリー　<%= applymatch.match_req.category.name %></h4>
-      <img src="<%= "/logo_images/#{applymatch.match_req.team_info.logo}" %>">
+      <%= image_tag "logo_images/#{applymatch.match_req.team_info.logo}" %>
       <p><%= applymatch.match_req.team_info.name %></p>
     </div>
     <% end %>

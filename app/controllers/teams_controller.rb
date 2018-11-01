@@ -52,12 +52,12 @@ class TeamsController < ApplicationController
     if params[:team_info][:logo]
       @teaminfo.logo = "logo#{@teaminfo.id}.jpg"
       logo = params[:team_info][:logo]
-      File.binwrite("public/logo_images/#{@teaminfo.logo}",logo.read)
+      File.binwrite("app/assets/images/logo_images/#{@teaminfo.logo}",logo.read)
     end
     if params[:team_info][:image]
       @teaminfo.image = "team#{@teaminfo.id}.jpg"
       image = params[:team_info][:image]
-      File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
+      File.binwrite("app/assets/images/team_images/#{@teaminfo.image}",image.read)
     end
 
     if @teaminfo.save
@@ -92,12 +92,12 @@ class TeamsController < ApplicationController
     if params[:team_info][:logo]
       @teaminfo.logo = "logo#{@teaminfo.id}.jpg"
       logo = params[:team_info][:logo]
-      File.binwrite("public/logo_images/#{@teaminfo.logo}",logo.read)
+      File.binwrite("app/assets/images/logo_images/#{@teaminfo.logo}",logo.read)
     end
     if params[:team_info][:image]
       @teaminfo.image = "team#{@teaminfo.id}.jpg"
       image = params[:team_info][:image]
-      File.binwrite("public/team_images/#{@teaminfo.image}",image.read)
+      File.binwrite("app/assets/images/team_images/#{@teaminfo.image}",image.read)
     end
 
     if @teaminfo.save
