@@ -61,6 +61,10 @@ a:hover {
     font-size:18px;
 }
 
+.top-box {
+    display:none;
+}
+
 .advertising {
     width:100%;
     height:auto;
@@ -118,15 +122,14 @@ footer li:hover {
 
 
 .flash {
-  padding: 10px 0;
-  color: white;
-  background: rgb(251, 170, 88);
   text-align: center;
-  z-index: 10;
   width: 100%;
   font-size: 14px;
 }
-
+.alert {
+    margin:0;
+    border-radius:0;
+}
 
 
 .btn-sm {
@@ -143,7 +146,27 @@ header ul {
 nav {
     flex-direction:column;
 }
-
+.top-box {
+    display:block;
+}
+.futmake {
+    width:150px;
+}
+.col-sm-3 {
+    padding-left:10px;
+    padding-right:10px;
+    display:flex;
+    justify-content: space-between;
+}
+.top-box.btn-sm {
+    margin-top:0;
+}
+.btn-default {
+  border:1px solid #333;
+}
+.btn-default:hover {
+  background:#EFEFEF;
+}
 .col-sm-9 {
     padding-left:0;
     border-top:1px solid #EFEFEF;

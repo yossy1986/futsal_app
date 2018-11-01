@@ -21,6 +21,7 @@ class MatchsController < ApplicationController
   def show
     @matchreq = MatchReq.find_by(id: params[:id])
     @time = Time.now
+    @exdate = @matchreq.match_date - 12.hours
     @accept = ApplyMatch.where(match_req_id: @matchreq.id).where(status: 1).count
     @remaining = @matchreq.req_team_num - @accept
     @week = Week
@@ -36,7 +37,6 @@ class MatchsController < ApplicationController
   def create
     @matchreq = MatchReq.new(team_info_id: @current_team.id,
                               match_date: params[:match_req][:match_date],
-                              start_time: params[:match_req][:start_time],
                               end_time: params[:match_req][:end_time],
                               pref_id: params[:match_req][:pref_id],
                               facility_id: params[:matchreq][:facility_id],
@@ -48,25 +48,15 @@ class MatchsController < ApplicationController
                                             params[:match_req]["match_date(3i)"].to_i,
                                             params[:match_req]["match_date(4i)"].to_i,
                                             params[:match_req]["match_date(5i)"].to_i)
-    @matchreq.start_time = Time.zone.local(params[:match_req]["start_time(1i)"].to_i,
-                                            params[:match_req]["start_time(2i)"].to_i,
-                                            params[:match_req]["start_time(3i)"].to_i,
-                                            params[:match_req]["start_time(4i)"].to_i,
-                                            params[:match_req]["start_time(5i)"].to_i)
     @matchreq.end_time = Time.zone.local(params[:match_req]["end_time(1i)"].to_i,
                                           params[:match_req]["end_time(2i)"].to_i,
                                           params[:match_req]["end_time(3i)"].to_i,
                                           params[:match_req]["end_time(4i)"].to_i,
                                           params[:match_req]["end_time(5i)"].to_i)
-    @matchreq.ex_time = Time.zone.local(params[:match_req]["ex_time(1i)"].to_i,
-                                            params[:match_req]["ex_time(2i)"].to_i,
-                                            params[:match_req]["ex_time(3i)"].to_i,
-                                            params[:match_req]["ex_time(4i)"].to_i,
-                                            params[:match_req]["ex_time(5i)"].to_i)
     if @matchreq.save
       @room = Room.create(match_req_id: @matchreq.id)
       @chatlink = ChatLink.create(team_info_id: @current_team.id,room_id: @room.id)
-      flash[:notice] = "対戦募集を作成しました"
+      flash[:success] = "対戦募集を作成しました"
       redirect_to action: "index"
     else
       render action: "new"
@@ -94,23 +84,13 @@ class MatchsController < ApplicationController
                                             params[:match_req]["match_date(3i)"].to_i,
                                             params[:match_req]["match_date(4i)"].to_i,
                                             params[:match_req]["match_date(5i)"].to_i)
-    @matchreq.start_time = Time.zone.local(params[:match_req]["start_time(1i)"].to_i,
-                                            params[:match_req]["start_time(2i)"].to_i,
-                                            params[:match_req]["start_time(3i)"].to_i,
-                                            params[:match_req]["start_time(4i)"].to_i,
-                                            params[:match_req]["start_time(5i)"].to_i)
     @matchreq.end_time = Time.zone.local(params[:match_req]["end_time(1i)"].to_i,
                                           params[:match_req]["end_time(2i)"].to_i,
                                           params[:match_req]["end_time(3i)"].to_i,
                                           params[:match_req]["end_time(4i)"].to_i,
                                           params[:match_req]["end_time(5i)"].to_i)
-    @matchreq.ex_time = Time.zone.local(params[:match_req]["ex_time(1i)"].to_i,
-                                            params[:match_req]["ex_time(2i)"].to_i,
-                                            params[:match_req]["ex_time(3i)"].to_i,
-                                            params[:match_req]["ex_time(4i)"].to_i,
-                                            params[:match_req]["ex_time(5i)"].to_i)
     if @matchreq.save
-      flash[:notice] = "対戦募集を変更しました  "
+      flash[:success] = "対戦募集を変更しました  "
       redirect_to action: "index"
     else
       render action: "edit"
@@ -120,7 +100,7 @@ class MatchsController < ApplicationController
   def destroy
     @matchreq = MatchReq.find_by(id: params[:id])
     @matchreq.destroy
-    flash[:notice] = "対戦募集を削除しました "
+    flash[:danger] = "対戦募集を削除しました "
     redirect_to action: 'index'
   end
 end

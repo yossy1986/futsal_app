@@ -3,12 +3,15 @@
 <div class="wrapper teams new">
   <div class="left">
     <h2>チーム編集</h2>
+    <% @teaminfo.errors.full_messages.each do |message| %>
+    <p style="color:red;"><%= message %></p>
+    <% end %>
     <%= form_for @teaminfo, url: team_path do |f| %>
         <%= f.label :email,"メールアドレス" %><br>
     <%= f.email_field :email, :required => true %><br>
     <%= f.label :password,"パスワード" %><span>※</span><br>
     <%= f.password_field :password, :required => true %><br>
-    <%= f.label :name,"チーム名" %><br>
+    <%= f.label :name,"チーム名(30文字以内)" %><br>
     <%= f.text_field :name, :required => true %><br>
     <%= f.label :image,"チーム写真" %><br>
     <%= f.file_field :image %><br>

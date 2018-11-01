@@ -113,14 +113,15 @@ footer li:hover {
 }
 
 
-.flash {
-  padding: 10px 0;
-  color: white;
-  background: rgb(251, 170, 88);
+.top-flash {
+  margin-top:60px !important;
   text-align: center;
-  z-index: 10;
   width: 100%;
   font-size: 14px;
+}
+.alert {
+    margin:0;
+    border-radius:0;
 }
 
 .btn-sm {
@@ -135,20 +136,30 @@ footer li:hover {
     width:100%;
     height:100px;
 }
+.top-flash {
+  margin-top:0 !important;
+}
 .top-box {
-    display:inline-block;
+    display:block;
 }
 .futmake {
     width:150px;
 }
 .col-sm-3 {
-    padding-left:0;
-    padding-right:0;
+    padding-left:10px;
+    padding-right:10px;
+    display:flex;
+    justify-content: space-between;
 }
-.btn-sm {
+.top-box .btn-sm {
     margin:0;
 }
-
+.btn-default {
+  border:1px solid #333;
+}
+.btn-default:hover {
+  background:#EFEFEF;
+}
 header ul {
     height:50px;
 }

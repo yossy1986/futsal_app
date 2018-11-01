@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
     @messages = @room.messages.order(created_at: :desc)
     @message = Message.new
     else
-      flash[:alert] = "無効なユーザー"
+      flash[:danger] = "無効なユーザー"
       redirect_to action: 'index'
     end
   end

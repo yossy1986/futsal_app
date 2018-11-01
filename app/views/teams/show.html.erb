@@ -2,7 +2,7 @@
 <!--<%= render partial: 'layouts/advertising' %>-->
 <div class="wrapper teams">
   <div class="left">
-    <h2>チー情報詳細</h2>
+    <h2>チーム情報詳細</h2>
     <div class="team-detail">
       <h3><%= @teaminfo.name %></h3>
       <div class ="team-show">
@@ -35,7 +35,7 @@
           <td><%= @teaminfo.cat.name %></td>
         </tr>
         <tr>
-          <th>年齢</th>
+          <th>平均年齢</th>
           <td><%= @teaminfo.age_ave %></td>
         </tr>
         <tr>
@@ -46,8 +46,7 @@
       <% if @teaminfo.id == session[:team_id] || session[:team_id] == 1 %>
       <div class="edit-delete">
         <%= link_to "プロフィールを変更する","/teams/#{@teaminfo.id}/edit",class: "btn btn-info btn-sm" %>
-        <%= link_to "ログアウト",logout_path, method: :delete, class: "btn btn-warning btn-sm" %>
-        <%= link_to "退会する", team_path(@teaminfo), :method => :delete, class: "btn btn-danger btn-sm",data: { confirm: '退会してもよろしいですか？' } %>
+        <%= link_to "退会する", team_path(@teaminfo), :method => :delete, class: "btn btn-danger btn-sm",data: { confirm: "(#{@teaminfo.name})\n退会してもよろしいですか？" } %>
       </div>
       <% end %>
     </div>
@@ -58,11 +57,26 @@
     <div class="match-list">
       <h3><i class="far fa-calendar-alt"></i>　<%= matchreq.match_date.strftime("%-m月%-d日") %>
           (<%= @week[matchreq.match_date.wday] %>)　
-          <%= matchreq.start_time.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %></h3>
+          <%= matchreq.match_date.strftime("%R") %>〜<%= matchreq.end_time.strftime("%R") %></h3>
       <h3><i class="fas fa-map-marked-alt"></i>　<%= matchreq.facility.name %></h3>
       <h4><i class="fas fa-futbol"></i>　募集カテゴリー　<%= matchreq.category.name %></h4>
       <img src="<%= "/logo_images/#{@teaminfo.logo}" %>">
       <p><%= matchreq.team_info.name %></p>
+    </div>
+    <% end %>
+    <% end %>
+    
+    <h2>応募中</h2>
+    <% @teaminfo.apply_matches.each do |applymatch| %>
+    <%= link_to match_path(applymatch) do %>
+    <div class="match-list">
+      <h3><i class="far fa-calendar-alt"></i>　<%= applymatch.match_req.match_date.strftime("%-m月%-d日") %>
+          (<%= @week[applymatch.match_req.match_date.wday] %>)　
+          <%= applymatch.match_req.match_date.strftime("%R") %>〜<%= applymatch.match_req.end_time.strftime("%R") %></h3>
+      <h3><i class="fas fa-map-marked-alt"></i>　<%= applymatch.match_req.facility.name %></h3>
+      <h4><i class="fas fa-futbol"></i>　募集カテゴリー　<%= applymatch.match_req.category.name %></h4>
+      <img src="<%= "/logo_images/#{applymatch.match_req.team_info.logo}" %>">
+      <p><%= applymatch.match_req.team_info.name %></p>
     </div>
     <% end %>
     <% end %>

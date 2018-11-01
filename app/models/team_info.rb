@@ -1,5 +1,5 @@
 class TeamInfo < ApplicationRecord
-    validates :name, presence: true, length: { maximum: 25 },uniqueness: true
+    validates :name, presence: true, length: { maximum: 30 },uniqueness: true
     validates :pref, presence: true
     validates :facility, presence: true
     validates :cat, presence: true

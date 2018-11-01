@@ -14,14 +14,14 @@ class ApplicationController < ActionController::Base
     
     def authenticate_team
       if @current_team == nil
-          flash[:notice] = "ログインが必要です"
+          flash[:danger] = "ログインが必要です"
           redirect_to("/login")
       end
     end
     
     def forbid_login_team
       if @current_team
-        flash[:notice] = "すでにログインしています"
+        flash[:danger] = "すでにログインしています"
         redirect_to matchs_path
       end
     end

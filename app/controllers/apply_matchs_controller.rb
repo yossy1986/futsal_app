@@ -12,7 +12,7 @@ class ApplyMatchsController < ApplicationController
                                   status: 0,
                                   comment: params[:comment])
     if  @applymatch.save
-      flash[:notice] = "応募しました"
+      flash[:success] = "応募しました"
       redirect_to("/matchs")
     else
       render("matchs/show")
@@ -26,7 +26,7 @@ class ApplyMatchsController < ApplicationController
     if @applymatch.save
       @chatlink = ChatLink.new(room_id: @applymatch.match_req_id,team_info_id: @applymatch.team_info_id)
       @chatlink.save
-      flash[:notice] = "#{@applymatch.team_info.name}が参加しました"
+      flash[:success] = "#{@applymatch.team_info.name}が参加しました"
       redirect_to("/matchs/#{@matchreq.id}")
     else
       render("matchs")
@@ -40,7 +40,7 @@ class ApplyMatchsController < ApplicationController
     if @applymatch.save
       @chatlink = ChatLink.find_by(room_id: @applymatch.match_req_id,team_info_id: @applymatch.team_info_id)
       @chatlink.destroy
-      flash[:notice] = "#{@applymatch.team_info.name}を参加チームから外しました"
+      flash[:danger] = "#{@applymatch.team_info.name}を参加チームから外しました"
       redirect_to("/matchs/#{@matchreq.id}")
     else
       render("matchs")

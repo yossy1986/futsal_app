@@ -60,9 +60,7 @@ ActiveRecord::Schema.define(version: 2018_10_17_045830) do
   create_table "match_reqs", force: :cascade do |t|
     t.integer "team_info_id"
     t.datetime "match_date"
-    t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "ex_time"
     t.integer "pref_id"
     t.integer "facility_id"
     t.integer "req_cat"

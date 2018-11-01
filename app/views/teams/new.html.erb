@@ -4,7 +4,7 @@
   <div class="left">
     <h2>新規登録</h2>
     <% @teaminfo.errors.full_messages.each do |message| %>
-    <%= message %>
+    <p style="color:red;"><%= message %></p>
     <% end %>
     <%= form_for @teaminfo, url: teams_path  do |f| %>
     <p>必須項目(<span>※</span>)</p>
@@ -14,7 +14,7 @@
     <%= f.password_field :password, :required => true %><br>
     <%= f.label :password_confirmation, "パスワード再入力" %><span>※</span><br>
     <%= f.password_field :password_confirmation %><br>
-    <%= f.label :name,"チーム名(25文字以内)" %><span>※</span><br>
+    <%= f.label :name,"チーム名(30文字以内)" %><span>※</span><br>
     <%= f.text_field :name, :required => true %><br>
     <%= f.label :image,"チーム写真" %><br>
     <%= f.file_field :image %><br>

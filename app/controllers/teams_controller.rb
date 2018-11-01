@@ -62,7 +62,7 @@ class TeamsController < ApplicationController
 
     if @teaminfo.save
       log_in @teaminfo
-      flash[:notice] = "登録を受け付けました(#{@teaminfo.name})"
+      flash[:success] = "登録を受け付けました(#{@teaminfo.name})"
       redirect_to("/matchs")
     else
       render("teams/new")
@@ -101,7 +101,7 @@ class TeamsController < ApplicationController
     end
 
     if @teaminfo.save
-      flash[:notice] = "チームプロフィールを変更しました"
+      flash[:success] = "チームプロフィールを変更しました"
       redirect_to action: 'show'
     else
       render("teams/edit")
@@ -111,7 +111,7 @@ class TeamsController < ApplicationController
   def destroy
     @teaminfo = TeamInfo.find_by(id: params[:id])
     @teaminfo.destroy
-    flash[:notice] = "退会しました"
+    flash[:danger] = "退会しました"
     redirect_to action: 'index'
   end
 end

@@ -1,11 +1,30 @@
 <header>
   <nav>
     <ul class="col-sm-3">
+    <!--ログイン-->
+      <% if logged_in? %>
+      <li>
+        <%= link_to root_url do %>
+        <img class="futmake" src="/futmake-logo.png"></a>
+        <% end %>
+        </li>
+        <li class="top-box">
+        <%= link_to "ログアウト",logout_path, method: :delete,class: "btn btn-default btn-sm" %>
+        </li>
+      </li>
+        
+        <!--ログアウト-->
+      <% else %>
       <li>
         <%= link_to root_url do %>
         <img class="futmake" src="/futmake-logo.png"></a>
         <% end %>
       </li>
+      <li class="top-box">
+        <%= link_to "新規登録",new_team_path ,class: "btn btn-primary btn-sm"%>
+        <%= link_to "ログイン ",login_path ,class: "btn btn-success btn-sm"%>
+      </li>
+      <% end %>
     </ul>
     <ul class="col-sm-9">
       <!--ログイン-->
@@ -45,10 +64,6 @@
         <i class="fas fa-volume-up fa-2x" style="color: #FCF023;"></i>
         <% end %>
         <%= link_to "ニュース",posts_path %>
-      </li>
-      <li class="hidden">
-        <i class="fas fa-user fa-2x" style="color:#54B4C6;"></i>
-        <%= link_to "マイページ", "/teams/#{@current_team.id}" %>
       </li>
       
       <!--ログアウト-->
@@ -99,7 +114,9 @@
           <% if logged_in? %>
           <li>
             <div>
+              <% if @current_team.logo != "default-logo-image.jpg" %>
               <img src="<%= "/logo_images/#{@current_team.logo}" %>">
+              <% end %>
             </div>
             <div>
               <p><%= @current_team.name %></p>

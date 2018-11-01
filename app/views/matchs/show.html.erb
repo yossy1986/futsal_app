@@ -5,10 +5,10 @@
     <h2>対戦募集詳細</h2>
     <div class="match-detail">
       <h3><i class="far fa-calendar-alt"></i>　<%= @matchreq.match_date.strftime("%-m月%-d日") %>(<%= @week[@matchreq.match_date.wday] %>)　
-      <%= @matchreq.start_time.strftime("%R") %>〜<%= @matchreq.end_time.strftime("%R") %></h3>
+      <%= @matchreq.match_date.strftime("%R") %>〜<%= @matchreq.end_time.strftime("%R") %></h3>
       <h3><i class="fas fa-map-marked-alt"></i>　<%= @matchreq.facility.name %></h3>
-      <h3><i class="fas fa-futbol"></i>　募集カテゴリー　</h3>
-      <h3><i class="fas fa-stopwatch"></i>　応募期限　<%= @matchreq.ex_time.strftime("%Y年 %-m月%-d日 %R") %>まで</h3>
+      <h3><i class="fas fa-futbol"></i>　募集カテゴリー　<%= @matchreq.category.name %></h3>
+      <h3><i class="fas fa-stopwatch"></i>　応募期限　<%= @exdate.strftime("%Y年 %-m月%-d日 %R") %>まで</h3>
       <h3><i class="fas fa-search-plus"></i>　募集チーム<%= @matchreq.req_team_num %>(残り<%= @remaining %>)</h3>
       <h3>●　主催者　<%=@matchreq.team_info.name%></h3>  
       <div class="detail">
@@ -21,7 +21,7 @@
         <% if @applymatch_check %>
         <p class="btn btn-danger btn-sm">応募済み</p>
         <% elsif @time >= @matchreq.ex_time %>
-        <p class="btn btn-danger btn-sm">応募を締め切りました</p>
+        <p style="color:red;">応募を締め切りました</p>
         <% elsif @matchreq.team_info.id != session[:team_id] %>
         <P>コメント(130文字以内)</P>
         <textarea name="comment" value="<%= @applymatch.comment %>"></textarea><br>
