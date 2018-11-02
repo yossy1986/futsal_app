@@ -10,7 +10,7 @@
         <h3><i class="far fa-calendar-alt"></i>　<%= room.match_req.match_date.strftime("%-m月%-d日") %>　
         <%= room.match_req.match_date.strftime("%R") %>〜<%= room.match_req.end_time.strftime("%R") %></h3>
         <h3><i class="fas fa-map-marked-alt"></i>　<%= room.match_req.facility.name %></h3>
-        <%= image_tag "logo_images/#{room.match_req.team_info.logo}" %>
+        <%= image_tag "/logo_images/#{room.match_req.team_info.logo}" %>
         <p><%= room.match_req.team_info.name %></p>
         </div>
         <% end %>

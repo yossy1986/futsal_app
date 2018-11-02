@@ -35,7 +35,7 @@
         </div>
       <% else %>
         <div class="text-left">
-        <h3><%= image_tag "logo_images/#{message.team_info.logo}" %><%= message.team_info.name %></h3>
+        <h3><%= image_tag "/logo_images/#{message.team_info.logo}" %><%= message.team_info.name %></h3>
         <p class="alert alert-info">
         <%= message.content %>
         </p>
