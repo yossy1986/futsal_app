@@ -112,6 +112,6 @@ class TeamsController < ApplicationController
     @teaminfo = TeamInfo.find_by(id: params[:id])
     @teaminfo.destroy
     flash[:danger] = "退会しました"
-    redirect_to action: root_url
+    redirect_to root_url
   end
 end
