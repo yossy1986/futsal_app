@@ -10,8 +10,12 @@ class TeamsController < ApplicationController
       @pref = Pref.all
     if params[:id].present?
       @teaminfos = @teaminfos.where(pref_id: params[:team_info][:pref_id]) if params[:team_info][:pref_id].present?
+      @selected_pref = params[:team_info][:pref_id]
       @teaminfos = @teaminfos.where(facility_id: params[:teaminfo][:facility_id]) if params[:teaminfo][:facility_id].present?
+      @selected_facility = params[:teaminfo][:facility_id]
+      @facilitybox = Facility.where(pref_id: params[:team_info][:pref_id])if params[:team_info][:pref_id].present?
       @teaminfos = @teaminfos.where(cat_id: params[:team_info][:cat_id]) if params[:team_info][:cat_id].present?
+      @selected_cat = params[:team_info][:cat_id]
     end
   end
   
@@ -30,7 +34,8 @@ class TeamsController < ApplicationController
   end
   
   def create
-    logger.debug("xxxxxxxxxx = #{params[:team_info][:name]}")
+    @selected_facility = params[:teaminfo][:facility_id]
+    @facilitybox = Facility.where(pref_id: params[:team_info][:pref_id])if params[:team_info][:pref_id].present?
     @teaminfo = TeamInfo.new(name: params[:team_info][:name],
                               logo: "default-logo-image.jpg",
                               image: "default-team-image.jpg",
@@ -72,9 +77,13 @@ class TeamsController < ApplicationController
   
   def edit
     @teaminfo = TeamInfo.find_by(id: params[:id])
+    @selected_facility = @teaminfo.facility_id
+    @facilitybox = Facility.where(pref_id: @teaminfo.pref_id)
   end
   
   def update
+    @selected_facility = params[:teaminfo][:facility_id]
+    @facilitybox = Facility.where(pref_id: params[:team_info][:pref_id])if params[:team_info][:pref_id].present?
     @teaminfo = TeamInfo.find_by(id: params[:id])
     @teaminfo.email = params[:team_info][:email]
     @teaminfo.password = params[:team_info][:password]

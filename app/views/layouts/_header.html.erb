@@ -120,7 +120,7 @@
             </div>
             <div>
               <p><%= @current_team.name %></p>
-              <%= link_to "チームプロフィールを確認する", "/teams/#{@current_team.id}" ,:style =>"color:#54B4C6;"%>
+              <%= link_to "チームプロフィールを確認する", "/teams/#{@current_team.id}" ,:style =>"color:#54B4C6;",'data-turbolinks': false%>
             </div>
           </li>
           <li>

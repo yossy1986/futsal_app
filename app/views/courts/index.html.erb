@@ -8,7 +8,7 @@
         <!--paramsとるためのダミー-->
         <%= hidden_field_tag :id, 0  %>
         <!--end-->
-        <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi100" %>
+        <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域",:selected => @prefbox}, :class => "wi100" %>
         <%= f.submit "検索", :class => "match-color"%>
         <% end %>
       </div>

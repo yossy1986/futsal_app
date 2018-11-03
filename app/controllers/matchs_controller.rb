@@ -8,8 +8,12 @@ class MatchsController < ApplicationController
     @week = Week
     if params[:id].present?
       @matchreqs = @matchreqs.where(pref_id: params[:match_req][:pref_id]) if params[:match_req][:pref_id].present?
+      @selected_pref = params[:match_req][:pref_id]
       @matchreqs = @matchreqs.where(facility_id: params[:matchreq][:facility_id]) if params[:matchreq][:facility_id].present?
+      @selected_facility = params[:matchreq][:facility_id]
+      @facilitybox = Facility.where(params[:match_req][:pref_id]) if params[:match_req][:pref_id].present?
       @matchreqs = @matchreqs.where(req_cat: params[:match_req][:req_cat]) if params[:match_req][:req_cat].present?
+      @selected_req_cat = params[:match_req][:req_cat]
     end
   end
   
@@ -35,6 +39,8 @@ class MatchsController < ApplicationController
   end
   
   def create
+    @selected_facility = params[:matchreq][:facility_id]
+    @facilitybox = params[:match_req][:pref_id] if params[:match_req][:pref_id].present?
     @matchreq = MatchReq.new(team_info_id: @current_team.id,
                               match_date: params[:match_req][:match_date],
                               end_time: params[:match_req][:end_time],
@@ -66,9 +72,13 @@ class MatchsController < ApplicationController
   def edit
     @matchreq = MatchReq.find_by(id: params[:id])
     @week = Week
+    @facilitybox = Facility.where(pref_id: @matchreq.pref_id)
+    @selected_facility = @matchreq.facility_id
   end
   
   def update
+    @selected_facility = params[:matchreq][:facility_id]
+    @facilitybox = params[:match_req][:pref_id] if params[:match_req][:pref_id].present?
     @post = Post.find_by(id: params[:id])
     @matchreq = MatchReq.find_by(id: params[:id])
     @matchreq.match_date = params[:match_req][:match_date]

@@ -40,7 +40,9 @@ li {
     padding-top:10px;
     width:200px;
 }
-
+section {
+  padding-bottom:50px;
+}
 section:nth-of-type(odd) {
   background-color: #fff;
 }
@@ -49,24 +51,61 @@ section h2 {
     padding:70px 20px 40px 20px;
     text-align:center;
 }
+section h3 {
+    text-align:center;
+    margin-bottom: 1.5rem;
+    padding-top:50px;
+}
 section ul {
     display:flex;
     padding:0;
 }
-.container h3 {
-    font-size:18px;
-    text-align:center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background:orange;
-    color:#fff;
+.top-wrapper {
+    width:95%;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
 }
-
-.container li img {
+.top-wrapper li {
+  width:32%;
+  box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
+  margin:30px auto;
+}
+.bgcolor-white {
+  background:#fff;
+}
+.bgcolor-gray {
+  background:#F2F2F2;
+}
+.top-wrapper li img {
     width:100%;
 }
-.container p {
+.top-wrapper h4 {
+    font-size:18px;
+    text-align:center;
+    background:#fff;
+    line-height:2;
+    box-shadow: 5px 5px 5px 0 rgba(150, 150, 150, 0.5);
+}
+
+.top-wrapper p {
     margin: 15px 0 30px 0;
+    font-size:14px;
+    padding: 0 7px;
+}
+
+.top-wrapper table {
+  padding: 10px 7px;
+  border-collapse: separate;
+}
+
+.top-wrapper th {
+    vertical-align:top;
+    padding-bottom:20px;
+}
+.top-wrapper td {
+    font-size:14px;
+    padding-bottom:20px;
 }
 a {
   cursor:pointer;
@@ -180,7 +219,9 @@ nav {
     border-right:1px solid #EFEFEF;
     padding-top:6px;
 }
-
+.top-wrapper li {
+  width:90%;
+}
 footer ul {
     height:40px;
     width:100%;
@@ -194,7 +235,10 @@ footer p {
 @media screen and ( max-width:768px ) {
 
 section h2 {
-    font-size:18px;
+    font-size:22px;
+}
+section h3 {
+    font-size:22px;
 }
  footer li {
     font-size:12px;
@@ -214,5 +258,15 @@ section h2 {
   text-align:center;
   font-size:12px;
 }
+.top-wrapper {
+  flex-direction:column;
+}
 
+}
+
+@media screen and ( min-width:576px ) and ( max-width:900px ) {
+  
+  .top-wrapper li {
+  width:60%;
+}
 }

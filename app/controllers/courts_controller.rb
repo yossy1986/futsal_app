@@ -7,6 +7,7 @@ class CourtsController < ApplicationController
       @court = Facility.new
     if params[:id].present?
       @courts = Facility.where(pref_id: params[:facility][:pref_id]).page(params[:page]).per(PER) if params[:facility][:pref_id].present?
+       @prefbox = params[:facility][:pref_id]
     end
   end
 

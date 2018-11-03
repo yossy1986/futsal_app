@@ -86,10 +86,6 @@
         <% end %>
         <%= link_to "ニュース",posts_path %>
       </li>
-      <li class="hidden">
-        <i class="fas fa-user fa-2x" style="color:#54B4C6;"></i>
-        <%= link_to "マイページ", "/teams/#{@current_team.id}" %>
-      </li>
       
       <!--ログアウト-->
       <% else %>
@@ -262,12 +258,146 @@
 <main>
   <section>
     <h2>フットメイクは対戦相手を手軽に探せるマッチングサービスです</h2>
-      <ul class="container">
-        <div class="row">
-        <li class="col-md-4"><h3>細かく分けられたカテゴリー</h3><img src="/category.png"><p>細かく分けられたカテゴリーで自分たちのチームに合った対戦相手を探せる</li></p>
-        <li class="col-md-4"><h3>チームバランスをグラフ表示</h3><img src="/chart.png"><p>攻撃、フィジカル、スタミナ、ディフェンス、戦術、テクニックのチームバランスをグラフで表示することでチームの特徴がわかる</p></li>
-        <li class="col-md-4"><h3>参加チームがわかる</h3><img src="/top-bg.png"><p>対戦募集の参加チームが表示されるので、</p></li>
-        </div>
+     <h3>フットメイクの特徴</h3>
+      <ul class="top-wrapper">
+        <li class="bgcolor-gray"><h4 style="border-left:6px solid #F2F2F2;">細かく分けられたカテゴリー</h4><img src="/category.png"><p>細かく分けられたカテゴリーでミスマッチなマッチメイクを避けるれる</p></li>
+        <li class="bgcolor-gray"><h4 style="border-left:6px solid #F2F2F2;">チームバランスをグラフ表示</h4><img src="/chart.png"><p>攻撃、フィジカル、スタミナ、ディフェンス、戦術、テクニックのチームバランスをグラフで表示することでチームの特徴がわかる</p></li>
+        <li class="bgcolor-gray"><h4 style="border-left:6px solid #F2F2F2;">参加チームがわかる</h4><img src="/applyteam.png"><p>対戦募集ごとの参加チームが表示されるので、自分たちの求める対戦相手と対戦することができる</p></li>
+      </ul>
+  </section>
+  <section>
+    <h3>フットメイクの使い方</h3>
+      <ul class="top-wrapper">
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #007bff;">新規登録</h4>
+        <table>
+          <tr>
+            <th>・</th>
+            <td>各項目を入力してチーム登録をしてください。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>新規登録時のチームバランスは、能力の優劣をつけるものではなく、チームのバランス、チームの特徴を表すものとしてご利用ください。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>チーム登録をすると、対戦募集の作成・編集、対戦募集への応募・承認・除外、メッセージ、チームプロフィールの変更、チームの退会が使用できます。</td>
+          </tr>
+        </table>
+        </li>
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #FB9C1E";>チーム</h4>
+        <table>
+          <tr>
+            <th>・</th>
+            <td>チームの検索、チーム情報を見ることができます。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>右上のハンバーガーメニューからチームプロフィールの確認・変更ができます。</td>
+          </tr>
+        </table>
+        </li>
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #65222B;">対戦作成</h4>
+        <table>
+          <tr>
+            <th>・</th>
+            <td>基本的にはコートを確保してから対戦作成を行ってください。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>各項目を入力して対戦募集を作成してください。対戦募集を作成すると、メッセージにチャットルームが作成されます。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>応募期限は開催日の開始時間から12時間前に設定されています。</td>
+          </tr>
+        </table>
+        </li>
+      </ul>
+      
+      <ul class="top-wrapper">
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #F94519;">対戦募集</h4>
+        <table>
+          <tr>
+            <th></th>
+            <td>応募者</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>検索機能で自分たちにあった対戦募集を見つけ、応募してくだい。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>応募が承認されると、メッセージにチャットルームが表示されメッセージが使用できます。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>募集チームの残りが0になっても、キャンセルが発生する可能性があるので、応募することが可能です。</td>
+          </tr>
+        </table>
+        </li>
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #F94519";>対戦募集</h4>
+        <table>
+          <tr>
+            <th></th>
+            <td>主催者</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>応募されたチームが対戦募集詳細ページでで応募チームとして表示されます。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>承認すると参加チームに移動し、メッセージルームに追加されます。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>除外すると、応募チームに戻り、メッセージルームから除外されます。</td>
+          </tr>
+        </table>
+        </li>
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #5BC44E;">メッセージ</h4>
+        <table>
+          <tr>
+            <th>・</th>
+            <td>対戦募集が作成された時と対戦募集に承認された時にメッセージルームが作成されます。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>チャットルームからメッセージのやりとりができます。</td>
+          </tr>
+          <tr>
+            <th>・</th>
+            <td>対戦募集から除外されるとそのチームのメッセージも全て削除されますのでご注意ください。</td>
+          </tr>
+        </table>
+        </li>
+      </ul>
+      
+      <ul class="top-wrapper">
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #B9FE28;">コート</h4>
+        <table>
+          <tr>
+            <th>・</th>
+            <td>フットサルコートの検索、フットサルコートの情報を見ることができます。</td>
+          </tr>
+        </table>
+        </li>
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #FCF023";>ニュース</h4>
+        <table>
+          <tr>
+            <th>・</th>
+            <td>お知らせや、ニュース、フットサルに関する記事などをご覧いただけます。</td>
+          </tr>
+        </table>
+        </li>
+        <li class="bgcolor-white"><h4 style="border-left:6px solid #333;"><i class="fas fa-bars"></i>　ハンバーガーメニュー</h4>
+        <table>
+          <tr>
+            <th>・</th>
+            <td>対戦募集が作成された時と対戦募集に承認された時にメッセージルームが作成されます。</td>
+          </tr>
+        </table>
+        </li>
       </ul>
   </section>
 </main>

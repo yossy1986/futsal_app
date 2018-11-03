@@ -8,9 +8,9 @@
       <!--paramsとるためのダミー-->
       <%= hidden_field_tag :id, 0  %>
       <!--end-->
-      <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域"}, :class => "wi100" %>
-      <%= render partial: 'select_facility', locals: {pref_id: ""} %>
-      <%= f.collection_select :cat_id, Cat.all, :id, :name, {:include_blank => "カテゴリー"}, :class => "wi100" %>
+      <%= f.collection_select :pref_id, Pref.all, :id, :name, {:include_blank => "地域",:selected => @selected_pref}, :class => "wi100" %>
+      <%= render partial: 'select_facility', locals: {pref_id: @facilitybox} %>
+      <%= f.collection_select :cat_id, Cat.all, :id, :name, {:include_blank => "カテゴリー",:selected => @selected_cat}, :class => "wi100" %>
       <%= f.submit "検索", :class => "team-color"%>
       <% end %>
     </div>
@@ -18,8 +18,8 @@
     <h2>チーム情報</h2>
     <div class="team-list-flex">
       <% @teaminfos.each do |teaminfo| %>
-      <%= link_to team_path(teaminfo) do %>
-      <div class="team-list">
+      <%= link_to team_path(teaminfo)  do%>
+      <div class="team-list" data-turbolinks="false">
         <h3><%= teaminfo.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">

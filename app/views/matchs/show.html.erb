@@ -40,7 +40,7 @@
     <h2>参加チーム</h2>
     <div class="team-list-flex">
       <%= link_to team_path(@matchreq.team_info) do %>
-      <div class="team-list">
+      <div class="team-list" data-turbolinks="false">
         <h3><%= @matchreq.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
@@ -59,7 +59,7 @@
       <% @matchreq.apply_matches.each do |applymatch| %>
       <% if applymatch.status == 1 %>
       <%= link_to team_path(applymatch.team_info) do %>
-      <div class="team-list">
+      <div class="team-list" data-turbolinks="false">
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
@@ -93,7 +93,7 @@
       <% @matchreq.apply_matches.each do |applymatch| %>
       <% if applymatch.status == 0 %>
       <%= link_to team_path(applymatch.team_info) do %>
-      <div class="team-list">
+      <div class="team-list" data-turbolinks="false">
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
@@ -126,7 +126,7 @@
     <h2>参加チーム</h2>
     <div class="team-list-flex">
       <%= link_to team_path(@matchreq.team_info) do %>
-      <div class="team-list">
+      <div class="team-list" data-turbolinks="false">
         <h3><%= @matchreq.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
@@ -144,7 +144,7 @@
       <% @matchreq.apply_matches.each do |applymatch| %>
       <% if applymatch.status == 1 %>
       <%= link_to team_path(applymatch.team_info) do %>
-      <div class="team-list">
+      <div class="team-list" data-turbolinks="false">
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
