@@ -11,7 +11,7 @@ class MatchsController < ApplicationController
       @selected_pref = params[:match_req][:pref_id]
       @matchreqs = @matchreqs.where(facility_id: params[:matchreq][:facility_id]) if params[:matchreq][:facility_id].present?
       @selected_facility = params[:matchreq][:facility_id]
-      @facilitybox = Facility.where(params[:match_req][:pref_id]) if params[:match_req][:pref_id].present?
+      @facilitybox = Facility.where(pref_id: params[:match_req][:pref_id]) if params[:match_req][:pref_id].present?
       @matchreqs = @matchreqs.where(req_cat: params[:match_req][:req_cat]) if params[:match_req][:req_cat].present?
       @selected_req_cat = params[:match_req][:req_cat]
     end

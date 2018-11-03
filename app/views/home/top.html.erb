@@ -8,7 +8,7 @@
   <%= csp_meta_tag %>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <%= stylesheet_link_tag    'top','hambarger', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application'%>
 </head>
 <body>
   <div class="top-empty"></div>
@@ -139,7 +139,7 @@
             </div>
             <div>
               <p><%= @current_team.name %></p>
-              <%= link_to "チームプロフィールを確認する", "/teams/#{@current_team.id}" ,:style =>"color:#54B4C6;"%>
+              <%= link_to "チームプロフィールを確認する", "/teams/#{@current_team.id}" ,:style =>"color:#54B4C6;", 'data-turbolinks': false%>
             </div>
           </li>
           <li>
