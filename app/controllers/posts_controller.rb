@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_team,:admin_team,{only:[:new,:create,:edit,:update,:destroy]}
 
   
   PER = 5

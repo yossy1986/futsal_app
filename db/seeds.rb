@@ -159,7 +159,7 @@ TeamInfo.create(name: "サンプル",
                 defense: 10,
                 tactics: 10,
                 technique: 10)
-TeamInfo.create(name: "名古屋オーシャンズ",
+TeamInfo.create(name: "オーシャンズ",
                 logo: "",
                 image: "",
                 pref_id: 2,
@@ -175,7 +175,7 @@ TeamInfo.create(name: "名古屋オーシャンズ",
                 defense: 9,
                 tactics: 9,
                 technique: 9)
-TeamInfo.create(name: "シュライカー大阪",
+TeamInfo.create(name: "シュライカー",
                 logo: "",
                 image: "",
                 pref_id: 3,
@@ -191,7 +191,7 @@ TeamInfo.create(name: "シュライカー大阪",
                 defense: 8,
                 tactics: 8,
                 technique: 8)
-TeamInfo.create(name: "バルドラール浦安",
+TeamInfo.create(name: "バルドラール",
                 logo: "",
                 image: "",
                 pref_id: 4,
@@ -207,7 +207,7 @@ TeamInfo.create(name: "バルドラール浦安",
                 defense: 7,
                 tactics: 7,
                 technique: 7)
-TeamInfo.create(name: "バサジィ大分",
+TeamInfo.create(name: "バサジィ",
                 logo: "",
                 image: "",
                 pref_id: 5,
@@ -223,51 +223,3 @@ TeamInfo.create(name: "バサジィ大分",
                 defense: 6,
                 tactics: 6,
                 technique: 6)
-MatchReq.create(team_info_id: 2,
-                match_date: (Time.local(2018,10,30)),
-                end_time: (Time.local(2018,10,30,20,0,0)),
-                pref_id: 2,
-                facility_id: 2,
-                req_cat: 1,
-                req_team_num: 4,
-                content: "よろしくお願いします。"
-                )
-MatchReq.create(team_info_id: 3,
-                match_date: (Time.local(2018,10,30)),
-                end_time: (Time.local(2018,10,30,20,0,0)),
-                pref_id: 3,
-                facility_id: 3,
-                req_cat: 2,
-                req_team_num: 4,
-                content: "よろしくお願いします。"
-                )
-MatchReq.create(team_info_id: 4,
-                match_date: (Time.local(2018,10,30)),
-                end_time: (Time.local(2018,10,30,20,0,0)),
-                pref_id: 4,
-                facility_id: 4,
-                req_cat: 3,
-                req_team_num: 4,
-                content: "よろしくお願いします。"
-                )
-MatchReq.create(team_info_id: 5,
-                match_date: (Time.local(2018,10,30)),
-                end_time: (Time.local(2018,10,30,20,0,0)),
-                pref_id: 5,
-                facility_id: 5,
-                req_cat: 4,
-                req_team_num: 4,
-                content: "よろしくお願いします。"
-                )
-Room.create(match_req_id: 1)
-Room.create(match_req_id: 2)
-Room.create(match_req_id: 3)
-Room.create(match_req_id: 4)
-ChatLink.create(room_id: 1,
-                team_info_id: 2)
-ChatLink.create(room_id: 2,
-                team_info_id: 3)
-ChatLink.create(room_id: 3,
-                team_info_id: 4)
-ChatLink.create(room_id: 4,
-                team_info_id: 5)
