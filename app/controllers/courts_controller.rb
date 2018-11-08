@@ -1,13 +1,13 @@
 class CourtsController < ApplicationController
   before_action :authenticate_team,:admin_team,{only:[:new,:create,:edit,:update,:destroy]}
-  
+
   PER = 10
   def index
       @courts = Facility.order(created_at: :desc).page(params[:page]).per(PER)
       @court = Facility.new
     if params[:id].present?
       @courts = Facility.where(pref_id: params[:facility][:pref_id]).page(params[:page]).per(PER) if params[:facility][:pref_id].present?
-       @prefbox = params[:facility][:pref_id]
+      @prefbox = params[:facility][:pref_id]
     end
   end
 
@@ -20,7 +20,7 @@ class CourtsController < ApplicationController
   end
   
   def create
-    @court = Facility.new(image: "default_court.jpg",
+    @court = Facility.new(image: params[:facility][:image],
                           name: params[:facility][:name],
                           pref_id: params[:facility][:pref_id],
                           address: params[:facility][:address],
@@ -29,13 +29,11 @@ class CourtsController < ApplicationController
                           open_hour: params[:facility][:open_hour],
                           fee: params[:facility][:fee],
                           parking: params[:facility][:parking])
-    if params[:facility][:image]
-      @court.image = "court#{@court.id}.jpg"
-      image = params[:facility][:image]
-      File.binwrite("public/court_images/#{@court.image}",image.read)
-    end
-    @court.save
-    redirect_to action: 'index'
+      if @court.save
+        redirect_to action: 'index'
+      else
+        render action: 'new'
+      end
   end
   
   def edit
@@ -53,15 +51,11 @@ class CourtsController < ApplicationController
     @court.open_hour = params[:facility][:open_hour]
     @court.fee = params[:facility][:fee]
     @court.parking = params[:facility][:parking]
-    if params[:facility][:image]
-    @court.image = "court#{@court.id}.jpg"
-    image = params[:facility][:image]
-    File.binwrite("public/court_images/#{@court.image}",image.read)
-    end
+    @court.image = params[:facility][:image]
     if @court.save
     redirect_to action: 'index'
     else
-    render("facilities/edit")
+    render action: 'edit'
     end
   end
   

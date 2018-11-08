@@ -4,7 +4,7 @@
       <% @posts[0..3].each do |post| %>
       <%= link_to post_path(post) do %>
       <li class="post-item clearfix">
-        <%= image_tag "/post_images/#{post.image}" %>
+        <%= image_tag post.image.url if post.image? %>
         <p><%= post.title %></p>
       </li>
       <% end %>

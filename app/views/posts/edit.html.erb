@@ -6,7 +6,7 @@
     <div class="post-edit">
       <%= form_for @post do |f| %>
       <%= f.label :image,"記事写真" %><br>
-      <%= f.file_field :image %><br>
+      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %><br>
       <%= f.label :title,"タイトル" %><br>
       <%= f.text_field :title, value: @post.title %><br>
       <%= f.label :content,"内容" %><br>

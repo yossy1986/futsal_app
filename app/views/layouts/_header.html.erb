@@ -115,7 +115,7 @@
           <li>
             <div>
               <% if @current_team.logo != "default-logo-image.jpg" %>
-              <%= image_tag "/logo_images/#{@current_team.logo}" %>
+              <%= image_tag @current_team.logo.url if @current_team.logo? %>
               <% end %>
             </div>
             <div>
@@ -145,7 +145,7 @@
             <%= link_to posts_path do %>
             <i class="far fa-comment-dots fa-2x" style="color: #5BC44E"></i>
             <% end %>
-            <%= link_to "メッセージ",posts_path %>
+            <%= link_to "メッセージ",rooms_path %>
           </li>
           <li>
             <%= link_to courts_path do %>

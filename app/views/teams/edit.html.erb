@@ -14,9 +14,9 @@
     <%= f.label :name,"チーム名(30文字以内)" %><br>
     <%= f.text_field :name, :required => true %><br>
     <%= f.label :image,"チーム写真" %><br>
-    <%= f.file_field :image %><br>
+    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %><br>
     <%= f.label :logo,"ロゴ" %><br>
-    <%= f.file_field :logo %><br>
+    <%= f.file_field :logo, accept: 'image/jpeg,image/gif,image/png' %><br>
     <%= f.label :pref_id,"主な活動地域" %><br>
     <%= f.collection_select :pref_id, Pref.all, :id, :name %><br>
     <%= f.label:facility_id,"主な活動施設" %><br>

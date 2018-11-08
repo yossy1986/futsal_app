@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-      before_action :authenticate_team,{only:[:new,:create,:edit,:update,:destroy]}
 
   
   PER = 5
@@ -20,16 +19,14 @@ class PostsController < ApplicationController
   
   def create
     @popular = Post.where(id: [1,3,5,6])
-    @post = Post.new(image: "default_post_image",
+    @post = Post.new(image: params[:post][:image],
                       title: params[:post][:title],
                       content: params[:post][:content])
-    if params[:post][:image]
-      @post.image = "post#{@post.id}.jpg"
-      image = params[:post][:image]
-      File.binwrite("public/post_images/#{@post.image}",image.read)
+    if @post.save
+      redirect_to action: 'index'
+    else
+      render action: 'new'
     end
-    @post.save
-    redirect_to action: 'index'
   end
   
   def edit
@@ -42,15 +39,11 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.title = params[:post][:title]
     @post.content = params[:post][:content]
-    if params[:post][:image]
-    @post.image = "post#{@post.id}.jpg"
-    image = params[:post][:image]
-    File.binwrite("public/post_images/#{@post.image}",image.read)
-    end
+    @post.image = params[:post][:image]
     if @post.save
     redirect_to action: 'index'
     else
-    render("posts/edit")
+    render action: 'edit'
     end
   end
   

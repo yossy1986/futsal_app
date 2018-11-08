@@ -18,7 +18,7 @@
       <%= link_to court_path(court) do %>
       <div class="court-list">
         <div class="court-list-left">
-          <%= image_tag "/court_images/#{court.image}",class:"img" %>
+          <%= image_tag court.image.url,class:"img" if court.image? %>
         </div>
         <div class="court-list-right">
           <h3><%= court.name %></h3>

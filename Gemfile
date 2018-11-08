@@ -10,6 +10,7 @@ gem 'rails', '~> 5.2.1'
 gem 'sqlite3', group: :development
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
+gem 'fog', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -24,8 +25,9 @@ gem 'kaminari-bootstrap'
 gem 'chart-js-rails'
 gem 'gon'
 gem 'rails-i18n'
-gem 'mini_magick'
 gem 'validates_timeliness'
+gem 'carrierwave'
+gem 'mini_magick'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

@@ -5,7 +5,7 @@
     <h2>フットサルコート登録</h2>
     <%= form_for @court, url: courts_path  do |f| %>
     <%= f.label :image,"コート写真" %><br>
-    <%= f.file_field :image %><br>
+    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %><br>
     <%= f.label :name,"施設名" %><br>
     <%= f.text_field :name %><br>
     <%= f.label :pref_id,"地域" %><br>
