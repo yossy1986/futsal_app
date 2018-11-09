@@ -97,7 +97,7 @@
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <%= image_tag applymatch.team_info.image.url,class:"img" %>
+            <%= image_tag applymatch.team_info.image.url,class:"img" if applymatch.team_info.image?%>
           </div>
           <div class="team-list-right">
             <p><i class="fas fa-map-marker-alt"></i>　<%= applymatch.team_info.pref.name %></p>
