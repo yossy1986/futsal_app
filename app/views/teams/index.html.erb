@@ -23,7 +23,11 @@
         <h3><%= teaminfo.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <%= image_tag teaminfo.image.url,class:"img" if teaminfo.image? %>
+            <% if teaminfo.image? %>
+              <%= image_tag teaminfo.image.url,class:"img"%>
+            <% else %>
+              <%= image_tag "/default_team.jpg",class:"img"%>
+            <% end %>
           </div>
           <div class="team-list-right">
             <table>

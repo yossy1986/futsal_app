@@ -19,7 +19,7 @@
       <div class="edit-delete">
         <%= form_tag("/apply_matchs/#{@matchreq.id}/create", :method => :post) do %>
         <% if @applymatch_check %>
-        <p class="btn btn-danger btn-sm">応募済み</p>
+        <p style="color:red;">応募済み</p>
         <% elsif @time >= @exdate %>
         <p style="color:red;">応募を締め切りました</p>
         <% elsif @matchreq.team_info.id != session[:team_id] %>
@@ -44,7 +44,11 @@
         <h3><%= @matchreq.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <%= image_tag @matchreq.team_info.image.url,class:"img" %>
+            <% if @matchreq.team_info.image? %>
+              <%= image_tag @matchreq.team_info.image.url,class:"img" %>
+            <% else %>
+              <%= image_tag "/default_team.jpg",class:"img"%>
+            <% end %>
           </div>
           <div class="team-list-right">
             <p><i class="fas fa-map-marker-alt"></i>　<%= @matchreq.team_info.pref.name %></p>
@@ -63,7 +67,11 @@
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <%= image_tag applymatch.team_info.image.url,class:"img" %>
+            <% if applymatch.team_info.image? %>
+              <%= image_tag applymatch.team_info.image.url,class:"img" %>
+            <% else %>
+              <%= image_tag "/default_team.jpg",class:"img"%>
+            <% end %>
           </div>
           <div class="team-list-right">
             <p><i class="fas fa-map-marker-alt"></i>　<%= applymatch.team_info.pref.name %></p>
@@ -97,7 +105,11 @@
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <%= image_tag applymatch.team_info.image.url,class:"img" if applymatch.team_info.image?%>
+            <% if applymatch.team_info.image? %>
+              <%= image_tag applymatch.team_info.image.url,class:"img"%>
+            <% else %>
+              <%= image_tag "/default_team.jpg",class:"img"%>
+            <% end %>
           </div>
           <div class="team-list-right">
             <p><i class="fas fa-map-marker-alt"></i>　<%= applymatch.team_info.pref.name %></p>
@@ -130,7 +142,11 @@
         <h3><%= @matchreq.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <%= image_tag @matchreq.team_info.image.url,class:"img"%>
+            <% if @matchreq.team_info.image? %>
+              <%= image_tag @matchreq.team_info.image.url,class:"img"%>
+            <% else %>
+              <%= image_tag "/default_team.jpg",class:"img"%>
+            <% end %>
           </div>
           <div class="team-list-right">
             <p><i class="fas fa-map-marker-alt"></i>　<%= @matchreq.team_info.pref.name %></p>
@@ -148,7 +164,11 @@
         <h3><%= applymatch.team_info.name %></h3>
         <div class="team-list-item">
           <div class="team-list-left">
-            <%= image_tag applymatch.team_info.image.url,class:"img" %>
+            <% if applymatch.team_info.image? %>
+              <%= image_tag applymatch.team_info.image.url,class:"img" %>
+            <% else %>
+              <%= image_tag "/default_team.jpg",class:"img"%>
+            <% end %>
           </div>
           <div class="team-list-right">
             <p><i class="fas fa-map-marker-alt"></i>　<%= applymatch.team_info.pref.name %></p>

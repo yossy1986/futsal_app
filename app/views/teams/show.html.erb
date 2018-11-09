@@ -7,10 +7,18 @@
       <h3><%= @teaminfo.name %></h3>
       <div class ="team-show">
         <div class="team-list-left">
-          <%= image_tag @teaminfo.image.url,class:"img" if @teaminfo.image? %>
+          <% if @teaminfo.image? %>
+            <%= image_tag @teaminfo.image.url,class:"img" %>
+          <% else%>
+            <%= image_tag "/default_team.jpg",class:"img"%>
+            <% end %>
         </div>
         <div class="team-list-right" style="text-align:center">
-          <%= image_tag @teaminfo.logo.url,class:"img" if @teaminfo.logo? %>
+          <% if @teaminfo.logo? %>
+            <%= image_tag @teaminfo.logo.url,class:"img"%>
+          <% else %>
+            <%= image_tag "/default_logo.jpg",class:"img"%>
+          <% end %>
         </div>
       </div>
       

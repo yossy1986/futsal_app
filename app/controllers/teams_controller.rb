@@ -54,7 +54,6 @@ class TeamsController < ApplicationController
                               tactics: params[:team_info][:tactics],
                               technique: params[:team_info][:technique]
                               )
-
     if @teaminfo.save
       log_in @teaminfo
       flash[:success] = "登録を受け付けました(#{@teaminfo.name})"
